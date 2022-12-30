@@ -26,15 +26,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        }
     }
 }
-
-
-extension NSWindow {
-    @objc
-    func doMyClose(_ sender: Any?) {
-        // ... run your code here
-
-        self.close()  // << make standard window close
-
-        // ... or here
-    }
-}
