@@ -8,18 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9B7295EDDAB00995018 /* KalaApp.swift */; };
-		A282A9BA295EDDAB00995018 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9B9295EDDAB00995018 /* ContentView.swift */; };
 		A282A9BC295EDDAC00995018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BB295EDDAC00995018 /* Assets.xcassets */; };
 		A282A9BF295EDDAC00995018 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */; };
+		A282A9CB295EE2EF00995018 /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C6295EE2EF00995018 /* StopWatchManager.swift */; };
+		A282A9CC295EE2EF00995018 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C7295EE2EF00995018 /* Color.swift */; };
+		A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C8295EE2EF00995018 /* wndAccessor.swift */; };
+		A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C9295EE2EF00995018 /* AppDelegate.swift */; };
+		A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9CA295EE2EF00995018 /* KalaMainView.swift */; };
+		A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A282A9B4295EDDAB00995018 /* Kala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A282A9B7295EDDAB00995018 /* KalaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalaApp.swift; sourceTree = "<group>"; };
-		A282A9B9295EDDAB00995018 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A282A9BB295EDDAC00995018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A282A9C0295EDDAC00995018 /* Kala.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kala.entitlements; sourceTree = "<group>"; };
+		A282A9C6295EE2EF00995018 /* StopWatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
+		A282A9C7295EE2EF00995018 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A282A9C8295EE2EF00995018 /* wndAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wndAccessor.swift; sourceTree = "<group>"; };
+		A282A9C9295EE2EF00995018 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A282A9CA295EE2EF00995018 /* KalaMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalaMainView.swift; sourceTree = "<group>"; };
+		A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGaussianBlur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +62,10 @@
 		A282A9B6295EDDAB00995018 /* Kala */ = {
 			isa = PBXGroup;
 			children = (
+				A282A9D0295EE2FA00995018 /* Backend */,
+				A282A9C9295EE2EF00995018 /* AppDelegate.swift */,
 				A282A9B7295EDDAB00995018 /* KalaApp.swift */,
-				A282A9B9295EDDAB00995018 /* ContentView.swift */,
+				A282A9D1295EE33C00995018 /* Scenes */,
 				A282A9BB295EDDAC00995018 /* Assets.xcassets */,
 				A282A9C0295EDDAC00995018 /* Kala.entitlements */,
 				A282A9BD295EDDAC00995018 /* Preview Content */,
@@ -67,6 +79,57 @@
 				A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A282A9D0295EE2FA00995018 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				A282A9D5295EE3BA00995018 /* MoreSwiftUI */,
+				A282A9C6295EE2EF00995018 /* StopWatchManager.swift */,
+				A282A9C7295EE2EF00995018 /* Color.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		A282A9D1295EE33C00995018 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A282A9D2295EE34A00995018 /* MainView */,
+				A282A9D4295EE36000995018 /* Properties */,
+				A282A9D3295EE35800995018 /* About */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A282A9D2295EE34A00995018 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				A282A9CA295EE2EF00995018 /* KalaMainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		A282A9D3295EE35800995018 /* About */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		A282A9D4295EE36000995018 /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Properties;
+			sourceTree = "<group>";
+		};
+		A282A9D5295EE3BA00995018 /* MoreSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */,
+				A282A9C8295EE2EF00995018 /* wndAccessor.swift */,
+			);
+			path = MoreSwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +202,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A282A9BA295EDDAB00995018 /* ContentView.swift in Sources */,
+				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
+				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
+				A282A9CC295EE2EF00995018 /* Color.swift in Sources */,
+				A282A9CB295EE2EF00995018 /* StopWatchManager.swift in Sources */,
+				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
+				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
 				A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
