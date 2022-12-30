@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Kala
-//
-//  Created by Andrew Kuzmich on 30.12.2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
