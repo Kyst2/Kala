@@ -1,10 +1,3 @@
-//
-//  KalaTests.swift
-//  KalaTests
-//
-//  Created by Andrew Kuzmich on 06.01.2023.
-//
-
 import XCTest
 
 class StopwatchTests: XCTestCase {
