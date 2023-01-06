@@ -3,15 +3,18 @@ import SwiftUI
 struct KalaMainView: View {
     
     @ObservedObject var stopWatchManager = StopWatchManager()
+    var stopWatch = Stopwatch()
     
     var body: some View {
         VStack{
-            Text(String(format: "%.1f", stopWatchManager.secondsElapsed))
-                .font(.custom("Avenir", size: 40))
-                .padding(.top,150)
-                .padding(.bottom,100)
-                .padding(.trailing,200)
-                .padding(.leading,200)
+            HStack{
+//                Text("\():")
+//                    .font(.custom("Avenir", size: 60))
+                Text(String(format: "%.0f", stopWatchManager.secondsElapsed))
+                    .font(.custom("Avenir", size: 60))
+                    
+            }.frame(width: 300, height: 300, alignment: .center)
+            
             
             if stopWatchManager.mode == .stopped {
                 Button {self.stopWatchManager.start()} label: {
@@ -24,24 +27,20 @@ struct KalaMainView: View {
                 Button {self.stopWatchManager.pause()} label: {
                     TimerButton(label: "Pause", buttonColor: .orange, textColor: .black)
                 }.buttonStyle(.plain)
-                    .NeumorphicStyle()
             }
             
             if stopWatchManager.mode == .paused {
                 Button {self.stopWatchManager.start()} label: {
                     TimerButton(label: "Start", buttonColor: .orange, textColor: .black)
                 }.buttonStyle(.plain)
-                    .NeumorphicStyle()
                 Button {self.stopWatchManager.stop()} label: {
                     TimerButton(label: "Stop", buttonColor: .red, textColor: .white)
                 }.buttonStyle(.plain)
-                    .NeumorphicStyle()
                     .padding(.top, 10)
             }
-            
             Spacer()
         }
-        .backgroundGaussianBlur(type: .behindWindow, material: .m1_hudWindow)
+        .backgroundGaussianBlur(type: .behindWindow, material: .m6_tooltip)
         .ignoresSafeArea(.all)
         .wndAccessor { window in
             
@@ -87,18 +86,19 @@ extension NSWindow {
         
         alert.messageText = "Предупреждение"
         alert.informativeText = "Вы уверены, что хотите закрыть приложение?"
-        alert.addButton(withTitle: "Yes")
-        alert.addButton(withTitle: "Cancel")
-        
+        alert.addButton(withTitle: "Закрыть с сохранением")
+        alert.addButton(withTitle: "Нет")
+        alert.addButton(withTitle: "Не сохранять ")
         switch alert.runModal() {
-        case .alertFirstButtonReturn:
+            case .alertFirstButtonReturn:
             NSApplication.shared.terminate(self)
-            break;
+//                break;
+        case .alertThirdButtonReturn:
+            NSApplication.shared.terminate(StopWatchManager().stop())
             
-        default:
-            alert.window.close()
-            break;
+            default:
+                alert.window.close()
+                break;
         }
-        
     }
 }

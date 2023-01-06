@@ -16,7 +16,22 @@
 		A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C9295EE2EF00995018 /* AppDelegate.swift */; };
 		A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9CA295EE2EF00995018 /* KalaMainView.swift */; };
 		A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */; };
+		A282A9D92965A81600995018 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9D82965A81600995018 /* UserDefault.swift */; };
+		A282A9DB2967188E00995018 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9DA2967188E00995018 /* StopWatch.swift */; };
+		A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9FD296879C200995018 /* StopwatchTests.swift */; };
+		A282AA04296879E500995018 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9DA2967188E00995018 /* StopWatch.swift */; };
+		A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282AA0529687DBF00995018 /* StopwatchUKS.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A282A9FF296879C200995018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A282A9AC295EDDAB00995018 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A282A9B3295EDDAB00995018;
+			remoteInfo = Kala;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A282A9B4295EDDAB00995018 /* Kala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kala.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +45,22 @@
 		A282A9C9295EE2EF00995018 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A282A9CA295EE2EF00995018 /* KalaMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalaMainView.swift; sourceTree = "<group>"; };
 		A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGaussianBlur.swift; sourceTree = "<group>"; };
+		A282A9D82965A81600995018 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		A282A9DA2967188E00995018 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopWatch.swift; path = /Users/andrewkuzmich/TaoGit/Kala/Kala/Kala/Backend/MoreSwiftUI/StopWatch.swift; sourceTree = "<absolute>"; };
+		A282A9FB296879C200995018 /* KalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A282A9FD296879C200995018 /* StopwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTests.swift; sourceTree = "<group>"; };
+		A282AA0529687DBF00995018 /* StopwatchUKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchUKS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A282A9B1295EDDAB00995018 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A282A9F8296879C200995018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				A282A9B6295EDDAB00995018 /* Kala */,
+				A282A9FC296879C200995018 /* KalaTests */,
 				A282A9B5295EDDAB00995018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				A282A9B4295EDDAB00995018 /* Kala.app */,
+				A282A9FB296879C200995018 /* KalaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,7 +115,9 @@
 			children = (
 				A282A9D5295EE3BA00995018 /* MoreSwiftUI */,
 				A282A9C6295EE2EF00995018 /* StopWatchManager.swift */,
+				A282A9DA2967188E00995018 /* StopWatch.swift */,
 				A282A9C7295EE2EF00995018 /* Color.swift */,
+				A282AA0529687DBF00995018 /* StopwatchUKS.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -128,8 +159,17 @@
 			children = (
 				A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */,
 				A282A9C8295EE2EF00995018 /* wndAccessor.swift */,
+				A282A9D82965A81600995018 /* UserDefault.swift */,
 			);
 			path = MoreSwiftUI;
+			sourceTree = "<group>";
+		};
+		A282A9FC296879C200995018 /* KalaTests */ = {
+			isa = PBXGroup;
+			children = (
+				A282A9FD296879C200995018 /* StopwatchTests.swift */,
+			);
+			path = KalaTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +192,24 @@
 			productReference = A282A9B4295EDDAB00995018 /* Kala.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A282A9FA296879C200995018 /* KalaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A282AA03296879C200995018 /* Build configuration list for PBXNativeTarget "KalaTests" */;
+			buildPhases = (
+				A282A9F7296879C200995018 /* Sources */,
+				A282A9F8296879C200995018 /* Frameworks */,
+				A282A9F9296879C200995018 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A282AA00296879C200995018 /* PBXTargetDependency */,
+			);
+			name = KalaTests;
+			productName = KalaTests;
+			productReference = A282A9FB296879C200995018 /* KalaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -164,6 +222,10 @@
 				TargetAttributes = {
 					A282A9B3295EDDAB00995018 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					A282A9FA296879C200995018 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = A282A9B3295EDDAB00995018;
 					};
 				};
 			};
@@ -181,6 +243,7 @@
 			projectRoot = "";
 			targets = (
 				A282A9B3295EDDAB00995018 /* Kala */,
+				A282A9FA296879C200995018 /* KalaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +258,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A282A9F9296879C200995018 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -202,17 +272,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A282A9D92965A81600995018 /* UserDefault.swift in Sources */,
+				A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */,
 				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
 				A282A9CC295EE2EF00995018 /* Color.swift in Sources */,
 				A282A9CB295EE2EF00995018 /* StopWatchManager.swift in Sources */,
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
+				A282A9DB2967188E00995018 /* StopWatch.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
 				A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A282A9F7296879C200995018 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */,
+				A282AA04296879E500995018 /* StopWatch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A282AA00296879C200995018 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A282A9B3295EDDAB00995018 /* Kala */;
+			targetProxy = A282A9FF296879C200995018 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A282A9C1295EDDAC00995018 /* Debug */ = {
@@ -382,6 +472,40 @@
 			};
 			name = Release;
 		};
+		A282AA01296879C200995018 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QZKQ74LNRY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogaAndKopytaBugaiv.KalaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kala.app/Contents/MacOS/Kala";
+			};
+			name = Debug;
+		};
+		A282AA02296879C200995018 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QZKQ74LNRY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogaAndKopytaBugaiv.KalaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kala.app/Contents/MacOS/Kala";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -399,6 +523,15 @@
 			buildConfigurations = (
 				A282A9C4295EDDAC00995018 /* Debug */,
 				A282A9C5295EDDAC00995018 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A282AA03296879C200995018 /* Build configuration list for PBXNativeTarget "KalaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A282AA01296879C200995018 /* Debug */,
+				A282AA02296879C200995018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
