@@ -3,19 +3,19 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
-    @Published var timePassedStr = "00:00.000"
+    @Published var timePassedStr = "0:0:0.000"
     
     private(set) var timer: Timer!
     private let st = Stopwatch()
     @Published var isGoing: Bool = false
     
     init() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
-            self.timePassedStr = self.st.timeStr
-        } )
     }
     
     func start() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
+            self.timePassedStr = self.st.timeStr
+        } )
         isGoing = true
         st.start()
     }
@@ -23,14 +23,15 @@ class MainViewModel: ObservableObject {
     func pause() {
         isGoing = false
         st.pause()
+        timer.invalidate()
     }
     
     func reset() {
         isGoing = false
         st.reset()
+        timer.invalidate()
+        timePassedStr = "0:0:0.000"
     }
-    
-    
 }
 
 
