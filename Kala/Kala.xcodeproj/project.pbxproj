@@ -23,6 +23,8 @@
 		A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282AA0529687DBF00995018 /* StopwatchUKS.swift */; };
 		A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */; };
 		A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */; };
+		A297F5ED296D83E700CE6153 /* PropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EC296D83E700CE6153 /* PropertiesView.swift */; };
+		A297F5EF296D83F300CE6153 /* PropertiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		A282AA0529687DBF00995018 /* StopwatchUKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchUKS.swift; sourceTree = "<group>"; };
 		A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphBtn.swift; sourceTree = "<group>"; };
+		A297F5EC296D83E700CE6153 /* PropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesView.swift; sourceTree = "<group>"; };
+		A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 		A282A9D4295EE36000995018 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
+				A297F5EC296D83E700CE6153 /* PropertiesView.swift */,
+				A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -286,6 +292,8 @@
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
 				A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */,
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
+				A297F5ED296D83E700CE6153 /* PropertiesView.swift in Sources */,
+				A297F5EF296D83F300CE6153 /* PropertiesViewModel.swift in Sources */,
 				A282A9DB2967188E00995018 /* Stopwatch.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
 				A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */,

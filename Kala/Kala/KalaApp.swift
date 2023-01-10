@@ -8,5 +8,9 @@ struct KalaApp: App {
         WindowGroup {
             KalaMainView()
         }
+        
+        Settings {
+            PropertiesView()
+        }
     }
 }
