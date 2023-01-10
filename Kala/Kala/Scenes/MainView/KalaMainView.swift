@@ -6,15 +6,14 @@ struct KalaMainView: View {
     
     var body: some View {
         StopwatchInterfaceView(model: model)
-            .frame(width: 350, height: 350)
-            .background(Color.offWhite)
-            .ignoresSafeArea()
+            //.ignoresSafeArea()
             .wndAccessor { window in
                 let closeButton = window?.standardWindowButton(.closeButton)
                 
                 closeButton?.action = #selector(NSWindow.doMyClose(_:))
             }
-            
+            .frame(minWidth: 400, minHeight: 350)
+            .preferredColorScheme(.light)
     }
 }
 
@@ -22,44 +21,21 @@ struct StopwatchInterfaceView: View {
     @ObservedObject var model = MainViewModel()
     
     var body: some View {
-        VStack{
-            HStack{
-                Text(model.timePassedStr)
-                    .foregroundColor(.gray)
-                    .font(.system(size: 24,design: .monospaced))
-                    .NeumorphicStyle()
-                    .padding()
-                    .padding(.leading,15)
-                Spacer()
-            }
+        VStack(spacing: 20){
+            Text(model.timePassedStr)
+                .foregroundColor(.gray)
+                .font(.system(size: 40,design: .monospaced))
             
-            HStack {
+            HStack(spacing: 40) {
                 if model.isGoing {
-                    Button ("Pause") {
-                        model.pause()
-                    }.font(.system(size: 20,design: .monospaced))
-                    .foregroundColor(.gray)
-                        .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
-                        .padding(.trailing,50)
-                    //
+                    NeuromorphBtn("Pause") { model.pause()}
                 } else {
-                    Button("Start") {
-                        model.start()
-                    }.font(.system(size: 20,design: .monospaced))
-                    .foregroundColor(.gray)
-                        .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
-                        .padding(.trailing,50)
-                    
+                    NeuromorphBtn("Start") { model.start()}
                 }
                 if model.timePassedStr != "00:00:00.000" {
-                    Button("Reset") {
-                        model.reset()
-                    }.font(.system(size: 20,design: .monospaced))
-                    .foregroundColor(.gray)
-                        .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+                    NeuromorphBtn("Reset") { model.reset() }
                 }
             }.padding()
-                .padding(.top)
         }
     }
 }
@@ -68,6 +44,9 @@ struct StopwatchInterfaceView: View {
 ////////////////////////////
 ///HELPERS
 ///////////////////////////
+
+
+
 
 extension NSWindow {
     @objc
@@ -96,10 +75,10 @@ extension NSWindow {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            KalaMainView()
-        }
+            KalaMainView().preferredColorScheme(.dark)
             
+            
+            KalaMainView().preferredColorScheme(.light)
+        }
     }
 }
-
-
