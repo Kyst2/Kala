@@ -7,13 +7,14 @@ struct KalaMainView: View {
     var body: some View {
         StopwatchInterfaceView(model: model)
             //.ignoresSafeArea()
+            
+            .frame(minWidth: 400, minHeight: 350)
+            .preferredColorScheme(.light)
             .wndAccessor { window in
                 let closeButton = window?.standardWindowButton(.closeButton)
                 
                 closeButton?.action = #selector(NSWindow.doMyClose(_:))
             }
-            .frame(minWidth: 400, minHeight: 350)
-            .preferredColorScheme(.light)
     }
 }
 
@@ -28,12 +29,27 @@ struct StopwatchInterfaceView: View {
             
             HStack(spacing: 40) {
                 if model.isGoing {
-                    NeuromorphBtn("Pause") { model.pause()}
+                    NeuromorphBtn("Pause",
+                                  shortcutKey: KeyboardShortcut(" "),
+                                  help: "Press SPACE key to pause")
+                    {
+                        model.pause()
+                    }
                 } else {
-                    NeuromorphBtn("Start") { model.start()}
+                    NeuromorphBtn("Start",
+                                  shortcutKey: KeyboardShortcut(" "),
+                                  help: "Press SPACE key to Start")
+                    {
+                        model.pause()
+                    }
                 }
                 if model.timePassedStr != "00:00:00.000" {
-                    NeuromorphBtn("Reset") { model.reset() }
+                    NeuromorphBtn("Reset",
+                                  shortcutKey: KeyboardShortcut("R"),
+                                  help: "Press R key to reset")
+                    {
+                        model.pause()
+                    }
                 }
             }.padding()
         }

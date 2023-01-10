@@ -15,7 +15,9 @@ class MainViewModel: ObservableObject {
     func start() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
             self.timePassedStr = self.st.timeStr
+            print("hello")
         } )
+        
         isGoing = true
         st.start()
     }
@@ -23,7 +25,7 @@ class MainViewModel: ObservableObject {
     func pause() {
         isGoing = false
         st.pause()
-        timer.invalidate()
+//        timer?.invalidate()
     }
     
     func reset() {
@@ -32,7 +34,7 @@ class MainViewModel: ObservableObject {
         if timer == nil {
             
         }else {
-            timer.invalidate()
+            //timer.invalidate()
         }
         
         timePassedStr = "0:0:0.000"

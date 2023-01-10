@@ -7,13 +7,18 @@ struct NeuromorphBtn: View {
     
     @Environment(\.colorScheme) var theme
     
-    init (_ text: LocalizedStringKey, action: @escaping () -> ()) {
+    let shortcutKey: KeyboardShortcut
+    let help: LocalizedStringKey
+    
+    init (_ text: LocalizedStringKey, shortcutKey: KeyboardShortcut, help: LocalizedStringKey, action: @escaping () -> ()) {
         self.text = text
         self.action = action
+        self.shortcutKey = shortcutKey
+        self.help = help
     }
     
     var body: some View {
-        Button(action: { action()} ) {
+        Button(action: { action() } ) {
             Text(text)
                 .padding(.horizontal, 30)
                 .font(.system(size: 20,design: .monospaced))
@@ -21,5 +26,7 @@ struct NeuromorphBtn: View {
                 .fixedSize()
         }
         .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+        .keyboardShortcut(shortcutKey)
+        .help(help)
     }
 }
