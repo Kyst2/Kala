@@ -21,6 +21,7 @@
 		A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9FD296879C200995018 /* StopwatchTests.swift */; };
 		A282AA04296879E500995018 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9DA2967188E00995018 /* Stopwatch.swift */; };
 		A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282AA0529687DBF00995018 /* StopwatchUKS.swift */; };
+		A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		A282A9FB296879C200995018 /* KalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A282A9FD296879C200995018 /* StopwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTests.swift; sourceTree = "<group>"; };
 		A282AA0529687DBF00995018 /* StopwatchUKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchUKS.swift; sourceTree = "<group>"; };
+		A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				A282A9D5295EE3BA00995018 /* MoreSwiftUI */,
 				A282A9DA2967188E00995018 /* Stopwatch.swift */,
 				A282A9C7295EE2EF00995018 /* Color.swift */,
+				A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */,
 				A282AA0529687DBF00995018 /* StopwatchUKS.swift */,
 			);
 			path = Backend;
@@ -281,6 +284,7 @@
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
 				A282A9DB2967188E00995018 /* Stopwatch.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
+				A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */,
 				A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

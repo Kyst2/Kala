@@ -3,7 +3,7 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
-    @Published var timePassedStr = "0:0:0.000"
+    @AppStorage("Save_Time") var timePassedStr = "0:0:0.000"
     
     private(set) var timer: Timer!
     private let st = Stopwatch()
@@ -29,7 +29,12 @@ class MainViewModel: ObservableObject {
     func reset() {
         isGoing = false
         st.reset()
-        timer.invalidate()
+        if timer == nil {
+            
+        }else {
+            timer.invalidate()
+        }
+        
         timePassedStr = "0:0:0.000"
     }
 }
@@ -42,7 +47,7 @@ fileprivate extension Stopwatch {
         let hrs: Int = Int(diff/(60.0*60))
         let mins: Int = Int(diff/(60.0))
         let sec: Int = Int(diff.truncatingRemainder(dividingBy: 60.0) )
-        let ms: Int = Int( (diff - Double(Int(diff)) ) * 1000.0)
+        let ms: Int = Int( (diff - Double(Int(diff)) ) * 10.0)
         
         if days >= 1 {
             return "\(days)d \(hrs):\(mins):\(sec).\(ms)"
