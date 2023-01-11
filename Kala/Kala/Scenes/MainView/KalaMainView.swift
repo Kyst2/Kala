@@ -6,6 +6,7 @@ struct KalaMainView: View {
     
     var body: some View {
         StopwatchInterfaceView(model: model)
+            
             //.ignoresSafeArea()
             .wndAccessor { window in
                 let closeButton = window?.standardWindowButton(.closeButton)
@@ -13,7 +14,8 @@ struct KalaMainView: View {
                 closeButton?.action = #selector(NSWindow.doMyClose(_:))
             }
             .frame(minWidth: 400, minHeight: 350)
-            .preferredColorScheme(.light)
+            .background(Color.offWhite)
+        //.preferredColorScheme(.light)
     }
 }
 

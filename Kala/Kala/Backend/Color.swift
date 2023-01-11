@@ -9,7 +9,7 @@ extension View {
     func NeumorphicStyle() -> some View {
         self.padding(30)
             .frame(maxWidth: .infinity)
-            .background(Color.offWhite)
+            //.background(Color.offWhite)
             .cornerRadius(20)
             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
             .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
@@ -54,7 +54,7 @@ struct Background<S: Shape>: View {
         ZStack {
             if isPressed {
                 shape
-                    .fill(Color.offWhite)
+                    //.fill(Color.offWhite)
                     .overlay(
                         shape
                             .stroke(Color.gray, lineWidth: 3)
@@ -72,7 +72,7 @@ struct Background<S: Shape>: View {
             }
                         else {
                 shape
-                    .fill(Color.offWhite)
+                    //.fill(Color.offWhite)
                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
                     .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
             }
