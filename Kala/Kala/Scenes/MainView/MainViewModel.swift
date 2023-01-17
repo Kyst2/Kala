@@ -3,7 +3,7 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
-    @AppStorage("Save_Time") var timePassedStr = "0:0:0.000"
+    @AppStorage("Save_Time") var timePassedStr = "0:0:0.0"
     
     private(set) var timer: Timer!
     private let st = Stopwatch()
@@ -35,7 +35,7 @@ class MainViewModel: ObservableObject {
             timer.invalidate()
         }
         
-        timePassedStr = "0:0:0.000"
+        timePassedStr = "0:0:0.0"
     }
 }
 
