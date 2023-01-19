@@ -17,7 +17,8 @@ struct DropDownMenuListRow: View {
         } label: {
             Text(option.option)
                 .frame(maxWidth: .infinity,alignment: .leading)
-        }.foregroundColor(.black)
+        }
+        .foregroundColor(.black)
             .padding(.vertical,5)
             .padding(.horizontal,5)
     }

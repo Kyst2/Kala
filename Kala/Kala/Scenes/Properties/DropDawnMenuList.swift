@@ -13,23 +13,24 @@ struct DropDawnMenuList: View {
     let oneSelectedAction: (_ optional: DropDownMenuOptions) -> Void
     var body: some View {
         ScrollView{
-            LazyVStack(alignment: .leading, spacing: 2){
+            VStack(alignment: .leading, spacing: 2){
                 ForEach(options) { options in
                     DropDownMenuListRow(option: options, oneSelectedAction: self.oneSelectedAction)
                 }
             }
         }
-        .frame(height: 200)
+        .frame(maxHeight: 150)
         .padding(.vertical,5)
-        .overlay{
-                RoundedRectangle(cornerRadius: 5)
-                .stroke(.gray , lineWidth: 2)
-        }
+//        .overlay{
+//                RoundedRectangle(cornerRadius: 5)
+//                .stroke(.gray , lineWidth: 2)
+//            
+//        }
     }
 }
 
 struct DropDawnMenuList_Previews: PreviewProvider {
     static var previews: some View {
-        DropDawnMenuList(options: DropDownMenuOptions.allSavesSettings, oneSelectedAction: {_ in })
+        DropDawnMenuList(options: DropDownMenuOptions.stopTimerSettings, oneSelectedAction: {_ in })
     }
 }

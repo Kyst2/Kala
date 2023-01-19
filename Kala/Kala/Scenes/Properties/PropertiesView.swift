@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct PropertiesView: View {
-    @State private var saveOption: DropDownMenuOptions? = nil
-    
+    @State private var saveStopOption: DropDownMenuOptions? = nil
+    @State private var savePlayOption: DropDownMenuOptions? = nil
     var body: some View {
-        VStack{
-            DropDownMenu(
-                selectedOption: self.$saveOption,
-                placeholder: "Выбири настройки сохранения ",
-                options: DropDownMenuOptions.allSavesSettings
-            )
+        ScrollView{
+            VStack{
+                DropDownMenu(
+                    selectedOption: self.$saveStopOption,
+                    placeholder: "Действие при закрытие если таймер на паузе",
+                    options: DropDownMenuOptions.stopTimerSettings
+                )
+                DropDownMenu(
+                    selectedOption: self.$savePlayOption,
+                    placeholder: "Действие при закрытие если таймер идет",
+                    options: DropDownMenuOptions.playTimerSettings
+                )
+            }
+            Spacer()
         }
-        Spacer()
     }
 }
 

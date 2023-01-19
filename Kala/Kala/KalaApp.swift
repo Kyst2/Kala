@@ -14,7 +14,8 @@ struct KalaApp: App {
         }
         Settings {
             PropertiesView()
-            .frame(width: 500, height: 500, alignment: .center)
+                .background(Color.offWhite)
+                .frame(width: 400, height: 400, alignment: .center)
         }
     }
 }
