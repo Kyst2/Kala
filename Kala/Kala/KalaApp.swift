@@ -13,9 +13,11 @@ struct KalaApp: App {
             }
         }
         Settings {
-            PropertiesView()
+            SettingVIew()
+                
+            
                 .background(Color.offWhite)
-                .frame(width: 400, height: 400, alignment: .center)
+                
         }
     }
 }

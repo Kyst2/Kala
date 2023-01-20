@@ -23,12 +23,9 @@
 		A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282AA0529687DBF00995018 /* StopwatchUKS.swift */; };
 		A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */; };
 		A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */; };
-		A297F5ED296D83E700CE6153 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EC296D83E700CE6153 /* DropDownMenu.swift */; };
-		A297F5EF296D83F300CE6153 /* PropertiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */; };
 		A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B5296F0A32002C1B45 /* AboutView.swift */; };
-		A2CB37B8297723E5002C1B45 /* DropDawnMenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B7297723E5002C1B45 /* DropDawnMenuList.swift */; };
-		A2CB37BA297724C2002C1B45 /* DropDownMenuListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B9297724C2002C1B45 /* DropDownMenuListRow.swift */; };
-		A2CB37BC29774AE1002C1B45 /* PropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BB29774AE1002C1B45 /* PropertiesView.swift */; };
+		A2CB37BE29795BDD002C1B45 /* SettingVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BD29795BDD002C1B45 /* SettingVIew.swift */; };
+		A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,12 +57,9 @@
 		A282AA0529687DBF00995018 /* StopwatchUKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchUKS.swift; sourceTree = "<group>"; };
 		A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphBtn.swift; sourceTree = "<group>"; };
-		A297F5EC296D83E700CE6153 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
-		A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesViewModel.swift; sourceTree = "<group>"; };
 		A2CB37B5296F0A32002C1B45 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = Kala/Scenes/Properties/AboutView.swift; sourceTree = SOURCE_ROOT; };
-		A2CB37B7297723E5002C1B45 /* DropDawnMenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDawnMenuList.swift; sourceTree = "<group>"; };
-		A2CB37B9297724C2002C1B45 /* DropDownMenuListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuListRow.swift; sourceTree = "<group>"; };
-		A2CB37BB29774AE1002C1B45 /* PropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesView.swift; sourceTree = "<group>"; };
+		A2CB37BD29795BDD002C1B45 /* SettingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVIew.swift; sourceTree = "<group>"; };
+		A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,11 +162,8 @@
 		A282A9D4295EE36000995018 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
-				A2CB37BB29774AE1002C1B45 /* PropertiesView.swift */,
-				A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */,
-				A297F5EC296D83E700CE6153 /* DropDownMenu.swift */,
-				A2CB37B7297723E5002C1B45 /* DropDawnMenuList.swift */,
-				A2CB37B9297724C2002C1B45 /* DropDownMenuListRow.swift */,
+				A2CB37BD29795BDD002C1B45 /* SettingVIew.swift */,
+				A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -297,19 +288,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A282A9D92965A81600995018 /* UserDefault.swift in Sources */,
-				A2CB37B8297723E5002C1B45 /* DropDawnMenuList.swift in Sources */,
 				A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */,
 				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
 				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,
+				A2CB37BE29795BDD002C1B45 /* SettingVIew.swift in Sources */,
 				A282A9CC295EE2EF00995018 /* Color.swift in Sources */,
-				A2CB37BA297724C2002C1B45 /* DropDownMenuListRow.swift in Sources */,
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
-				A2CB37BC29774AE1002C1B45 /* PropertiesView.swift in Sources */,
 				A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */,
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
-				A297F5ED296D83E700CE6153 /* DropDownMenu.swift in Sources */,
-				A297F5EF296D83F300CE6153 /* PropertiesViewModel.swift in Sources */,
+				A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */,
 				A282A9DB2967188E00995018 /* Stopwatch.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
 				A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */,
