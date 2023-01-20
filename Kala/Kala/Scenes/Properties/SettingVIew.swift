@@ -1,10 +1,3 @@
-//
-//  SettingVIew.swift
-//  Kala
-//
-//  Created by Andrew Kuzmich on 19.01.2023.
-//
-
 import SwiftUI
 
 struct SettingVIew: View {
@@ -12,46 +5,63 @@ struct SettingVIew: View {
     @AppStorage("Save_PlaySettings") var savePlaySettings: ActionTimerGoing = .AskAction
     
     var body: some View {
-        VStack(spacing:0){
-            Picker("Закрытие на паузе", selection: $saveStopSettings) {
-                pickerStopTimerSettings()
-            }
-            .font(.system(size: 15,design: .monospaced))
-                .foregroundColor(.black)
-                .pickerStyle(.menu)
-                .NeumorphicStyle()
-            Picker("Закрытие во время работы", selection: $savePlaySettings) {
-                pickerplayTimerSettings()
-            }
-            .font(.system(size: 15,design: .monospaced))
-                .foregroundColor(.black)
-                .pickerStyle(.menu)
-                .NeumorphicStyle()
-                
+        VStack(spacing:20) {
+            Text("Закрытие на паузе:")
+            
+            StopTimerConfigDropDown()
+            
+            Text("Закрытие во время работы:")
+            
+            PlayTimerConfogDropDown()
+            
             Spacer()
         }
-//        .frame(width: 500, height: 300)
-        .frame(maxWidth: 500, minHeight: 150, idealHeight: 300)
+        .applyTextStyle()
+        .frame(idealWidth: 300, maxWidth: 300, idealHeight: 300, maxHeight: 300)
     }
 }
 
+/////////////////////////////
+///Styles
+////////////////////////////
 
+fileprivate extension View {
+    func applyTextStyle() -> some View {
+        self
+            .font(.system(size: 15, design: .monospaced))
+            .foregroundColor(.black)
+            .pickerStyle(.menu)
+            .NeumorphicStyle()
+    }
+}
 
-extension SettingVIew {
-    @ViewBuilder
-    func pickerStopTimerSettings() -> some View {
-        ForEach(ActionTimerStopped.allCases, id: \.self) {
-            Text($0.asStr())
-                .foregroundColor(.black)
+/////////////////////////////
+///HELPERS
+////////////////////////////
+
+fileprivate extension SettingVIew {
+    func StopTimerConfigDropDown() -> some View {
+        Picker("", selection: $saveStopSettings) {
+            ForEach(ActionTimerStopped.allCases, id: \.self) {
+                Text($0.asStr())
+                    .foregroundColor(.black)
+            }
         }
     }
-    func pickerplayTimerSettings() -> some View {
-        ForEach(ActionTimerGoing.allCases, id: \.self) {
-            Text($0.asStr())
-                .foregroundColor(.black)
+    
+    func PlayTimerConfogDropDown() -> some View {
+        Picker("", selection: $savePlaySettings) {
+            ForEach(ActionTimerGoing.allCases, id: \.self) {
+                Text($0.asStr())
+                    .foregroundColor(.black)
+            }
         }
     }
 }
+
+/////////////////////////////
+///Previews
+////////////////////////////
 
 struct SettingVIew_Previews: PreviewProvider {
     static var previews: some View {
