@@ -9,7 +9,7 @@ public class Stopwatch {
     private var memoredTime: CFTimeInterval?
     
     var diff: CFTimeInterval {
-        guard let startTime = startTime else { return 0 }
+        guard let startTime = startTime else { return (memoredTime ?? 0) }
         
         let endTime = CACurrentMediaTime()
         return endTime - startTime  + (memoredTime ?? 0)
@@ -49,5 +49,11 @@ public extension Stopwatch {
         } else {
             self.memoredTime = diff
         }
+        
+        self.startTime = nil
+    }
+    
+    func setDiff(_ interval: CFTimeInterval) {
+        self.memoredTime = interval
     }
 }

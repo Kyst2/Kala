@@ -3,19 +3,25 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
-    @AppStorage("Save_Time") var timePassedStr = "0:0:0.0"
+    @Published var timePassedStr: String = "0:0:0.0"
+    @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
     
     private(set) var timer: Timer!
     private let st = Stopwatch()
     @Published var isGoing: Bool = false
     
     init() {
+        if timePassedInterval > 0 {
+            st.setDiff(timePassedInterval)
+        }
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
+            self.timePassedInterval = self.st.diff
+            self.timePassedStr = self.st.timeStr
+        } )
     }
     
     func start() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
-            self.timePassedStr = self.st.timeStr
-        } )
         isGoing = true
         st.start()
     }
@@ -23,17 +29,11 @@ class MainViewModel: ObservableObject {
     func pause() {
         isGoing = false
         st.pause()
-        timer.invalidate()
     }
     
     func reset() {
         isGoing = false
         st.reset()
-        if timer == nil {
-            
-        }else {
-            timer.invalidate()
-        }
         
         timePassedStr = "0:0:0.0"
     }

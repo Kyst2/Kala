@@ -59,12 +59,12 @@ struct StopwatchInterfaceView: View {
 extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
-        if KalaApp.mainVm.isGoing {
-            
-        } else {
-            
-        }
-        
+//        if KalaApp.mainVm.isGoing {
+//            
+//        } else {
+//            
+//        }
+//        
         
         let alert = NSAlert()
         
@@ -90,10 +90,10 @@ extension NSWindow {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            KalaMainView().preferredColorScheme(.dark)
+            KalaMainView(model: MainViewModel()).preferredColorScheme(.dark)
             
             
-            KalaMainView().preferredColorScheme(.light)
+            KalaMainView(model: MainViewModel()).preferredColorScheme(.light)
         }
     }
 }
