@@ -59,13 +59,28 @@ struct StopwatchInterfaceView: View {
 extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
-//        if KalaApp.mainVm.isGoing {
-//            
-//        } else {
-//            
-//        }
-//        
-        
+        if KalaApp.mainVm.isGoing {
+            switch Config.shared.saveIsGoingSettings {
+            case .AskAction:
+                askAlert1()
+                break;
+            case .TimeGoingOnKalaClose:
+                print("NOT IMPLEMENTED YET")
+                NSApplication.shared.terminate(self)
+                break;
+            case .SaveAndClose:
+                NSApplication.shared.terminate(self)
+                break;
+            case .NewSessionFromScratch:
+                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+                NSApplication.shared.terminate(self)
+            }
+        } else {
+            
+        }
+    }
+    
+    func askAlert1() {
         let alert = NSAlert()
         
         alert.messageText = "Предупреждение"
