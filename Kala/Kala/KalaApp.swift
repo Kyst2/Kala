@@ -2,22 +2,33 @@ import SwiftUI
 
 @main
 struct KalaApp: App {
+    static var mainVm = MainViewModel()
+    
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            KalaMainView()
-        }.commands {
-            CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                Button("About \(Bundle.main.appName)") { appDelegate.showAboutWnd() }
-            }
+            KalaMainView(model: KalaApp.mainVm)
         }
+        .replaceAbout { appDelegate.showAboutWnd() }
+        
         Settings {
             SettingVIew()
-                
-            
                 .background(Color.offWhite)
-                
         }
+    }
+}
+
+/////////////////////
+///HELPERS
+////////////////////
+
+extension Scene {
+    func replaceAbout(act: @escaping () -> () ) -> some Scene {
+        self.commands {
+                CommandGroup(replacing: CommandGroupPlacement.appInfo) {
+                    Button("About \(Bundle.main.appName)") { act() }
+                }
+            }
     }
 }

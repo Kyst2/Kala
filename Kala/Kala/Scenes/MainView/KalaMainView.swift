@@ -2,12 +2,14 @@ import SwiftUI
 import Foundation
 
 struct KalaMainView: View {
-    @ObservedObject var model = MainViewModel()
+    @ObservedObject var model: MainViewModel
+    
+    init(model: MainViewModel) {
+        self.model = model
+    }
     
     var body: some View {
         StopwatchInterfaceView(model: model)
-            
-            //.ignoresSafeArea()
             .wndAccessor { window in
                 let closeButton = window?.standardWindowButton(.closeButton)
                 
@@ -20,7 +22,11 @@ struct KalaMainView: View {
 }
 
 struct StopwatchInterfaceView: View {
-    @ObservedObject var model = MainViewModel()
+    @ObservedObject var model: MainViewModel
+    
+    init(model: MainViewModel) {
+        self.model = model
+    }
     
     var body: some View {
         VStack(spacing: 20){
@@ -53,6 +59,13 @@ struct StopwatchInterfaceView: View {
 extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
+        if KalaApp.mainVm.isGoing {
+            
+        } else {
+            
+        }
+        
+        
         let alert = NSAlert()
         
         alert.messageText = "Предупреждение"
