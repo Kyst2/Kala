@@ -5,10 +5,10 @@ import QuartzCore
 class MainViewModel: ObservableObject {
     @Published var timePassedStr: String = "0:0:0.0"
     @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
-    
+    @AppStorage("Save_Bool") var isGoing: Bool = false
     private(set) var timer: Timer!
-    private let st = Stopwatch()
-    @Published var isGoing: Bool = false
+     let st = Stopwatch()
+    
     
     init() {
         if timePassedInterval > 0 {

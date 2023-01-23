@@ -65,17 +65,29 @@ extension NSWindow {
                 askAlert1()
                 break;
             case .TimeGoingOnKalaClose:
-                print("NOT IMPLEMENTED YET")
+                KalaApp.mainVm.st.offline()
                 NSApplication.shared.terminate(self)
                 break;
             case .SaveAndClose:
+                KalaApp.mainVm.pause()
                 NSApplication.shared.terminate(self)
                 break;
             case .NewSessionFromScratch:
-                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             }
         } else {
+            switch Config.shared.saveStopSettings{
+            case .SaveAndClose :
+                KalaApp.mainVm.pause()
+                NSApplication.shared.terminate(self)
+                break;
+            case .NewSessionFromScratch:
+//                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+                NSApplication.shared.terminate(self)
+            case .AskAction:
+                askAlert1()
+                break;
+            }
             
         }
     }
@@ -94,7 +106,7 @@ extension NSWindow {
             NSApplication.shared.terminate(self)
 //                break;
         case .alertThirdButtonReturn:
-            NSApplication.shared.terminate(MainViewModel().reset())
+            NSApplication.shared.terminate(KalaApp.mainVm.reset())
             default:
                 alert.window.close()
                 break;

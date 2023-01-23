@@ -8,7 +8,21 @@ struct KalaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            KalaMainView(model: KalaApp.mainVm)
+            KalaMainView(model: KalaApp.mainVm).onAppear{
+                if Config.shared.saveIsGoingSettings == .TimeGoingOnKalaClose {
+                    if KalaApp.mainVm.isGoing == true {
+                    KalaApp.mainVm.start()
+                    }
+                }
+                if  Config.shared.saveIsGoingSettings == .NewSessionFromScratch {
+                    KalaApp.mainVm.reset()
+                }
+                if  Config.shared.saveStopSettings == .NewSessionFromScratch {
+                    if KalaApp.mainVm.isGoing == false {
+                    KalaApp.mainVm.reset()
+                    }
+                }
+            }
         }
         .replaceAbout { appDelegate.showAboutWnd() }
         
