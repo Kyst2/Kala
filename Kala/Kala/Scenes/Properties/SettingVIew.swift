@@ -1,8 +1,11 @@
 import SwiftUI
+import Foundation
 
 struct SettingVIew: View {
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var savePlaySettings: ActionTimerGoing = .AskAction
+    @AppStorage("Save_Ms") var writeMSinStopwatch:
+    MsYesOrNo = .Yes
     
     var body: some View {
         VStack(spacing:20) {
@@ -14,10 +17,22 @@ struct SettingVIew: View {
             
             PlayTimerConfogDropDown()
             
+            Text("Показывать милисекунды:")
+            
+            Picker("", selection: $writeMSinStopwatch, content: {
+                ForEach(MsYesOrNo.allCases,id: \.self){
+                    Text($0.asStr())
+                }
+            }).pickerStyle(.segmented)
+                .background(.gray)
+                .frame(width:200)
+                .cornerRadius(10)
+
             Spacer()
         }
         .applyTextStyle()
         .frame(idealWidth: 300, maxWidth: 300, idealHeight: 300, maxHeight: 300)
+        .background(Color.offWhite)
     }
 }
 

@@ -5,7 +5,7 @@ import QuartzCore
 public class Stopwatch {
     @AppStorage("Save_Time") var startTime:CFTimeInterval?
     
-    @AppStorage("Save_Bool") var isGoing: Bool = false
+    public var isGoing: Bool = false
     
     private var memoredTime: CFTimeInterval?
     var diff: CFTimeInterval {

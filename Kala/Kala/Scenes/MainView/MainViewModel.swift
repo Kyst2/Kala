@@ -3,9 +3,11 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
+    
     @Published var timePassedStr: String = "0:0:0.0"
     @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
     @AppStorage("Save_Bool") var isGoing: Bool = false
+
     private(set) var timer: Timer!
      let st = Stopwatch()
     
@@ -50,9 +52,17 @@ fileprivate extension Stopwatch {
         let ms: Int = Int( (diff - Double(Int(diff)) ) * 10.0)
         
         if days >= 1 {
-            return "\(days)d \(hrs):\(mins):\(sec).\(ms)"
+            if SettingVIew().writeMSinStopwatch == .No {
+                return "\(days)d \(hrs):\(mins):\(sec)"
+            }else {
+                return "\(days)d \(hrs):\(mins):\(sec):\(ms)"
+            }
         }
         
-        return "\(hrs):\(mins):\(sec).\(ms)"
+        if SettingVIew().writeMSinStopwatch == .No {
+            return "\(hrs):\(mins):\(sec)"
+        }else {
+            return "\(hrs):\(mins):\(sec):\(ms)"
+        }
     }
 }

@@ -43,6 +43,7 @@ struct StopwatchInterfaceView: View {
                 if model.timePassedStr != "00:00:00.000" {
                     NeuromorphBtn("Reset") { model.reset() }
                 }
+                
             }.padding()
         }
     }
@@ -73,6 +74,8 @@ extension NSWindow {
                 NSApplication.shared.terminate(self)
                 break;
             case .NewSessionFromScratch:
+                KalaApp.mainVm.pause()
+                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             }
         } else {
@@ -82,7 +85,8 @@ extension NSWindow {
                 NSApplication.shared.terminate(self)
                 break;
             case .NewSessionFromScratch:
-//                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+                KalaApp.mainVm.pause()
+                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             case .AskAction:
                 askAlert1()
@@ -100,16 +104,21 @@ extension NSWindow {
         alert.addButton(withTitle: "Закрыть с сохранением")
         alert.addButton(withTitle: "Нет")
         alert.addButton(withTitle: "Не сохранять ")
-        alert.addButton(withTitle: "Сохранить и продолжить оффлайн?")
+        if KalaApp.mainVm.isGoing == true {
+            alert.addButton(withTitle: "Сохранить и продолжить оффлайн?")
+        }
+        
         switch alert.runModal() {
-            case .alertFirstButtonReturn:
+        case .alertFirstButtonReturn:
+            KalaApp.mainVm.pause()
             NSApplication.shared.terminate(self)
-//                break;
         case .alertThirdButtonReturn:
-            NSApplication.shared.terminate(KalaApp.mainVm.reset())
-            default:
-                alert.window.close()
-                break;
+            KalaApp.mainVm.pause()
+            KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+            NSApplication.shared.terminate(self)
+        default:
+            alert.window.close()
+            break;
         }
     }
 }
@@ -117,10 +126,11 @@ extension NSWindow {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            KalaMainView(model: MainViewModel()).preferredColorScheme(.dark)
+            KalaMainView(model: MainViewModel())
+//                .preferredColorScheme(.dark)
             
             
-            KalaMainView(model: MainViewModel()).preferredColorScheme(.light)
+//            KalaMainView(model: MainViewModel()).preferredColorScheme(.light)
         }
     }
 }

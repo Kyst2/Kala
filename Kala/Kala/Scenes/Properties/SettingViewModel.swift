@@ -4,6 +4,21 @@ import SwiftUI
 struct SettingViewModel {
 }
 
+enum MsYesOrNo: Int , RawRepresentable , CaseIterable {
+    case Yes = 0
+    case No = 1
+}
+
+extension MsYesOrNo {
+    func asStr() -> LocalizedStringKey {
+        switch self {
+        case .Yes:
+            return "Да"
+        case .No:
+            return "Нет"
+        }
+    }
+}
 enum ActionTimerStopped: Int, RawRepresentable, CaseIterable {
     case SaveAndClose = 0
     case NewSessionFromScratch = 1
