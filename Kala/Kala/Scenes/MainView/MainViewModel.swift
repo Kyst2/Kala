@@ -4,6 +4,7 @@ import QuartzCore
 
 class MainViewModel: ObservableObject {
     
+    
     @Published var timePassedStr: String = "0:0:0.0"
     @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
     @AppStorage("Save_Bool") var isGoing: Bool = false
@@ -13,6 +14,7 @@ class MainViewModel: ObservableObject {
     
     
     init() {
+        
         if timePassedInterval > 0 {
             st.setDiff(timePassedInterval)
         }
@@ -20,6 +22,9 @@ class MainViewModel: ObservableObject {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
             self.timePassedInterval = self.st.diff
             self.timePassedStr = self.st.timeStr
+            
+//            SettingViewModel().floatWindow()
+            
         } )
     }
     
@@ -39,6 +44,8 @@ class MainViewModel: ObservableObject {
         
         timePassedStr = "0:0:0.0"
     }
+
+
 }
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4829859387001A0F10 /* CustomAlertView.swift */; };
 		A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9B7295EDDAB00995018 /* KalaApp.swift */; };
 		A282A9BC295EDDAC00995018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BB295EDDAC00995018 /* Assets.xcassets */; };
 		A282A9BF295EDDAC00995018 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A25D2F4829859387001A0F10 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		A282A9B4295EDDAB00995018 /* Kala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A282A9B7295EDDAB00995018 /* KalaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalaApp.swift; sourceTree = "<group>"; };
 		A282A9BB295EDDAC00995018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				A2CB37BD29795BDD002C1B45 /* SettingVIew.swift */,
 				A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */,
+				A25D2F4829859387001A0F10 /* CustomAlertView.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			files = (
 				A282A9D92965A81600995018 /* UserDefault.swift in Sources */,
 				A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */,
+				A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */,
 				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
 				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,

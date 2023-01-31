@@ -1,7 +1,7 @@
 import SwiftUI
 import Foundation
 
-struct KalaMainView: View {
+struct KalaMainView: View {    
     @ObservedObject var model: MainViewModel
     
     init(model: MainViewModel) {
@@ -37,11 +37,14 @@ struct StopwatchInterfaceView: View {
             HStack(spacing: 40) {
                 if model.isGoing {
                     NeuromorphBtn("Pause") { model.pause()}
+                        .keyboardShortcut(" ", modifiers: [])
                 } else {
                     NeuromorphBtn("Start") { model.start()}
+                        .keyboardShortcut(" ", modifiers: [])
                 }
                 if model.timePassedStr != "00:00:00.000" {
                     NeuromorphBtn("Reset") { model.reset() }
+                        .keyboardShortcut("r", modifiers: [])
                 }
                 
             }.padding()
@@ -60,6 +63,8 @@ struct StopwatchInterfaceView: View {
 extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
+        
+        
         if KalaApp.mainVm.isGoing {
             switch Config.shared.saveIsGoingSettings {
             case .AskAction:
@@ -90,15 +95,16 @@ extension NSWindow {
                 NSApplication.shared.terminate(self)
             case .AskAction:
                 askAlert1()
-                break;
+             
+            break;
             }
             
         }
     }
+
     
     func askAlert1() {
         let alert = NSAlert()
-        
         alert.messageText = "Предупреждение"
         alert.informativeText = "Вы уверены, что хотите закрыть приложение?"
         alert.addButton(withTitle: "Закрыть с сохранением")
@@ -127,7 +133,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             KalaMainView(model: MainViewModel())
-//                .preferredColorScheme(.dark)
+            //                .preferredColorScheme(.dark)
             
             
 //            KalaMainView(model: MainViewModel()).preferredColorScheme(.light)

@@ -4,11 +4,12 @@ import Foundation
 struct SettingVIew: View {
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var savePlaySettings: ActionTimerGoing = .AskAction
-    @AppStorage("Save_Ms") var writeMSinStopwatch:
-    MsYesOrNo = .Yes
+    @AppStorage("Save_Ms") var writeMSinStopwatch: MsYesOrNo = .Yes
+    @AppStorage("Save_FloatingWindow") var saveFloatwindow: FloatWindow = .float
     
     var body: some View {
-        VStack(spacing:20) {
+        VStack() {
+            Spacer()
             Text("Закрытие на паузе:")
             
             StopTimerConfigDropDown()
@@ -27,7 +28,18 @@ struct SettingVIew: View {
                 .background(.gray)
                 .frame(width:200)
                 .cornerRadius(10)
+            
+            Text("Cделать окно плавающим ?")
+            Picker("", selection: $saveFloatwindow) {
+                ForEach(FloatWindow.allCases,id: \.self){
+                    Text($0.asStr())
+                }
 
+            }.pickerStyle(.segmented)
+                .background(.gray)
+                .frame(width:200)
+                .cornerRadius(10)
+            
             Spacer()
         }
         .applyTextStyle()
@@ -49,7 +61,6 @@ fileprivate extension View {
             .NeumorphicStyle()
     }
 }
-
 /////////////////////////////
 ///HELPERS
 ////////////////////////////
@@ -83,3 +94,4 @@ struct SettingVIew_Previews: PreviewProvider {
         SettingVIew()
     }
 }
+

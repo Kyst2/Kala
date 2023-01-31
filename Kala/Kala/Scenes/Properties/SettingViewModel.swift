@@ -2,6 +2,33 @@ import Foundation
 import SwiftUI
 
 struct SettingViewModel {
+    func floatWindow() {
+        if SettingVIew().saveFloatwindow == .float {
+            for window in NSApplication.shared.windows {
+                window.level = .floating
+            }
+        }else {
+            for window in NSApplication.shared.windows {
+                window.level = .normal
+            }
+        }
+    }
+}
+
+enum FloatWindow:Int , RawRepresentable , CaseIterable  {
+    case float = 0
+    case normal = 1
+}
+
+extension FloatWindow {
+    func asStr() -> LocalizedStringKey {
+        switch self {
+        case .float:
+            return "Да"
+        case .normal:
+            return "Нет"
+        }
+    }
 }
 
 enum MsYesOrNo: Int , RawRepresentable , CaseIterable {
