@@ -68,8 +68,7 @@ struct Background<S: Shape>: View {
                             .offset(x: -2, y: -2)
                             .mask(shape.fill(LinearGradient(colors: [Color.black, Color.clear], startPoint: .center, endPoint: .center)))
                     )
-            }
-                        else {
+            } else {
                 shape
                     //.fill(Color.offWhite)
                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
