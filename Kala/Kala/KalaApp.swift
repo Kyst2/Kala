@@ -5,6 +5,7 @@ struct KalaApp: App {
     static var mainVm = MainViewModel()
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             KalaMainView(model: KalaApp.mainVm)

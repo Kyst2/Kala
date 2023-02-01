@@ -18,14 +18,15 @@ class MainViewModel: ObservableObject {
         if timePassedInterval > 0 {
             st.setDiff(timePassedInterval)
         }
-        
+
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
             self.timePassedInterval = self.st.diff
             self.timePassedStr = self.st.timeStr
             
-//            SettingViewModel().floatWindow()
+            SettingViewModel().floatWindow()
             
         } )
+        
     }
     
     func start() {

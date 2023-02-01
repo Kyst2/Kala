@@ -65,7 +65,6 @@ public extension Stopwatch {
         }else {
             self.memoredTime = diff
         }
-        
         self.startTime = CACurrentMediaTime()
     }
     

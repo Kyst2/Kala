@@ -64,7 +64,6 @@ extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
         
-        
         if KalaApp.mainVm.isGoing {
             switch Config.shared.saveIsGoingSettings {
             case .AskAction:
@@ -95,7 +94,6 @@ extension NSWindow {
                 NSApplication.shared.terminate(self)
             case .AskAction:
                 askAlert1()
-             
             break;
             }
             

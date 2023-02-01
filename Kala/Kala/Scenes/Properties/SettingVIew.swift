@@ -2,6 +2,8 @@ import SwiftUI
 import Foundation
 
 struct SettingVIew: View {
+    static let shared = SettingVIew()
+    
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var savePlaySettings: ActionTimerGoing = .AskAction
     @AppStorage("Save_Ms") var writeMSinStopwatch: MsYesOrNo = .Yes
