@@ -3,21 +3,29 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
-    @AppStorage("Save_Time") var timePassedStr = "0:0:0.000"
+    @Published var timePassedStr: String = "0:0:0.0"
+    @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
+    @AppStorage("Save_Bool") var isGoing: Bool = false
+    @AppStorage("Save_Ms") var displayMs: Bool = false
     
     private(set) var timer: Timer!
-    private let st = Stopwatch()
-    @Published var isGoing: Bool = false
+    let st = Stopwatch()
     
     init() {
+        if timePassedInterval > 0 {
+            st.setDiff(timePassedInterval)
+        }
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: { [self] _ in
+            self.timePassedInterval = self.st.diff
+            
+            self.timePassedStr = displayMs ? self.st.timeStrMs : self.st.timeStrS
+            
+            SettingViewModel().floatWindow()
+        } )
     }
     
     func start() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
-            self.timePassedStr = self.st.timeStr
-            print("hello")
-        } )
-        
         isGoing = true
         st.start()
     }
@@ -25,36 +33,43 @@ class MainViewModel: ObservableObject {
     func pause() {
         isGoing = false
         st.pause()
-//        timer?.invalidate()
     }
     
     func reset() {
         isGoing = false
         st.reset()
-        if timer == nil {
-            
-        }else {
-            //timer.invalidate()
-        }
         
-        timePassedStr = "0:0:0.000"
+        timePassedStr = "0:0:0.0"
     }
 }
 
-
-
 fileprivate extension Stopwatch {
-    var timeStr: String {
+    var timeStrMs: String {
+        let afterDot = (diff - Double(Int(diff)) )
+        let ms = Int( afterDot * 1000  )
+        let msStr = "\(ms)0000000".substring(to: 3)
+        
+        return "\(timeStrS).\(msStr)"
+    }
+    
+    var timeStrS: String {
         let days: Int = Int(diff/(60.0*60*24))
         let hrs: Int = Int(diff/(60.0*60))
         let mins: Int = Int(diff/(60.0))
         let sec: Int = Int(diff.truncatingRemainder(dividingBy: 60.0) )
-        let ms: Int = Int( (diff - Double(Int(diff)) ) * 10.0)
         
         if days >= 1 {
-            return "\(days)d \(hrs):\(mins):\(sec).\(ms)"
+            return "\(days)d \(hrs):\(mins):\(sec)"
         }
         
-        return "\(hrs):\(mins):\(sec).\(ms)"
+        return "\(hrs):\(mins):\(sec)"
+    }
+}
+
+extension Double {
+    func rounded(digits: Int) -> Double {
+        let multiplier = pow(10.0, Double(digits))
+        
+        return (self * multiplier).rounded() / multiplier
     }
 }

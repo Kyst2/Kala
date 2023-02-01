@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D09E307298AEB7E0034557C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D09E306298AEB7E0034557C /* StringExt.swift */; };
+		A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4829859387001A0F10 /* CustomAlertView.swift */; };
+		A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */; };
 		A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9B7295EDDAB00995018 /* KalaApp.swift */; };
 		A282A9BC295EDDAC00995018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BB295EDDAC00995018 /* Assets.xcassets */; };
 		A282A9BF295EDDAC00995018 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */; };
 		A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C6295EE2EF00995018 /* MainViewModel.swift */; };
-		A282A9CC295EE2EF00995018 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C7295EE2EF00995018 /* Color.swift */; };
+		A282A9CC295EE2EF00995018 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C7295EE2EF00995018 /* ColorExt.swift */; };
 		A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C8295EE2EF00995018 /* wndAccessor.swift */; };
 		A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C9295EE2EF00995018 /* AppDelegate.swift */; };
 		A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9CA295EE2EF00995018 /* KalaMainView.swift */; };
 		A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */; };
-		A282A9D92965A81600995018 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9D82965A81600995018 /* UserDefault.swift */; };
-		A282A9DB2967188E00995018 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9DA2967188E00995018 /* Stopwatch.swift */; };
 		A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9FD296879C200995018 /* StopwatchTests.swift */; };
-		A282AA04296879E500995018 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9DA2967188E00995018 /* Stopwatch.swift */; };
-		A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282AA0529687DBF00995018 /* StopwatchUKS.swift */; };
-		A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */; };
 		A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */; };
-		A297F5ED296D83E700CE6153 /* PropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EC296D83E700CE6153 /* PropertiesView.swift */; };
-		A297F5EF296D83F300CE6153 /* PropertiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */; };
+		A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B5296F0A32002C1B45 /* AboutView.swift */; };
+		A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BD29795BDD002C1B45 /* SettingView.swift */; };
+		A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */; };
+		A2CB37C3297C31C5002C1B45 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37C2297C31C5002C1B45 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,26 +38,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D09E306298AEB7E0034557C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		A25D2F4829859387001A0F10 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A282A9B4295EDDAB00995018 /* Kala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A282A9B7295EDDAB00995018 /* KalaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalaApp.swift; sourceTree = "<group>"; };
 		A282A9BB295EDDAC00995018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A282A9C0295EDDAC00995018 /* Kala.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kala.entitlements; sourceTree = "<group>"; };
 		A282A9C6295EE2EF00995018 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		A282A9C7295EE2EF00995018 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A282A9C7295EE2EF00995018 /* ColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		A282A9C8295EE2EF00995018 /* wndAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wndAccessor.swift; sourceTree = "<group>"; };
 		A282A9C9295EE2EF00995018 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A282A9CA295EE2EF00995018 /* KalaMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalaMainView.swift; sourceTree = "<group>"; };
 		A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGaussianBlur.swift; sourceTree = "<group>"; };
-		A282A9D82965A81600995018 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		A282A9DA2967188E00995018 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Stopwatch.swift; path = /Users/andrewkuzmich/TaoGit/Kala/Kala/Kala/Backend/MoreSwiftUI/Stopwatch.swift; sourceTree = "<absolute>"; };
 		A282A9FB296879C200995018 /* KalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A282A9FD296879C200995018 /* StopwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTests.swift; sourceTree = "<group>"; };
-		A282AA0529687DBF00995018 /* StopwatchUKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchUKS.swift; sourceTree = "<group>"; };
-		A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphBtn.swift; sourceTree = "<group>"; };
-		A297F5EC296D83E700CE6153 /* PropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesView.swift; sourceTree = "<group>"; };
-		A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesViewModel.swift; sourceTree = "<group>"; };
+		A2CB37B5296F0A32002C1B45 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = Kala/Scenes/About/AboutView.swift; sourceTree = SOURCE_ROOT; };
+		A2CB37BD29795BDD002C1B45 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		A2CB37C2297C31C5002C1B45 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D09E308298AECA10034557C /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				A282A9C7295EE2EF00995018 /* ColorExt.swift */,
+				1D09E306298AEB7E0034557C /* StringExt.swift */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
 		A282A9AB295EDDAB00995018 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 				A282A9D0295EE2FA00995018 /* Backend */,
 				A282A9C9295EE2EF00995018 /* AppDelegate.swift */,
 				A282A9B7295EDDAB00995018 /* KalaApp.swift */,
+				A2CB37C2297C31C5002C1B45 /* Config.swift */,
 				A282A9D1295EE33C00995018 /* Scenes */,
 				A282A9BB295EDDAC00995018 /* Assets.xcassets */,
 				A282A9C0295EDDAC00995018 /* Kala.entitlements */,
@@ -121,11 +132,9 @@
 		A282A9D0295EE2FA00995018 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				1D09E308298AECA10034557C /* Ext */,
+				A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */,
 				A282A9D5295EE3BA00995018 /* MoreSwiftUI */,
-				A282A9DA2967188E00995018 /* Stopwatch.swift */,
-				A282A9C7295EE2EF00995018 /* Color.swift */,
-				A297F5E8296C97AB00CE6153 /* ButtonStyle.swift */,
-				A282AA0529687DBF00995018 /* StopwatchUKS.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -135,7 +144,7 @@
 			children = (
 				A282A9D2295EE34A00995018 /* MainView */,
 				A282A9D4295EE36000995018 /* Properties */,
-				A282A9D3295EE35800995018 /* About */,
+				A2CB37C1297C3111002C1B45 /* About */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -149,18 +158,12 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		A282A9D3295EE35800995018 /* About */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = About;
-			sourceTree = "<group>";
-		};
 		A282A9D4295EE36000995018 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
-				A297F5EC296D83E700CE6153 /* PropertiesView.swift */,
-				A297F5EE296D83F300CE6153 /* PropertiesViewModel.swift */,
+				A2CB37BD29795BDD002C1B45 /* SettingView.swift */,
+				A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */,
+				A25D2F4829859387001A0F10 /* CustomAlertView.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -170,7 +173,6 @@
 			children = (
 				A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */,
 				A282A9C8295EE2EF00995018 /* wndAccessor.swift */,
-				A282A9D82965A81600995018 /* UserDefault.swift */,
 				A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */,
 			);
 			path = MoreSwiftUI;
@@ -182,6 +184,14 @@
 				A282A9FD296879C200995018 /* StopwatchTests.swift */,
 			);
 			path = KalaTests;
+			sourceTree = "<group>";
+		};
+		A2CB37C1297C3111002C1B45 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				A2CB37B5296F0A32002C1B45 /* AboutView.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,19 +294,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A282A9D92965A81600995018 /* UserDefault.swift in Sources */,
-				A282AA0629687DBF00995018 /* StopwatchUKS.swift in Sources */,
+				A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */,
 				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
+				1D09E307298AEB7E0034557C /* StringExt.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
-				A282A9CC295EE2EF00995018 /* Color.swift in Sources */,
+				A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */,
+				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,
+				A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */,
+				A282A9CC295EE2EF00995018 /* ColorExt.swift in Sources */,
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
 				A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */,
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
-				A297F5ED296D83E700CE6153 /* PropertiesView.swift in Sources */,
-				A297F5EF296D83F300CE6153 /* PropertiesViewModel.swift in Sources */,
-				A282A9DB2967188E00995018 /* Stopwatch.swift in Sources */,
+				A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
-				A297F5E9296C97AB00CE6153 /* ButtonStyle.swift in Sources */,
+				A2CB37C3297C31C5002C1B45 /* Config.swift in Sources */,
 				A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,7 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */,
-				A282AA04296879E500995018 /* Stopwatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +454,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Kala/Preview Content\"";
-				DEVELOPMENT_TEAM = QZKQ74LNRY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
