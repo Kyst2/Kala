@@ -4,39 +4,37 @@ import QuartzCore
 
 class MainViewModel: ObservableObject {
     @Published var timePassedStr: String = "0:0:0.0"
-    @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
-    @AppStorage("Save_Bool") var isGoing: Bool = false
-    @AppStorage("Save_Ms") var displayMs: Bool = false
+    @ObservedObject var config = Config.shared
     
     private(set) var timer: Timer!
     let st = Stopwatch()
     
     init() {
-        if timePassedInterval > 0 {
-            st.setDiff(timePassedInterval)
+        if config.timePassedInterval > 0 {
+            st.setDiff(config.timePassedInterval)
         }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: { [self] _ in
-            self.timePassedInterval = self.st.diff
+            self.config.timePassedInterval = self.st.diff
             
-            self.timePassedStr = displayMs ? self.st.timeStrMs : self.st.timeStrS
+            self.timePassedStr = config.displayMs ? self.st.timeStrMs : self.st.timeStrS
             
             SettingViewModel().floatWindow()
         } )
     }
     
     func start() {
-        isGoing = true
+        config.isGoing = true
         st.start()
     }
     
     func pause() {
-        isGoing = false
+        config.isGoing = false
         st.pause()
     }
     
     func reset() {
-        isGoing = false
+        config.isGoing = false
         st.reset()
         
         timePassedStr = "0:0:0.0"

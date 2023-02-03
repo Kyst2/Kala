@@ -35,7 +35,7 @@ struct StopwatchInterfaceView: View {
                 .font(.system(size: 40,design: .monospaced))
             
             HStack(spacing: 40) {
-                if model.isGoing {
+                if model.config.isGoing {
                     NeuromorphBtn("Pause") { model.pause()}
                         .keyboardShortcut(" ", modifiers: [])
                 } else {
@@ -64,7 +64,7 @@ extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
         
-        if KalaApp.mainVm.isGoing {
+        if KalaApp.mainVm.config.isGoing {
             switch Config.shared.saveIsGoingSettings {
             case .AskAction:
                 askAlert1()
@@ -79,7 +79,7 @@ extension NSWindow {
                 break;
             case .NewSessionFromScratch:
                 KalaApp.mainVm.pause()
-                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+                KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             }
         } else {
@@ -90,7 +90,7 @@ extension NSWindow {
                 break;
             case .NewSessionFromScratch:
                 KalaApp.mainVm.pause()
-                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+                KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             case .AskAction:
                 askAlert1()
@@ -108,7 +108,7 @@ extension NSWindow {
         alert.addButton(withTitle: "Закрыть с сохранением")
         alert.addButton(withTitle: "Нет")
         alert.addButton(withTitle: "Не сохранять ")
-        if KalaApp.mainVm.isGoing == true {
+        if KalaApp.mainVm.config.isGoing == true {
             alert.addButton(withTitle: "Сохранить и продолжить оффлайн?")
         }
         
@@ -118,7 +118,7 @@ extension NSWindow {
             NSApplication.shared.terminate(self)
         case .alertThirdButtonReturn:
             KalaApp.mainVm.pause()
-            KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+            KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
             NSApplication.shared.terminate(self)
         default:
             alert.window.close()

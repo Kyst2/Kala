@@ -4,11 +4,7 @@ import Foundation
 struct SettingView: View {
     static let shared = SettingView()
     
-    @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
-    @AppStorage("Save_PlaySettings") var savePlaySettings: ActionTimerGoing = .AskAction
-    
-    @AppStorage("Save_Ms") var displayMs: Bool = false
-    @AppStorage("Save_FloatingWindow") var topMost: Bool = false
+    @ObservedObject var config = Config.shared
     
     var body: some View {
         VStack() {
@@ -21,9 +17,9 @@ struct SettingView: View {
             
             PlayTimerConfogDropDown()
             
-            Toggle(isOn: $displayMs) { Text("Показывать милисекунды") }
+            Toggle(isOn: config.$displayMs) { Text("Показывать милисекунды") }
             
-            Toggle(isOn: $topMost) { Text("Поверх всех окон") }
+            Toggle(isOn: config.$topMost) { Text("Поверх всех окон") }
             
             Spacer()
         }
@@ -52,7 +48,7 @@ fileprivate extension View {
 
 fileprivate extension SettingView {
     func StopTimerConfigDropDown() -> some View {
-        Picker("", selection: $saveStopSettings) {
+        Picker("", selection: config.$saveStopSettings) {
             ForEach(ActionTimerStopped.allCases, id: \.self) {
                 Text($0.asStr())
                     .foregroundColor(.black)
@@ -61,7 +57,7 @@ fileprivate extension SettingView {
     }
     
     func PlayTimerConfogDropDown() -> some View {
-        Picker("", selection: $savePlaySettings) {
+        Picker("", selection: config.$saveIsGoingSettings) {
             ForEach(ActionTimerGoing.allCases, id: \.self) {
                 Text($0.asStr())
                     .foregroundColor(.black)

@@ -44,7 +44,7 @@ struct CustomAlertView: View {
             Spacer()
             Button(action: {
                 KalaApp.mainVm.pause()
-                KalaApp.mainVm.timePassedInterval = CFTimeInterval(0)
+                KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             }, label: {
                 Text("Не сохранять")

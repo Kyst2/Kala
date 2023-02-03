@@ -10,10 +10,9 @@ struct KalaApp: App {
         WindowGroup {
             KalaMainView(model: KalaApp.mainVm)
                 .onAppear{
-                    
                 if Config.shared.saveIsGoingSettings == .TimeGoingOnKalaClose {
-                    if KalaApp.mainVm.isGoing == true {
-                    KalaApp.mainVm.start()
+                    if KalaApp.mainVm.config.isGoing == true {
+                        KalaApp.mainVm.start()
                     }
                 }
             }
