@@ -3,13 +3,15 @@ import SwiftUI
 import QuartzCore
 
 class MainViewModel: ObservableObject {
+    static var shared: MainViewModel = MainViewModel()
+    
     @Published var timePassedStr: String = "0:0:0.0"
     @ObservedObject var config = Config.shared
     
     private(set) var timer: Timer!
     let st = Stopwatch()
     
-    init() {
+    private init() {
         if config.timePassedInterval > 0 {
             st.setDiff(config.timePassedInterval)
         }

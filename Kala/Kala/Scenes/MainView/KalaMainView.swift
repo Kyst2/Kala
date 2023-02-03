@@ -2,11 +2,7 @@ import SwiftUI
 import Foundation
 
 struct KalaMainView: View {    
-    @ObservedObject var model: MainViewModel
-    
-    init(model: MainViewModel) {
-        self.model = model
-    }
+    @ObservedObject var model = MainViewModel.shared
     
     var body: some View {
         StopwatchInterfaceView(model: model)

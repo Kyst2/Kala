@@ -2,17 +2,15 @@ import SwiftUI
 
 @main
 struct KalaApp: App {
-    static var mainVm = MainViewModel()
-    
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            KalaMainView(model: KalaApp.mainVm)
+            KalaMainView()
                 .onAppear{
                 if Config.shared.saveIsGoingSettings == .TimeGoingOnKalaClose {
-                    if KalaApp.mainVm.config.isGoing == true {
-                        KalaApp.mainVm.start()
+                    if Config.isGoing == true {
+                        MainViewModel.shared.start()
                     }
                 }
             }
@@ -21,7 +19,6 @@ struct KalaApp: App {
         
         Settings {
             SettingView()
-               
         }
     }
 }
