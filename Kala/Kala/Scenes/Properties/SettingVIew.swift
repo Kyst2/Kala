@@ -39,7 +39,7 @@ fileprivate extension View {
             .font(.system(size: 15, design: .monospaced))
             .foregroundColor(.black)
             .pickerStyle(.menu)
-            .NeumorphicStyle()
+            //.NeumorphicStyle()
     }
 }
 /////////////////////////////

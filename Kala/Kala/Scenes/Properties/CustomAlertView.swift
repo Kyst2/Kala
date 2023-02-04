@@ -21,7 +21,7 @@ struct CustomAlertView: View {
                 .fixedSize()
             Spacer()
             Button(action: {
-                KalaApp.mainVm.pause()
+                MainViewModel.shared.pause()
                 NSApplication.shared.terminate(self)
             }, label: {
                 Text("Закрыть с сохранением")
@@ -29,7 +29,8 @@ struct CustomAlertView: View {
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             })
-            .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+            //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+            
             Spacer()
             Button(action: {
                 NSApplication.shared.terminate(self)
@@ -40,11 +41,11 @@ struct CustomAlertView: View {
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             })
-            .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+            //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
             Spacer()
             Button(action: {
-                KalaApp.mainVm.pause()
-                KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
+                MainViewModel.shared.pause()
+                MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             }, label: {
                 Text("Не сохранять")
@@ -52,7 +53,7 @@ struct CustomAlertView: View {
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             })
-            .buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+            //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
             
             Spacer()
         }.frame(width: 350, height: 300)

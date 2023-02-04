@@ -1,7 +1,7 @@
 import SwiftUI
 import Foundation
 
-struct KalaMainView: View {    
+struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
     
     var body: some View {
@@ -11,9 +11,8 @@ struct KalaMainView: View {
                 
                 closeButton?.action = #selector(NSWindow.doMyClose(_:))
             }
-            .frame(minWidth: 400, minHeight: 350)
-            .background(Color.offWhite)
-        //.preferredColorScheme(.light)
+            .frame(minWidth: 500, maxWidth: .infinity, minHeight: 250, maxHeight: .infinity)
+//            .preferredColorScheme(.light)
     }
 }
 
@@ -60,33 +59,33 @@ extension NSWindow {
     @objc
     func doMyClose(_ sender: Any?) {
         
-        if KalaApp.mainVm.config.isGoing {
+        if MainViewModel.shared.config.isGoing {
             switch Config.shared.saveIsGoingSettings {
             case .AskAction:
                 askAlert1()
                 break;
             case .TimeGoingOnKalaClose:
-                KalaApp.mainVm.st.offline()
+                MainViewModel.shared.st.offline()
                 NSApplication.shared.terminate(self)
                 break;
             case .SaveAndClose:
-                KalaApp.mainVm.pause()
+                MainViewModel.shared.pause()
                 NSApplication.shared.terminate(self)
                 break;
             case .NewSessionFromScratch:
-                KalaApp.mainVm.pause()
-                KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
+                MainViewModel.shared.pause()
+                MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             }
         } else {
             switch Config.shared.saveStopSettings{
             case .SaveAndClose :
-                KalaApp.mainVm.pause()
+                MainViewModel.shared.pause()
                 NSApplication.shared.terminate(self)
                 break;
             case .NewSessionFromScratch:
-                KalaApp.mainVm.pause()
-                KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
+                MainViewModel.shared.pause()
+                MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
                 NSApplication.shared.terminate(self)
             case .AskAction:
                 askAlert1()
@@ -104,17 +103,17 @@ extension NSWindow {
         alert.addButton(withTitle: "Закрыть с сохранением")
         alert.addButton(withTitle: "Нет")
         alert.addButton(withTitle: "Не сохранять ")
-        if KalaApp.mainVm.config.isGoing == true {
+        if MainViewModel.shared.config.isGoing == true {
             alert.addButton(withTitle: "Сохранить и продолжить оффлайн?")
         }
         
         switch alert.runModal() {
         case .alertFirstButtonReturn:
-            KalaApp.mainVm.pause()
+            MainViewModel.shared.pause()
             NSApplication.shared.terminate(self)
         case .alertThirdButtonReturn:
-            KalaApp.mainVm.pause()
-            KalaApp.mainVm.config.timePassedInterval = CFTimeInterval(0)
+            MainViewModel.shared.pause()
+            MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
             NSApplication.shared.terminate(self)
         default:
             alert.window.close()
@@ -126,7 +125,7 @@ extension NSWindow {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            KalaMainView(model: MainViewModel())
+            KalaMainView()
             //                .preferredColorScheme(.dark)
             
             

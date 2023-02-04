@@ -9,7 +9,7 @@ struct KalaApp: App {
             KalaMainView()
                 .onAppear{
                 if Config.shared.saveIsGoingSettings == .TimeGoingOnKalaClose {
-                    if Config.isGoing == true {
+                    if Config.shared.isGoing == true {
                         MainViewModel.shared.start()
                     }
                 }
