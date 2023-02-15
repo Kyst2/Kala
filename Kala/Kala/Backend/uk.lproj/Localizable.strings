@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Kala
+
+  Created by Andrew Kuzmich on 14.02.2023.
+  
+*/
+
+
+"Start" = "Почати";
+"Pause" = "Зупинити";
+"Reset" = "Cкинути";
+
+"Close on pause:" = "Закрити на зупинці:";
+"close during operation:" = "Закрити під час роботи:";
+"Show milliseconds" = "Відображати мілісекунди";
+"On top of all the windows" = "Поверх усіх вікон";
+
+"Ask what to do" = "Запитувати що виконати";
+"The new session starts at 00.00.0" = "Нова сесія стартує з 00.00.0";
+"Close with save" = "Закрити зі збереженням";
+"Continue to measure time while Kala is closed" = "Продовжити вимірювати час поки Kala закрита";

@@ -11,7 +11,8 @@ struct KalaMainView: View {
                 
                 closeButton?.action = #selector(NSWindow.doMyClose(_:))
             }
-            .frame(minWidth: 500, maxWidth: .infinity, minHeight: 250, maxHeight: .infinity)
+            .frame(minWidth: 500, idealWidth: 600 , maxWidth: .infinity, minHeight: 200, idealHeight: 300, maxHeight: .infinity)
+            .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
 //            .preferredColorScheme(.light)
     }
 }

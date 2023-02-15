@@ -15,6 +15,22 @@ struct KalaApp: App {
                 }
             }
         }
+        .commands {
+            
+            CommandGroup(replacing: .newItem, addition: { })
+            CommandGroup(replacing: .undoRedo, addition: { })
+            CommandGroup(replacing: .toolbar, addition: { })
+            CommandGroup(replacing: .windowList, addition: { })
+            CommandGroup(replacing: .pasteboard, addition: { })
+            CommandGroup(replacing: .windowSize, addition: { })
+            CommandGroup(replacing: .appInfo, addition: { })
+            CommandGroup(replacing: .help, addition: { })
+            CommandGroup(replacing: .appTermination, addition: { })
+            CommandGroup(replacing: .appVisibility, addition: { })
+//            CommandGroup(replacing: .sidebar, addition: { })
+//            CommandGroup(replacing: .printItem, addition: { })
+            
+        }
         .replaceAbout { appDelegate.showAboutWnd() }
         
         Settings {

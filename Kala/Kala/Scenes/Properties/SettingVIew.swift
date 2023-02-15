@@ -9,23 +9,31 @@ struct SettingView: View {
     var body: some View {
         VStack() {
             Spacer()
-            Text("Закрытие на паузе:")
+            Text("Close on pause:")
+                .foregroundColor(.gray)
             
             StopTimerConfigDropDown()
+                .padding(.horizontal,20)
             
-            Text("Закрытие во время работы:")
+            Text("close during operation:")
+                .foregroundColor(.gray)
             
             PlayTimerConfogDropDown()
+                .padding(.horizontal,20)
             
-            Toggle(isOn: config.$displayMs) { Text("Показывать милисекунды") }
+            Toggle(isOn: config.$displayMs) { Text("Show milliseconds")
+                    .foregroundColor(.gray)
+            }
             
-            Toggle(isOn: config.$topMost) { Text("Поверх всех окон") }
+            Toggle(isOn: config.$topMost) { Text("On top of all the windows")
+                    .foregroundColor(.gray)
+            }
             
             Spacer()
         }
         .applyTextStyle()
         .frame(idealWidth: 300, maxWidth: 300, idealHeight: 300, maxHeight: 300)
-        .background(Color.offWhite)
+        .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
     }
 }
 
@@ -36,7 +44,7 @@ struct SettingView: View {
 fileprivate extension View {
     func applyTextStyle() -> some View {
         self
-            .font(.system(size: 15, design: .monospaced))
+//            .font(.system(size: 15, design: .monospaced))
             .foregroundColor(.black)
             .pickerStyle(.menu)
             //.NeumorphicStyle()
@@ -51,7 +59,7 @@ fileprivate extension SettingView {
         Picker("", selection: config.$saveStopSettings) {
             ForEach(ActionTimerStopped.allCases, id: \.self) {
                 Text($0.asStr())
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray)
             }
         }
     }
@@ -60,7 +68,7 @@ fileprivate extension SettingView {
         Picker("", selection: config.$saveIsGoingSettings) {
             ForEach(ActionTimerGoing.allCases, id: \.self) {
                 Text($0.asStr())
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray)
             }
         }
     }

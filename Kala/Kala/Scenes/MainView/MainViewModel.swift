@@ -44,6 +44,16 @@ class MainViewModel: ObservableObject {
 }
 
 fileprivate extension Stopwatch {
+    
+    func twoZeroTime(_ time: Int) -> String{
+       let timeArray = String(time)
+        if timeArray.count > 1 {
+            return "\(timeArray)0".substring(to: 2)
+        }else {
+             return "0\(timeArray)".substring(to: 2)
+        }
+    }
+    
     var timeStrMs: String {
         let afterDot = (diff - Double(Int(diff)) )
         let ms = Int( afterDot * 1000  )
@@ -59,10 +69,10 @@ fileprivate extension Stopwatch {
         let sec: Int = Int(diff.truncatingRemainder(dividingBy: 60.0) )
         
         if days >= 1 {
-            return "\(days)d \(hrs):\(mins):\(sec)"
+            return "\(twoZeroTime(days))d \(twoZeroTime(hrs)):\(mins):\(sec)"
         }
         
-        return "\(hrs):\(mins):\(sec)"
+        return "\(twoZeroTime(hrs)):\(twoZeroTime(mins)):\(twoZeroTime(sec))"
     }
 }
 

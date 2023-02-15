@@ -31,11 +31,11 @@ extension ActionTimerStopped {
     func asStr() -> LocalizedStringKey {
         switch self {
         case .AskAction:
-            return "Запрашивать что выполнить"
+            return "Ask what to do"
         case .NewSessionFromScratch:
-            return "Новая сессия стартует с 00.00.0"
+            return "The new session starts at 00.00.0"
         case .SaveAndClose:
-            return "Закрыть с сохранением"
+            return "Close with save"
         }
     }
 }
@@ -51,13 +51,13 @@ extension ActionTimerGoing {
     func asStr() -> LocalizedStringKey {
         switch self {
         case .AskAction:
-            return "Запрашивать что выполнить"
+            return "Ask what to do"
         case .NewSessionFromScratch:
-            return "Новая сессия стартует с 00.00.0"
+            return "The new session starts at 00.00.0"
         case .SaveAndClose:
-            return "Закрыть с сохранением"
+            return "Close with save"
         case .TimeGoingOnKalaClose:
-            return "Продолжить измерять время пока Kala закрыта"
+            return "Continue to measure time while Kala is closed"
         }
     }
 }
