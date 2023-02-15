@@ -1,5 +1,6 @@
 import SwiftUI
 import Foundation
+import Combine
 
 struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
@@ -20,6 +21,8 @@ struct KalaMainView: View {
 struct StopwatchInterfaceView: View {
     @ObservedObject var model: MainViewModel
     
+    let copyPublisher = PassthroughSubject<Void, Never>()
+    
     init(model: MainViewModel) {
         self.model = model
     }
@@ -29,6 +32,12 @@ struct StopwatchInterfaceView: View {
             Text(model.timePassedStr)
                 .foregroundColor(.gray)
                 .font(.system(size: 40,design: .monospaced))
+                .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
+                .onTapGesture {
+                    // implement copy text here
+                    
+                    copyPublisher.send()
+                }
             
             HStack(spacing: 40) {
                 if model.config.isGoing {

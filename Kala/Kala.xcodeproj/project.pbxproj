@@ -94,7 +94,6 @@
 		1D09E308298AECA10034557C /* Ext */ = {
 			isa = PBXGroup;
 			children = (
-				A2DCF8D8299D4846005957DE /* addOpacityBlinker.swift */,
 				A282A9C7295EE2EF00995018 /* ColorExt.swift */,
 				1D09E306298AEB7E0034557C /* StringExt.swift */,
 			);
@@ -186,6 +185,7 @@
 		A282A9D5295EE3BA00995018 /* MoreSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A2DCF8D8299D4846005957DE /* addOpacityBlinker.swift */,
 				A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */,
 				A282A9C8295EE2EF00995018 /* wndAccessor.swift */,
 				A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */,
