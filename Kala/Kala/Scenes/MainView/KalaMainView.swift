@@ -47,11 +47,11 @@ struct StopwatchInterfaceView: View {
                     NeuromorphBtn("Start") { model.start()}
                         .keyboardShortcut(" ", modifiers: [])
                 }
+                
                 if model.timePassedStr != "00:00:00.000" {
                     NeuromorphBtn("Reset") { model.reset() }
                         .keyboardShortcut("r", modifiers: [])
                 }
-                
             }.padding()
         }
     }
@@ -61,9 +61,6 @@ struct StopwatchInterfaceView: View {
 ////////////////////////////
 ///HELPERS
 ///////////////////////////
-
-
-
 
 extension NSWindow {
     @objc
@@ -88,7 +85,7 @@ extension NSWindow {
                 NSApplication.shared.terminate(self)
             }
         } else {
-            switch Config.shared.saveStopSettings{
+            switch Config.shared.saveStopSettings {
             case .SaveAndClose :
                 MainViewModel.shared.pause()
                 NSApplication.shared.terminate(self)
@@ -99,9 +96,7 @@ extension NSWindow {
                 NSApplication.shared.terminate(self)
             case .AskAction:
                 askAlert1()
-            break;
             }
-            
         }
     }
 
@@ -133,17 +128,5 @@ extension NSWindow {
 //            alert.window.close()
 //            break;
 //        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            KalaMainView()
-            //                .preferredColorScheme(.dark)
-            
-            
-//            KalaMainView(model: MainViewModel()).preferredColorScheme(.light)
-        }
     }
 }

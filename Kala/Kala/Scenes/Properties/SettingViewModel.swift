@@ -2,10 +2,8 @@ import Foundation
 import SwiftUI
 
 struct SettingViewModel {
-    @ObservedObject var config = Config.shared
-    
-    func floatWindow() {
-        if config.topMost {
+    static func floatWindowUpd() {
+        if Config.shared.topMost {
             for window in NSApplication.shared.windows {
                 window.level = .floating
             }

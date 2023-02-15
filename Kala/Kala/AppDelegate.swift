@@ -37,5 +37,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         alertWindowController?.showWindow(alertWindowController?.window)
     }
-    
 }

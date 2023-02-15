@@ -12,6 +12,8 @@ class MainViewModel: ObservableObject {
     let st = Stopwatch()
     
     private init() {
+        SettingViewModel.floatWindowUpd()
+        
         if config.timePassedInterval > 0 {
             st.setDiff(config.timePassedInterval)
         }
@@ -20,8 +22,6 @@ class MainViewModel: ObservableObject {
             self.config.timePassedInterval = self.st.diff
             
             self.timePassedStr = config.displayMs ? self.st.timeStrMs : self.st.timeStrS
-            
-            SettingViewModel().floatWindow()
         } )
     }
     

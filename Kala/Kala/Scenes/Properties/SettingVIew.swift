@@ -22,12 +22,13 @@ struct SettingView: View {
                 .padding(.horizontal,20)
             
             Toggle(isOn: config.$displayMs) { Text("Show milliseconds")
-                    .foregroundColor(.gray)
+                .foregroundColor(.gray)
             }
             
             Toggle(isOn: config.$topMost) { Text("On top of all the windows")
-                    .foregroundColor(.gray)
+                .foregroundColor(.gray)
             }
+            .onChange(of: config.$topMost) { SettingViewModel.floatWindowUpd() }
             
             Spacer()
         }
