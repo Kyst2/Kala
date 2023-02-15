@@ -5,7 +5,7 @@ import QuartzCore
 class MainViewModel: ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
-    @Published var timePassedStr: String = "0:0:0.000"
+    @Published var timePassedStr: String = "00:00:00.000"
     @ObservedObject var config = Config.shared
     
     private(set) var timer: Timer!
@@ -39,7 +39,7 @@ class MainViewModel: ObservableObject {
         config.isGoing = false
         st.reset()
         
-        timePassedStr = "0:0:0.000"
+        timePassedStr = "00:00:00.000"
     }
 }
 

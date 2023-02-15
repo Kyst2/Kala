@@ -33,22 +33,6 @@ struct AboutView: View {
 ///////////////////////////////////
 /// HELPERS
 //////////////////////////////////
-extension AppDelegate {
-    func showAboutWnd() {
-        if aboutBoxWindowController == nil {
-            let styleMask: NSWindow.StyleMask = [.closable, .miniaturizable,/* .resizable,*/ .titled]
-            let window = NSWindow()
-            window.styleMask = styleMask
-            window.title = "About \(Bundle.main.appName)"
-            window.contentView = NSHostingView(rootView: AboutView())
-            window.center()
-            aboutBoxWindowController = NSWindowController(window: window)
-        }
-        
-        aboutBoxWindowController?.showWindow(aboutBoxWindowController?.window)
-    }
-}
-
 extension AboutView {
     private static var offSiteAdr: String { "http://www.taogit.com" }
     private static var offEmail: String { "someUser@gmail.com" }

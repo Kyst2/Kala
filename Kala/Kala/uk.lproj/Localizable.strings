@@ -6,13 +6,12 @@
   
 */
 
-
 "Start" = "Почати";
 "Pause" = "Зупинити";
 "Reset" = "Cкинути";
 
 "Close on pause:" = "Закрити на зупинці:";
-"close during operation:" = "Закрити під час роботи:";
+"Close during operation:" = "Закрити під час роботи:";
 "Show milliseconds" = "Відображати мілісекунди";
 "On top of all the windows" = "Поверх усіх вікон";
 

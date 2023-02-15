@@ -100,6 +100,14 @@
 			path = Ext;
 			sourceTree = "<group>";
 		};
+		1DF8F6C6299D5F3E001EF48E /* CustomAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				A25D2F4829859387001A0F10 /* CustomAlertView.swift */,
+			);
+			path = CustomAlertView;
+			sourceTree = "<group>";
+		};
 		A282A9AB295EDDAB00995018 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +134,7 @@
 				A282A9B7295EDDAB00995018 /* KalaApp.swift */,
 				A2CB37C2297C31C5002C1B45 /* Config.swift */,
 				A282A9D1295EE33C00995018 /* Scenes */,
+				A2DCF8D3299BE3C7005957DE /* Localizable.strings */,
 				A282A9BB295EDDAC00995018 /* Assets.xcassets */,
 				A282A9C0295EDDAC00995018 /* Kala.entitlements */,
 				A282A9BD295EDDAC00995018 /* Preview Content */,
@@ -148,7 +157,6 @@
 				A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */,
 				A282A9D5295EE3BA00995018 /* MoreSwiftUI */,
 				1D4A87C9298EF0470062686C /* SystemColors.swift */,
-				A2DCF8D3299BE3C7005957DE /* Localizable.strings */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -156,6 +164,7 @@
 		A282A9D1295EE33C00995018 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1DF8F6C6299D5F3E001EF48E /* CustomAlertView */,
 				A282A9D2295EE34A00995018 /* MainView */,
 				A282A9D4295EE36000995018 /* Properties */,
 				A2CB37C1297C3111002C1B45 /* About */,
@@ -177,7 +186,6 @@
 			children = (
 				A2CB37BD29795BDD002C1B45 /* SettingView.swift */,
 				A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */,
-				A25D2F4829859387001A0F10 /* CustomAlertView.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";

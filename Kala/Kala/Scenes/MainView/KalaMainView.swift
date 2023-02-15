@@ -107,28 +107,32 @@ extension NSWindow {
 
     
     func askAlert1() {
-        let alert = NSAlert()
-        alert.messageText = "Предупреждение"
-        alert.informativeText = "Вы уверены, что хотите закрыть приложение?"
-        alert.addButton(withTitle: "Закрыть с сохранением")
-        alert.addButton(withTitle: "Нет")
-        alert.addButton(withTitle: "Не сохранять ")
-        if MainViewModel.shared.config.isGoing == true {
-            alert.addButton(withTitle: "Сохранить и продолжить оффлайн?")
-        }
+        let appDel = AppDelegate.instance!
+        appDel.showCustomAlert()
         
-        switch alert.runModal() {
-        case .alertFirstButtonReturn:
-            MainViewModel.shared.pause()
-            NSApplication.shared.terminate(self)
-        case .alertThirdButtonReturn:
-            MainViewModel.shared.pause()
-            MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
-            NSApplication.shared.terminate(self)
-        default:
-            alert.window.close()
-            break;
-        }
+        
+//        let alert = NSAlert()
+//        alert.messageText = "Предупреждение"
+//        alert.informativeText = "Вы уверены, что хотите закрыть приложение?"
+//        alert.addButton(withTitle: "Закрыть с сохранением")
+//        alert.addButton(withTitle: "Нет")
+//        alert.addButton(withTitle: "Не сохранять ")
+//        if MainViewModel.shared.config.isGoing == true {
+//            alert.addButton(withTitle: "Сохранить и продолжить оффлайн?")
+//        }
+//
+//        switch alert.runModal() {
+//        case .alertFirstButtonReturn:
+//            MainViewModel.shared.pause()
+//            NSApplication.shared.terminate(self)
+//        case .alertThirdButtonReturn:
+//            MainViewModel.shared.pause()
+//            MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
+//            NSApplication.shared.terminate(self)
+//        default:
+//            alert.window.close()
+//            break;
+//        }
     }
 }
 

@@ -11,19 +11,20 @@ struct CustomAlertView: View {
     var body: some View {
         VStack{
             Spacer()
+            
             Text("Предупреждение!")
                 .font(.system(size: 15,design: .monospaced))
                 .foregroundColor(.gray)
+            
             Text("Вы уверены, что хотите закрыть приложение? ")
                 .foregroundColor(.gray)
                 .font(.system(size: 13,design: .monospaced))
                 .padding(.vertical,5)
                 .fixedSize()
+            
             Spacer()
-            Button(action: {
-                MainViewModel.shared.pause()
-                NSApplication.shared.terminate(self)
-            }, label: {
+            
+            Button(action: { appCloseWithSave() }, label: {
                 Text("Закрыть с сохранением")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
@@ -32,22 +33,18 @@ struct CustomAlertView: View {
             //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
             
             Spacer()
-            Button(action: {
-                NSApplication.shared.terminate(self)
-                
-            }, label: {
+            
+            Button(action: { appClose() }, label: {
                 Text("Нет")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             })
+            
             //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
             Spacer()
-            Button(action: {
-                MainViewModel.shared.pause()
-                MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
-                NSApplication.shared.terminate(self)
-            }, label: {
+            
+            Button(action: { appCloseAndDoNotSave() }, label: {
                 Text("Не сохранять")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
@@ -56,11 +53,9 @@ struct CustomAlertView: View {
             //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
             
             Spacer()
-        }.frame(width: 350, height: 300)
-            .background(Color.offWhite)
-        //            .cornerRadius(12)
-            .clipped()
-        
+        }
+        .frame(width: 350, height: 300)
+        .backgroundGaussianBlur(type: .behindWindow, material: .m1_hudWindow)
     }
 }
 
@@ -70,3 +65,21 @@ struct SwiftUIView_Previews: PreviewProvider {
     }
 }
 
+
+///////////////////////
+///HELERS
+//////////////////////
+fileprivate func appClose() {
+    NSApplication.shared.terminate(nil)
+}
+
+fileprivate func appCloseAndDoNotSave() {
+    MainViewModel.shared.pause()
+    MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
+    NSApplication.shared.terminate(nil)
+}
+
+fileprivate func appCloseWithSave() {
+    MainViewModel.shared.pause()
+    NSApplication.shared.terminate(nil)
+}

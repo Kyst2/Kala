@@ -15,7 +15,7 @@ struct SettingView: View {
             StopTimerConfigDropDown()
                 .padding(.horizontal,20)
             
-            Text("close during operation:")
+            Text("Close during operation:")
                 .foregroundColor(.gray)
             
             PlayTimerConfogDropDown()
@@ -44,10 +44,8 @@ struct SettingView: View {
 fileprivate extension View {
     func applyTextStyle() -> some View {
         self
-//            .font(.system(size: 15, design: .monospaced))
             .foregroundColor(.black)
             .pickerStyle(.menu)
-            //.NeumorphicStyle()
     }
 }
 /////////////////////////////
@@ -77,10 +75,8 @@ fileprivate extension SettingView {
 /////////////////////////////
 ///Previews
 ////////////////////////////
-
 struct SettingVIew_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
     }
 }
-
