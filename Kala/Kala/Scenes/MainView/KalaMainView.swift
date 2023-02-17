@@ -14,12 +14,13 @@ struct KalaMainView: View {
             }
             .frame(minWidth: 500, idealWidth: 600 , maxWidth: .infinity, minHeight: 200, idealHeight: 300, maxHeight: .infinity)
             .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
-//            .preferredColorScheme(.light)
     }
 }
 
 struct StopwatchInterfaceView: View {
     @ObservedObject var model: MainViewModel
+    @Environment(\.colorScheme) var theme
+    var themeIsDark: Bool { theme == .dark}
     
     let copyPublisher = PassthroughSubject<Void, Never>()
     
@@ -30,38 +31,52 @@ struct StopwatchInterfaceView: View {
     var body: some View {
         VStack(spacing: 20){
             HStack {
-                Text(model.timePassedStr)
-                    .foregroundColor(.gray)
-                    .font(.system(size: 40,design: .monospaced))
-                    .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
-                    .onTapGesture {
-                        // implement copy text here
-                        
-                        copyPublisher.send()
-                    }
-                
-                if model.config.displaySalary {
-                    Text(model.salary)
-                        .foregroundColor(.orange)
-                        .font(.system(size: 15,design: .monospaced))
-                }
+                timerPanel()
+                salaryPanel()
             }
             
-            HStack(spacing: 40) {
-                if model.config.isGoing {
-                    NeuromorphBtn("Pause") { model.pause()}
-                        .keyboardShortcut(" ", modifiers: [])
-                } else {
-                    NeuromorphBtn("Start") { model.start()}
-                        .keyboardShortcut(" ", modifiers: [])
-                }
-                
-                if model.timePassedStr != "00:00:00.000" {
-                    NeuromorphBtn("Reset") { model.reset() }
-                        .keyboardShortcut("r", modifiers: [])
-                }
-            }.padding()
+            buttonsPanel()
         }
+    }
+}
+
+extension StopwatchInterfaceView {
+    func timerPanel() -> some View {
+        Text(model.timePassedStr)
+            .foregroundColor(themeIsDark ? .gray : .darkGray)
+            .font(.system(size: 40,design: .monospaced))
+            .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
+            .onTapGesture {
+                // implement copy text here
+                
+                copyPublisher.send()
+            }
+    }
+    
+    @ViewBuilder
+    func salaryPanel() -> some View {
+        if model.config.displaySalary {
+            Text(model.salary)
+                .foregroundColor(themeIsDark ? .orange : .blue )
+                .font(.system(size: 14, design: .monospaced))
+        }
+    }
+    
+    func buttonsPanel() -> some View {
+        HStack(spacing: 40) {
+            if model.config.isGoing {
+                NeuromorphBtn("Pause") { model.pause()}
+                    .keyboardShortcut(" ", modifiers: [])
+            } else {
+                NeuromorphBtn("Start") { model.start()}
+                    .keyboardShortcut(" ", modifiers: [])
+            }
+            
+            if model.timePassedStr != "00:00:00.000" {
+                NeuromorphBtn("Reset") { model.reset() }
+                    .keyboardShortcut("r", modifiers: [])
+            }
+        }.padding()
     }
 }
 
