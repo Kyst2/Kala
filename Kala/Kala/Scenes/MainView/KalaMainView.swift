@@ -29,15 +29,23 @@ struct StopwatchInterfaceView: View {
     
     var body: some View {
         VStack(spacing: 20){
-            Text(model.timePassedStr)
-                .foregroundColor(.gray)
-                .font(.system(size: 40,design: .monospaced))
-                .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
-                .onTapGesture {
-                    // implement copy text here
-                    
-                    copyPublisher.send()
+            HStack {
+                Text(model.timePassedStr)
+                    .foregroundColor(.gray)
+                    .font(.system(size: 40,design: .monospaced))
+                    .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
+                    .onTapGesture {
+                        // implement copy text here
+                        
+                        copyPublisher.send()
+                    }
+                
+                if model.config.displaySalary {
+                    Text(model.salary)
+                        .foregroundColor(.orange)
+                        .font(.system(size: 15,design: .monospaced))
                 }
+            }
             
             HStack(spacing: 40) {
                 if model.config.isGoing {

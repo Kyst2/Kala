@@ -1,10 +1,17 @@
 import Foundation
 import SwiftUI
+import Combine
 
 class Config: ObservableObject {
     static let shared = Config()
     
-    private init() { }
+    private var cancellable: AnyCancellable?
+    
+    private init() {
+        cancellable = self.objectWillChange.sink { _ in
+            SettingViewModel.floatWindowUpd()
+        }
+    }
     
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var saveIsGoingSettings: ActionTimerGoing = .AskAction
@@ -15,6 +22,9 @@ class Config: ObservableObject {
     @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
     
     @AppStorage("Save_isGoing") var isGoing: Bool = false
+    
+    @AppStorage("Save_displayMoney") var displaySalary: Bool = false
+    @AppStorage("Save_hourSalary") var hourSalary: Double = 5.0
 }
 
 //////////////////////////

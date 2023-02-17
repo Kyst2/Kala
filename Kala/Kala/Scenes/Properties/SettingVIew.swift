@@ -6,29 +6,39 @@ struct SettingView: View {
     
     @ObservedObject var config = Config.shared
     
+    var hourSalary: Binding<String> = Binding<String> (
+        get: { "\(Config.shared.hourSalary)" },
+        set: { Config.shared.hourSalary = Double($0) ?? 0 }
+    )
+    
     var body: some View {
         VStack() {
             Spacer()
+            
             Text("Close on pause:")
-                .foregroundColor(.gray)
             
             StopTimerConfigDropDown()
                 .padding(.horizontal,20)
             
             Text("Close during operation:")
-                .foregroundColor(.gray)
             
             PlayTimerConfogDropDown()
                 .padding(.horizontal,20)
             
-            Toggle(isOn: config.$displayMs) { Text("Show milliseconds")
-                .foregroundColor(.gray)
+            Toggle(isOn: config.$displayMs) { Text("Show milliseconds") }
+            
+            HStack {
+                Toggle(isOn: config.$displaySalary) { Text(config.displaySalary ? "Hour salary" : "Display salary/hour") }
+                
+                if config.$displaySalary.wrappedValue {
+                    TextField("hour Salary", text: hourSalary)
+                        .frame(width: 50)
+                    
+                    Text("$")
+                }
             }
             
-            Toggle(isOn: config.$topMost) { Text("On top of all the windows")
-                .foregroundColor(.gray)
-            }
-            .onChange(of: config.$topMost) { SettingViewModel.floatWindowUpd() }
+            Toggle(isOn: config.$topMost) { Text("On top of all the windows") }
             
             Spacer()
         }
@@ -45,7 +55,7 @@ struct SettingView: View {
 fileprivate extension View {
     func applyTextStyle() -> some View {
         self
-            .foregroundColor(.black)
+            .foregroundColor(.gray)
             .pickerStyle(.menu)
     }
 }
