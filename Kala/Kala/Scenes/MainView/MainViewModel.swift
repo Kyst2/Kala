@@ -46,6 +46,13 @@ class MainViewModel: ObservableObject {
         
         timePassedStr = "00:00:00.000"
     }
+    
+    func copyToClipBoard(textToCopy: String) {
+        let pasteBoard = NSPasteboard.general
+        pasteBoard.clearContents()
+        pasteBoard.setString(textToCopy, forType: .string)
+        
+    }
 }
 
 extension Stopwatch {

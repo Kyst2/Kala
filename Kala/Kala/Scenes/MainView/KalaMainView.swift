@@ -48,7 +48,7 @@ extension StopwatchInterfaceView {
             .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
             .onTapGesture {
                 // implement copy text here
-                
+                model.copyToClipBoard(textToCopy: model.timePassedStr)
                 copyPublisher.send()
             }
     }
