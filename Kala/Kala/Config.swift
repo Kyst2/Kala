@@ -12,6 +12,8 @@ class Config: ObservableObject {
             SettingViewModel.floatWindowUpd()
         }
     }
+    @AppStorage("Save_Start_Time") var saveStarttime:CFTimeInterval?
+//    (Stopwatch().startTime ?? 0)
     
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var saveIsGoingSettings: ActionTimerGoing = .AskAction

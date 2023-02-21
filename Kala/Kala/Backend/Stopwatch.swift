@@ -3,13 +3,14 @@ import SwiftUI
 import QuartzCore
 
 public class Stopwatch {
-    var startTime:CFTimeInterval?
+//    var startTime:CFTimeInterval? = Config.shared.saveStarttime
+    
     
     public var isGoing: Bool = false
     
     private var memoredTime: CFTimeInterval?
     var diff: CFTimeInterval {
-        guard let startTime = startTime else { return (memoredTime ?? 0) }
+        guard let startTime = Config.shared.saveStarttime else { return (memoredTime ?? 0) }
         
         let endTime = CACurrentMediaTime()
         return endTime - startTime + (memoredTime ?? 0)
@@ -25,21 +26,21 @@ public extension Stopwatch {
             return self
         }
         isGoing = true
-        if startTime == nil {
-            startTime = CACurrentMediaTime()
+        if Config.shared.saveStarttime == nil {
+           Config.shared.saveStarttime = CACurrentMediaTime()
         }
         return self
     }
     
     func restart() {
         isGoing = true
-        startTime = CACurrentMediaTime()
+        Config.shared.saveStarttime = CACurrentMediaTime()
         memoredTime = nil
     }
     
     func reset() {
         isGoing = false
-        startTime = nil
+        Config.shared.saveStarttime = nil
         memoredTime = nil
     }
     
@@ -52,7 +53,7 @@ public extension Stopwatch {
             self.memoredTime = diff
         }
         
-        self.startTime = nil
+        Config.shared.saveStarttime = nil
     }
     
     func setDiff(_ interval: CFTimeInterval) {
@@ -65,6 +66,6 @@ public extension Stopwatch {
         }else {
             self.memoredTime = diff
         }
-        self.startTime = CACurrentMediaTime()
+        Config.shared.saveStarttime = CACurrentMediaTime()
     }
 }

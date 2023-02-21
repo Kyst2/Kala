@@ -74,8 +74,6 @@ extension Stopwatch {
         
         let hrs: Int  = Int( (diff/(60.0*60)).truncatingRemainder(dividingBy: 60.0) ) - days * 24
         
-        print("days: \(days), hrs: \(hrs), mins: \(mins), sec: \(sec), ")
-        
         if days >= 1 {
             return "\(days)d \(twoZeroTime(hrs)):\(twoZeroTime(mins)):\(twoZeroTime(sec))"
         }

@@ -96,6 +96,7 @@ extension NSWindow {
                 break;
             case .TimeGoingOnKalaClose:
                 MainViewModel.shared.st.offline()
+                
                 NSApplication.shared.terminate(self)
                 break;
             case .SaveAndClose:

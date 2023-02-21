@@ -30,6 +30,7 @@
 		A2CB37C3297C31C5002C1B45 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37C2297C31C5002C1B45 /* Config.swift */; };
 		A2DCF8D1299BE3C7005957DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2DCF8D3299BE3C7005957DE /* Localizable.strings */; };
 		A2DCF8D9299D4846005957DE /* addOpacityBlinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF8D8299D4846005957DE /* addOpacityBlinker.swift */; };
+		A2DCF8DC29A3CF2D005957DE /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */,
+				A2DCF8DC29A3CF2D005957DE /* Stopwatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +501,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Kala/Preview Content\"";
-				DEVELOPMENT_TEAM = RPH4S2457V;
+				DEVELOPMENT_TEAM = QZKQ74LNRY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
