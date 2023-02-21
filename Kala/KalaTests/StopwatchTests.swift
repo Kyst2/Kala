@@ -56,9 +56,18 @@ class StopwatchTests: XCTestCase {
     func testDaysTest() throws {
         let st = Stopwatch()
         
-        st.setDiff(60 * 60 * 24 + 5) // 1 day + 5 sec
+        let OneDayInSec:CFTimeInterval = 60 * 60 * 24
+        let hr:CFTimeInterval = 60 * 60
+        let min:CFTimeInterval = 60
+        
+        st.setDiff(OneDayInSec + 5) // 1 day + 5 sec
         
         XCTAssertEqual(st.timeStrS, "1d 00:00:05")
+        
+        
+        st.setDiff(OneDayInSec + 4 * hr + 5 * min + 6) // 1 day + 5 sec
+        
+        XCTAssertEqual(st.timeStrS, "1d 04:05:06")
     }
 
 //    func testFewStarts() throws {

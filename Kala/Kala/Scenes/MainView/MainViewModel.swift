@@ -48,8 +48,7 @@ class MainViewModel: ObservableObject {
     }
 }
 
-fileprivate extension Stopwatch {
-    
+extension Stopwatch {
     func twoZeroTime(_ time: Int) -> String{
        let timeArray = String(time)
         if timeArray.count > 1 {
@@ -68,13 +67,17 @@ fileprivate extension Stopwatch {
     }
     
     var timeStrS: String {
-        let days: Int = Int(diff/(60.0*60*24))
-        let hrs: Int = Int(diff/(60.0*60))
-        let mins: Int = Int(diff/(60.0))
-        let sec: Int = Int(diff.truncatingRemainder(dividingBy: 60.0) )
+        let sec: Int  = Int(diff.truncatingRemainder(dividingBy: 60.0) )
+        let mins: Int = Int( (diff/(60.0)).truncatingRemainder(dividingBy: 60.0) )
+        
+        let days: Int = Int( (diff/(60.0*60*24)).truncatingRemainder(dividingBy: 60.0) )
+        
+        let hrs: Int  = Int( (diff/(60.0*60)).truncatingRemainder(dividingBy: 60.0) ) - days * 24
+        
+        print("days: \(days), hrs: \(hrs), mins: \(mins), sec: \(sec), ")
         
         if days >= 1 {
-            return "\(twoZeroTime(days))d \(twoZeroTime(hrs)):\(mins):\(sec)"
+            return "\(days)d \(twoZeroTime(hrs)):\(twoZeroTime(mins)):\(twoZeroTime(sec))"
         }
         
         return "\(twoZeroTime(hrs)):\(twoZeroTime(mins)):\(twoZeroTime(sec))"
