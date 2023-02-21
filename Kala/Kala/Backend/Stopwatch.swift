@@ -3,7 +3,7 @@ import SwiftUI
 import QuartzCore
 
 public class Stopwatch {
-    @AppStorage("Save_Time") var startTime:CFTimeInterval?
+    var startTime:CFTimeInterval?
     
     public var isGoing: Bool = false
     
@@ -67,6 +67,4 @@ public extension Stopwatch {
         }
         self.startTime = CACurrentMediaTime()
     }
-    
-    
 }
