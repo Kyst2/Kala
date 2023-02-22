@@ -6,11 +6,15 @@ struct SettingView: View {
     
     @ObservedObject var config = Config.shared
     
-    var hourSalary: Binding<String> = Binding<String> (
-        get: { "\(Config.shared.hourSalary)" },
-        set: { Config.shared.hourSalary = Double($0) ?? 0 }
-    )
-    
+    private let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    //    var hourSalary:Binding<String> = Binding<String> (
+    //        get: { "\(Config.shared.hourSalary)" },
+    //        set: { Config.shared.hourSalary = Double($0) ?? 0 }
+    //    )
     var body: some View {
         VStack() {
             Spacer()
@@ -31,9 +35,11 @@ struct SettingView: View {
                 Toggle(isOn: config.$displaySalary) { Text(config.displaySalary ? "Hour salary" : "Display salary/hour") }
                 
                 if config.$displaySalary.wrappedValue {
-                    TextField("hour Salary", text: hourSalary)
+                    TextField("hour Salary", value: config.$hourSalary, formatter: formatter)
                         .frame(width: 50)
-                    
+                    //                    TextField("hour Salary", text: hourSalary)
+                    //                        .frame(width: 50)
+                    //
                     Text("$")
                 }
             }

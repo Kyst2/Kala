@@ -18,12 +18,13 @@ struct NeuButtonBackgroundView : View  {
     
     @Environment(\.colorScheme) var colorScheme
     
-    let lThemeLightShadow: Color = Color(hex: 0x888888)
-    let lThemeDarkShadow: Color =  Color(hex: 0x555555)
-    let dThemeLightShadow: Color = Color(hex: 0x888888)
-    let dThemeDarkShadow: Color =  Color(hex: 0x555555)
+    let lThemeLightShadow: Color = Color("gray")
+    let lThemeDarkShadow: Color =  Color("gray")
+    let dThemeLightShadow: Color = Color("gray")
+    let dThemeDarkShadow: Color =  Color("gray")
     
-    var mainColor: Color   { colorScheme == .light ? Color.white : Color.darkGray }
+    var mainColor: Color = Color("Dark-Gray")
+//    { colorScheme == .light ? Color.white : Color.darkGray }
     var lightShadow: Color { colorScheme == .light ? lThemeLightShadow : lThemeDarkShadow }
     var darkShadow: Color  { colorScheme == .light ? dThemeLightShadow : dThemeDarkShadow }
     

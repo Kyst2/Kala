@@ -17,7 +17,8 @@ struct NeuromorphBtn: View {
             Text(text)
                 .padding(.horizontal, 30)
                 .font(.system(size: 20,design: .monospaced))
-                .foregroundColor( theme == .dark ? .gray : .gray)
+//                .foregroundColor(Color("gray"))
+//                .foregroundColor( theme == .dark ? .gray : .gray)
                 .fixedSize()
         }
         .buttonStyle(NeumorphicButtonStyle(width: 200, cornerRadius : 20))

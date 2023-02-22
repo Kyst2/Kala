@@ -26,7 +26,7 @@ class Config: ObservableObject {
     @AppStorage("Save_isGoing") var isGoing: Bool = false
     
     @AppStorage("Save_displayMoney") var displaySalary: Bool = false
-    @AppStorage("Save_hourSalary") var hourSalary: Double = 5.0
+    @AppStorage("Save_hourSalary") var hourSalary: Double = 0
 }
 
 //////////////////////////
