@@ -47,7 +47,6 @@ extension StopwatchInterfaceView {
             .font(.system(size: 40,design: .monospaced))
             .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
             .onTapGesture {
-                // implement copy text here
                 model.copyToClipBoard(textToCopy: model.timePassedStr)
                 copyPublisher.send()
             }
@@ -59,22 +58,27 @@ extension StopwatchInterfaceView {
             Text(model.salary)
                 .foregroundColor(themeIsDark ? .orange : .blue )
                 .font(.system(size: 14, design: .monospaced))
+                .onTapGesture {
+                    model.copyToClipBoard(textToCopy: model.salary)
+                    copyPublisher.send()
+                }
         }
     }
     
     func buttonsPanel() -> some View {
         HStack(spacing: 40) {
+            
+            if model.timePassedStr != "00:00:00.000" {
+                NeuromorphBtn("Reset") { model.reset() }
+                    .keyboardShortcut("r", modifiers: [])
+            }
+            
             if model.config.isGoing {
                 NeuromorphBtn("Pause") { model.pause()}
                     .keyboardShortcut(" ", modifiers: [])
             } else {
                 NeuromorphBtn("Start") { model.start()}
                     .keyboardShortcut(" ", modifiers: [])
-            }
-            
-            if model.timePassedStr != "00:00:00.000" {
-                NeuromorphBtn("Reset") { model.reset() }
-                    .keyboardShortcut("r", modifiers: [])
             }
         }.padding()
     }

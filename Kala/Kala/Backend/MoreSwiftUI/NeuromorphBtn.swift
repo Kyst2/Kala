@@ -21,6 +21,6 @@ struct NeuromorphBtn: View {
 //                .foregroundColor( theme == .dark ? .gray : .gray)
                 .fixedSize()
         }
-        .buttonStyle(NeumorphicButtonStyle(width: 200, cornerRadius : 20))
+        .buttonStyle(NeumorphicButtonStyle(width: 150, cornerRadius : 20))
     }
 }
