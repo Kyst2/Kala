@@ -21,7 +21,7 @@ struct AboutView: View {
                 // Xcode 13.0 beta 2
                 .textSelection(.enabled)
             
-            Text(Bundle.main.copyright)
+            Text("Copyright (c): \(Bundle.main.copyright)")
                 .font(.system(size: 10, weight: .thin))
                 .multilineTextAlignment(.center)
         }

@@ -12,27 +12,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showAboutWnd() {
-        guard aboutBoxWindowController == nil else { return}
-        
-        let styleMask: NSWindow.StyleMask = [.closable, .miniaturizable,/* .resizable,*/ .titled]
-        let window = NSWindow()
-        window.styleMask = styleMask
-        window.title = "About \(Bundle.main.appName)"
-        window.contentView = NSHostingView(rootView: AboutView())
-        window.center()
-        aboutBoxWindowController = NSWindowController(window: window)
+        if aboutBoxWindowController == nil {
+            let styleMask: NSWindow.StyleMask = [.closable, .miniaturizable,/* .resizable,*/ .titled]
+            let window = NSWindow()
+            window.styleMask = styleMask
+            window.title = "About \(Bundle.main.appName)"
+            window.contentView = NSHostingView(rootView: AboutView())
+            window.center()
+            
+            aboutBoxWindowController = NSWindowController(window: window)
+        }
         
         aboutBoxWindowController?.showWindow(aboutBoxWindowController?.window)
+        aboutBoxWindowController?.window?.moveTo(screen: mainWnd()?.screen)
+    }
+    
+    func mainWnd() -> NSWindow? {
+        NSApplication.shared.windows.filter{ $0.title == "Kala" }.first
     }
     
     func showCustomAlert() {
-        guard alertWindowController == nil else { return}
+        guard alertWindowController == nil else { return }
         
         let styleMask: NSWindow.StyleMask = [.docModalWindow, .titled ] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
         let window = NSWindow()
         window.styleMask = styleMask
         window.contentView = NSHostingView(rootView: CustomAlertView())
         window.center()
+        
         alertWindowController = NSWindowController(window: window)
         
         alertWindowController?.showWindow(alertWindowController?.window)
