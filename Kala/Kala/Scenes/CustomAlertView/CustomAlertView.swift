@@ -19,8 +19,8 @@ struct CustomAlertView: View {
             Text("Вы уверены, что хотите закрыть приложение? ")
                 .foregroundColor(.gray)
                 .font(.system(size: 13,design: .monospaced))
+                .padding(.horizontal,6)
                 .padding(.vertical,5)
-                .fixedSize()
             
             Spacer()
             
@@ -29,9 +29,7 @@ struct CustomAlertView: View {
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
-            })
-            //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
-            
+            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             Spacer()
             
             Button(action: { appClose() }, label: {
@@ -39,9 +37,8 @@ struct CustomAlertView: View {
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
-            })
-            
-            //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+
             Spacer()
             
             Button(action: { appCloseAndDoNotSave() }, label: {
@@ -49,8 +46,7 @@ struct CustomAlertView: View {
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
-            })
-            //.buttonStyle(NeumorphicButton(shape: RoundedRectangle(cornerRadius: 20)))
+            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             
             Spacer()
         }

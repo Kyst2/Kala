@@ -15,8 +15,6 @@ struct KalaMainView: View {
             }
             .frame(minWidth: 500, idealWidth: 500 , maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity)
             .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
-//            .dragWndWithClick()
-        
     }
 }
 
