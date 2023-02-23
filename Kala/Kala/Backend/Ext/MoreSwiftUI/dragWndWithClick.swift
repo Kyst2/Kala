@@ -24,7 +24,7 @@ public struct DragWndView: View {
     }
     
     public var body: some View {
-        ( test ? Color.green : Color.black )
+        ( test ? Color.green : Color.clickableAlpha )
             .overlay( DragWndNSRepr() )
     }
 }
@@ -45,4 +45,9 @@ fileprivate class DragWndNSView: NSView {
     override public func mouseDown(with event: NSEvent) {
         window?.performDrag(with: event)
     }
+}
+
+@available(OSX 10.15, *)
+public extension Color {
+    static var clickableAlpha: Color { get { return Color(rgbaHex: 0x01010101) } }
 }

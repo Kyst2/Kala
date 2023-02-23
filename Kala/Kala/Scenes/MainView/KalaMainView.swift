@@ -6,15 +6,19 @@ struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
     
     var body: some View {
-        StopwatchInterfaceView(model: model)
+        ZStack {
+            VisualEffectView(type: .behindWindow, material: .m2_menu)
             
-            .wndAccessor { window in
-                let closeButton = window?.standardWindowButton(.closeButton)
-                
-                closeButton?.action = #selector(NSWindow.doMyClose(_:))
-            }
-            .frame(minWidth: 500, idealWidth: 500 , maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity)
-            .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
+            DragWndView()
+            
+            StopwatchInterfaceView(model: model)
+                .wndAccessor { window in
+                    let closeButton = window?.standardWindowButton(.closeButton)
+                    
+                    closeButton?.action = #selector(NSWindow.doCustomClose(_:))
+                }
+                .frame(minWidth: 500, idealWidth: 500 , maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity)
+        }
     }
 }
 
@@ -92,7 +96,7 @@ extension StopwatchInterfaceView {
 
 extension NSWindow {
     @objc
-    func doMyClose(_ sender: Any?) {
+    func doCustomClose(_ sender: Any?) {
         
         if MainViewModel.shared.config.isGoing {
             switch Config.shared.saveIsGoingSettings {

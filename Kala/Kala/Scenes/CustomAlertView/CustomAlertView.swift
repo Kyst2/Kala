@@ -9,20 +9,19 @@ import SwiftUI
 
 struct CustomAlertView: View {
     var body: some View {
-        VStack{
-            Spacer()
+        VStack(spacing: 20){
             
-            Text("Предупреждение!")
-                .font(.system(size: 15,design: .monospaced))
-                .foregroundColor(.gray)
-            
-            Text("Вы уверены, что хотите закрыть приложение? ")
-                .foregroundColor(.gray)
-                .font(.system(size: 13,design: .monospaced))
-                .padding(.horizontal,6)
-                .padding(.vertical,5)
-            
-            Spacer()
+            VStack {
+                Text("Предупреждение!")
+                    .font(.system(size: 15,design: .monospaced))
+                    .foregroundColor(.gray)
+                
+                Text("Вы уверены, что хотите закрыть приложение? ")
+                    .foregroundColor(.gray)
+                    .font(.system(size: 13,design: .monospaced))
+                    .padding(.horizontal,6)
+                    .padding(.vertical,5)
+            }
             
             Button(action: { appCloseWithSave() }, label: {
                 Text("Закрыть с сохранением")
@@ -30,16 +29,6 @@ struct CustomAlertView: View {
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
-            Spacer()
-            
-            Button(action: { appClose() }, label: {
-                Text("Нет")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 13,design: .monospaced))
-                    .frame(width: 200, height: 15)
-            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
-
-            Spacer()
             
             Button(action: { appCloseAndDoNotSave() }, label: {
                 Text("Не сохранять")
@@ -48,9 +37,15 @@ struct CustomAlertView: View {
                     .frame(width: 200, height: 15)
             }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             
-            Spacer()
+            Button(action: { closeAlert() }, label: {
+                Text("Отмена")
+                    .foregroundColor(.gray)
+                    .font(.system(size: 13,design: .monospaced))
+                    .frame(width: 200, height: 15)
+            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
         }
-        .frame(width: 350, height: 300)
+        .padding(30)
+        .fixedSize()
         .backgroundGaussianBlur(type: .behindWindow, material: .m1_hudWindow)
     }
 }
@@ -65,6 +60,10 @@ struct SwiftUIView_Previews: PreviewProvider {
 ///////////////////////
 ///HELERS
 //////////////////////
+fileprivate func closeAlert() {
+    AppDelegate.instance.alertWindowController?.window?.close()
+}
+
 fileprivate func appClose() {
     NSApplication.shared.terminate(nil)
 }
