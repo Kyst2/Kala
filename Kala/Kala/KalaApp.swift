@@ -15,6 +15,7 @@ struct KalaApp: App {
                     }
                 }
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
         .commands {
             
             CommandGroup(replacing: .newItem, addition: { })

@@ -16,9 +16,11 @@ struct KalaMainView: View {
                     let closeButton = window?.standardWindowButton(.closeButton)
                     
                     closeButton?.action = #selector(NSWindow.doCustomClose(_:))
+                    
                 }
-                .frame(minWidth: 500, idealWidth: 500 , maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity)
+                .padding(40)
         }
+        .ignoresSafeArea()
     }
 }
 
