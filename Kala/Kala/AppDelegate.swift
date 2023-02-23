@@ -32,16 +32,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showCustomAlert() {
-        guard alertWindowController == nil else { return }
-        
-        let styleMask: NSWindow.StyleMask = [.docModalWindow, .titled ] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
-        let window = NSWindow()
-        window.styleMask = styleMask
-        window.contentView = NSHostingView(rootView: CustomAlertView())
-        window.center()
-        
-        alertWindowController = NSWindowController(window: window)
+        if alertWindowController == nil {
+            let styleMask: NSWindow.StyleMask = [.docModalWindow, .titled ] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
+            let window = NSWindow()
+            window.styleMask = styleMask
+            window.contentView = NSHostingView(rootView: CustomAlertView())
+            window.center()
+            
+            alertWindowController = NSWindowController(window: window)
+        }
         
         alertWindowController?.showWindow(alertWindowController?.window)
+        alertWindowController?.window?.moveTo(screen: mainWnd()?.screen)
     }
 }

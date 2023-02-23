@@ -136,9 +136,8 @@ extension NSWindow {
     }
 
     
-    func askAlert1() {
-        let appDel = AppDelegate.instance!
-        appDel.showCustomAlert()
+    func askAlert1() { // Rename me, this is peace of shit
+        AppDelegate.instance.showCustomAlert()
         
         
 //        let alert = NSAlert()
