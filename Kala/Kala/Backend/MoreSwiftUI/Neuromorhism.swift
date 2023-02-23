@@ -76,12 +76,13 @@ struct NeumorphicButtonStyle: ButtonStyle {
     @State var  shadowRadiusXY : CGFloat = 3
     @State var  scale : CGFloat = 1
     let width : CGFloat
+    let height : CGFloat
     let cornerRadius : CGFloat
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding()
-            .frame(width: width)
+            .frame(width: width, height: height)
             .foregroundColor(.primary)
             .background(NeuButtonBackgroundView(cornerRadius: cornerRadius, opacity: opacity, opacityOp: opacityOp, shadowRadiusXY: shadowRadiusXY))
             .scaleEffect(scale)
@@ -111,7 +112,7 @@ struct CustomButton : View {
             Button("Click") {
                 
             }
-            .buttonStyle(NeumorphicButtonStyle(width: 200, cornerRadius : 20))
+            .buttonStyle(NeumorphicButtonStyle(width: 200, height: 100, cornerRadius : 20))
         }
     }
 }

@@ -7,13 +7,16 @@ struct KalaMainView: View {
     
     var body: some View {
         StopwatchInterfaceView(model: model)
+            
             .wndAccessor { window in
                 let closeButton = window?.standardWindowButton(.closeButton)
                 
                 closeButton?.action = #selector(NSWindow.doMyClose(_:))
             }
-            .frame(minWidth: 500, idealWidth: 600 , maxWidth: .infinity, minHeight: 200, idealHeight: 300, maxHeight: .infinity)
+            .frame(minWidth: 500, idealWidth: 500 , maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity)
             .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
+//            .dragWndWithClick()
+        
     }
 }
 
