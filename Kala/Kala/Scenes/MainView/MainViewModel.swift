@@ -26,8 +26,6 @@ class MainViewModel: ObservableObject {
         }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
-            self.config.timePassedInterval = self.st.diff
-            
             let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
             self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
             

@@ -6,10 +6,6 @@ struct SettingView: View {
     
     @ObservedObject var config = Config.shared
     
-    //    var hourSalary:Binding<String> = Binding<String> (
-    //        get: { "\(Config.shared.hourSalary)" },
-    //        set: { Config.shared.hourSalary = Double($0) ?? 0 }
-    //    )
     var body: some View {
         VStack() {
             Spacer()
