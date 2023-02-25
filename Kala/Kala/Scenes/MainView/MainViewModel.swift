@@ -11,47 +11,82 @@ class MainViewModel: ObservableObject {
     var salary: String = ""
     
     private(set) var timer: Timer!
-    let st = Stopwatch()
+    let st = Stopwatch(startTime: nil)
     
     private init() {
         SettingViewModel.floatWindowUpd()
+        
+        if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose {
+            st.setDiff(CACurrentMediaTime() - appDisableTimeStamp)
+            start()
+        }
         
         if config.timePassedInterval > 0 {
             st.setDiff(config.timePassedInterval)
         }
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: { [self] _ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
             self.config.timePassedInterval = self.st.diff
             
-            let sry = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
-            self.salary = "[\( String(format: "%.2f", sry) )$]" 
+            let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
+            self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
             
-            self.timePassedStr = config.displayMs ? self.st.timeStrMs : self.st.timeStrS
+            let newPassedStr = config.displayMs ? self.st.timeStrMs : self.st.timeStrS
+            
+            if self.timePassedStr != newPassedStr {
+                self.timePassedStr = newPassedStr
+            }
         } )
     }
     
     func start() {
-        config.isGoing = true
         st.start()
     }
     
     func pause() {
-        config.isGoing = false
         st.pause()
+        
+        self.objectWillChange.send()
     }
     
     func reset() {
-        config.isGoing = false
+        timePassedStr = "00:00:00.000"
+        
         st.reset()
         
-        timePassedStr = "00:00:00.000"
+        self.objectWillChange.send()
     }
     
     func copyToClipBoard(textToCopy: String) {
         let pasteBoard = NSPasteboard.general
         pasteBoard.clearContents()
         pasteBoard.setString(textToCopy, forType: .string)
-        
+    }
+    
+    func updConfig() {
+        if st.isGoing {
+            switch config.saveIsGoingSettings {
+                case .TimeGoingOnKalaClose:
+                    config.appDisableTimeStamp = CACurrentMediaTime()
+                    config.timePassedInterval = st.diff
+                    break
+                case .SaveAndClose:
+                    config.timePassedInterval = st.diff
+                    config.appDisableTimeStamp = nil
+                default:
+                    config.timePassedInterval = 0
+                    config.appDisableTimeStamp = nil
+            }
+        } else {
+            switch config.saveStopSettings {
+                case .SaveAndClose:
+                    config.timePassedInterval = st.diff
+                    config.appDisableTimeStamp = nil
+                default:
+                    config.timePassedInterval = 0
+                    config.appDisableTimeStamp = nil
+            }
+        }
     }
 }
 

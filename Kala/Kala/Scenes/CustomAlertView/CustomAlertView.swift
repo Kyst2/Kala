@@ -23,21 +23,21 @@ struct CustomAlertView: View {
                     .padding(.vertical,5)
             }
             
-            Button(action: { appCloseWithSave() }, label: {
+            Button(action: { close() }, label: {
                 Text("Закрыть с сохранением")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             
-            Button(action: { appCloseAndDoNotSave() }, label: {
+            Button(action: { close() }, label: {
                 Text("Не сохранять")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
                     .frame(width: 200, height: 15)
             }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             
-            Button(action: { closeAlert() }, label: {
+            Button(action: { cancel() }, label: {
                 Text("Отмена")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
@@ -60,21 +60,12 @@ struct SwiftUIView_Previews: PreviewProvider {
 ///////////////////////
 ///HELERS
 //////////////////////
-fileprivate func closeAlert() {
+fileprivate func cancel() {
     AppDelegate.instance.alertWindowController?.window?.close()
 }
 
-fileprivate func appClose() {
-    NSApplication.shared.terminate(nil)
-}
-
-fileprivate func appCloseAndDoNotSave() {
-    MainViewModel.shared.pause()
-    MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
-    NSApplication.shared.terminate(nil)
-}
-
-fileprivate func appCloseWithSave() {
+fileprivate func close() {
+    MainViewModel.shared.updConfig()
     MainViewModel.shared.pause()
     NSApplication.shared.terminate(nil)
 }

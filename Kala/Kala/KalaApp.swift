@@ -7,13 +7,6 @@ struct KalaApp: App {
     var body: some Scene {
         WindowGroup {
             KalaMainView()
-                .onAppear {
-                    if Config.shared.saveIsGoingSettings == .TimeGoingOnKalaClose {
-                        if Config.shared.isGoing == true {
-                            MainViewModel.shared.start()
-                        }
-                    }
-                }
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .commands {

@@ -12,8 +12,9 @@ class Config: ObservableObject {
             SettingViewModel.floatWindowUpd()
         }
     }
-    @AppStorage("Save_Start_Time") var saveStarttime:CFTimeInterval?
-//    (Stopwatch().startTime ?? 0)
+    
+    // needed for measure time of app disable period
+    @AppStorage("Save_AppDisableTimeStamp") var appDisableTimeStamp: CFTimeInterval?
     
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var saveIsGoingSettings: ActionTimerGoing = .AskAction
@@ -22,8 +23,6 @@ class Config: ObservableObject {
     @AppStorage("Save_FloatingWindow") var topMost: Bool = false
     
     @AppStorage("Save_Time_Interval") var timePassedInterval: CFTimeInterval = CFTimeInterval()
-    
-    @AppStorage("Save_isGoing") var isGoing: Bool = false
     
     @AppStorage("Save_displayMoney") var displaySalary: Bool = false
     @AppStorage("Save_hourSalary") var hourSalary: Double = 0

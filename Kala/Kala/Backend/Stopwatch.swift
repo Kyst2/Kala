@@ -3,20 +3,21 @@ import SwiftUI
 import QuartzCore
 
 public class Stopwatch {
-//    var startTime:CFTimeInterval? = Config.shared.saveStarttime
-    
+    var startTime: CFTimeInterval?
     
     public var isGoing: Bool = false
     
     private var memoredTime: CFTimeInterval?
     var diff: CFTimeInterval {
-        guard let startTime = Config.shared.saveStarttime else { return (memoredTime ?? 0) }
+        guard let startTime = self.startTime else { return (memoredTime ?? 0) }
         
         let endTime = CACurrentMediaTime()
         return endTime - startTime + (memoredTime ?? 0)
     }
     
-    public init () { }
+    public init (startTime: CFTimeInterval?) {
+        self.startTime = startTime
+    }
 }
 
 public extension Stopwatch {
@@ -26,22 +27,22 @@ public extension Stopwatch {
             return self
         }
         isGoing = true
-        if Config.shared.saveStarttime == nil {
-           Config.shared.saveStarttime = CACurrentMediaTime()
-        }
+        
+        startTime = CACurrentMediaTime()
+        
         return self
     }
     
     func restart() {
         isGoing = true
-        Config.shared.saveStarttime = CACurrentMediaTime()
         memoredTime = nil
+        startTime = CACurrentMediaTime()
     }
     
     func reset() {
         isGoing = false
-        Config.shared.saveStarttime = nil
         memoredTime = nil
+        startTime = nil
     }
     
     func pause() {
@@ -49,23 +50,14 @@ public extension Stopwatch {
         
         if let _ = self.memoredTime {
             self.memoredTime = diff
-        }else {
+        } else {
             self.memoredTime = diff
         }
         
-        Config.shared.saveStarttime = nil
+        startTime = nil 
     }
     
     func setDiff(_ interval: CFTimeInterval) {
         self.memoredTime = interval
-    }
-    
-    func offline() {
-        if let _ = self.memoredTime {
-            self.memoredTime = diff
-        }else {
-            self.memoredTime = diff
-        }
-        Config.shared.saveStarttime = CACurrentMediaTime()
     }
 }

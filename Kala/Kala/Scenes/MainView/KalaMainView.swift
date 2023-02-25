@@ -80,7 +80,7 @@ extension StopwatchInterfaceView {
                     .keyboardShortcut("r", modifiers: [])
             }
             
-            if model.config.isGoing {
+            if model.st.isGoing {
                 NeuromorphBtn("Pause") { model.pause()}
                     .keyboardShortcut(" ", modifiers: [])
             } else {
@@ -99,38 +99,24 @@ extension StopwatchInterfaceView {
 extension NSWindow {
     @objc
     func doCustomClose(_ sender: Any?) {
-        
-        if MainViewModel.shared.config.isGoing {
+        if MainViewModel.shared.st.isGoing {
             switch Config.shared.saveIsGoingSettings {
             case .AskAction:
-                askAlert1()
-                break;
-            case .TimeGoingOnKalaClose:
-                MainViewModel.shared.st.offline()
-                
-                NSApplication.shared.terminate(self)
-                break;
-            case .SaveAndClose:
-                MainViewModel.shared.pause()
-                NSApplication.shared.terminate(self)
-                break;
-            case .NewSessionFromScratch:
-                MainViewModel.shared.pause()
-                MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
+                AppDelegate.instance.showCustomAlert()
+                break
+            default:
+                MainViewModel.shared.updConfig()
+                MainViewModel.shared.st.pause()
                 NSApplication.shared.terminate(self)
             }
         } else {
             switch Config.shared.saveStopSettings {
-            case .SaveAndClose :
-                MainViewModel.shared.pause()
-                NSApplication.shared.terminate(self)
-                break;
-            case .NewSessionFromScratch:
-                MainViewModel.shared.pause()
-                MainViewModel.shared.config.timePassedInterval = CFTimeInterval(0)
-                NSApplication.shared.terminate(self)
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
+            default:
+                MainViewModel.shared.updConfig()
+                MainViewModel.shared.st.pause()
+                NSApplication.shared.terminate(self)
             }
         }
     }
