@@ -75,7 +75,7 @@ extension StopwatchInterfaceView {
     func buttonsPanel() -> some View {
         HStack(spacing: 40) {
             
-            if model.timePassedStr != "00:00:00.000" {
+            if model.st.diff != 0 {
                 NeuromorphBtn("Reset") { model.reset() }
                     .keyboardShortcut("r", modifiers: [])
             }

@@ -23,7 +23,7 @@ struct CustomAlertView: View {
                     .padding(.vertical,5)
             }
             
-            Button(action: { close() }, label: {
+            Button(action: { saveAndClose() }, label: {
                 Text("Закрыть с сохранением")
                     .foregroundColor(.gray)
                     .font(.system(size: 13,design: .monospaced))
@@ -65,7 +65,12 @@ fileprivate func cancel() {
 }
 
 fileprivate func close() {
-    MainViewModel.shared.updConfig()
-    MainViewModel.shared.pause()
+    MainViewModel.shared.config.timePassedInterval = 0
+    MainViewModel.shared.config.appDisableTimeStamp = nil
+    NSApplication.shared.terminate(nil)
+}
+fileprivate func saveAndClose() {
+    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+    MainViewModel.shared.config.appDisableTimeStamp = nil
     NSApplication.shared.terminate(nil)
 }
