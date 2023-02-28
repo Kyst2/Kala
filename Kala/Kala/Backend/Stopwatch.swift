@@ -5,6 +5,8 @@ import QuartzCore
 public class Stopwatch {
     var startTime: CFTimeInterval?
     
+    var offlinetTime: CFTimeInterval?
+    
     public var isGoing: Bool = false
     
     private var memoredTime: CFTimeInterval?
@@ -12,7 +14,7 @@ public class Stopwatch {
         guard let startTime = self.startTime else { return (memoredTime ?? 0) }
         
         let endTime = CACurrentMediaTime()
-        return endTime - startTime + (memoredTime ?? 0)
+        return endTime - startTime + (memoredTime ?? 0) + (offlinetTime ?? 0)
     }
     
     public init (startTime: CFTimeInterval?) {
@@ -53,11 +55,14 @@ public extension Stopwatch {
         } else {
             self.memoredTime = diff
         }
-        
+        offlinetTime = nil
         startTime = nil 
     }
     
     func setDiff(_ interval: CFTimeInterval) {
         self.memoredTime = interval
+    }
+    func setDiffOffline(_ interval: CFTimeInterval) {
+        self.offlinetTime = interval
     }
 }

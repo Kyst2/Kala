@@ -17,7 +17,8 @@ class MainViewModel: ObservableObject {
         SettingViewModel.floatWindowUpd()
         
         if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose {
-            st.setDiff(CACurrentMediaTime() - appDisableTimeStamp)
+            st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
+//            st.setDiff(appDisableTimeStamp)
             start()
         }
         
@@ -64,25 +65,27 @@ class MainViewModel: ObservableObject {
     func updConfig() {
         if st.isGoing {
             switch config.saveIsGoingSettings {
-                case .TimeGoingOnKalaClose:
-                    config.appDisableTimeStamp = CACurrentMediaTime()
-                    config.timePassedInterval = st.diff
-                    break
-                case .SaveAndClose:
-                    config.timePassedInterval = st.diff
-                    config.appDisableTimeStamp = nil
-                default:
-                    config.timePassedInterval = 0
-                    config.appDisableTimeStamp = nil
+            case .TimeGoingOnKalaClose:
+                config.appDisableTimeStamp = CACurrentMediaTime()
+                config.timePassedInterval = st.diff
+                break
+            case .SaveAndClose:
+                config.timePassedInterval = st.diff
+                config.appDisableTimeStamp = nil
+                NSApplication.shared.terminate(self)
+            default:
+                config.timePassedInterval = 0
+                config.appDisableTimeStamp = nil
             }
         } else {
             switch config.saveStopSettings {
-                case .SaveAndClose:
-                    config.timePassedInterval = st.diff
-                    config.appDisableTimeStamp = nil
-                default:
-                    config.timePassedInterval = 0
-                    config.appDisableTimeStamp = nil
+            case .SaveAndClose:
+                config.timePassedInterval = st.diff
+                config.appDisableTimeStamp = nil
+                NSApplication.shared.terminate(self)
+            default:
+                config.timePassedInterval = 0
+                config.appDisableTimeStamp = nil
             }
         }
     }

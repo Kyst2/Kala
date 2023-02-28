@@ -113,6 +113,10 @@ extension NSWindow {
             switch Config.shared.saveStopSettings {
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
+            case .SaveAndClose :
+                MainViewModel.shared.updConfig()
+                MainViewModel.shared.pause()
+                NSApplication.shared.terminate(self)
             default:
                 MainViewModel.shared.updConfig()
                 MainViewModel.shared.st.pause()
