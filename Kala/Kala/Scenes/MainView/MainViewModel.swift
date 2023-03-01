@@ -14,8 +14,6 @@ class MainViewModel: ObservableObject {
     let st = Stopwatch(startTime: nil)
     
     private init() {
-        SettingViewModel.floatWindowUpd()
-        
         if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
 //            st.setDiff(appDisableTimeStamp)
@@ -36,6 +34,7 @@ class MainViewModel: ObservableObject {
                 self.timePassedStr = newPassedStr
             }
         } )
+        
     }
     
     func start() {
@@ -49,7 +48,11 @@ class MainViewModel: ObservableObject {
     }
     
     func reset() {
-        timePassedStr = "00:00:00.000"
+        if config.displayMs == true {
+            timePassedStr = "00:00:00.000"
+        }else {
+            timePassedStr = "00:00:00"
+        }
         
         st.reset()
         

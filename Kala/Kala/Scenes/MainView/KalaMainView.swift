@@ -21,6 +21,12 @@ struct KalaMainView: View {
                 .padding(40)
         }
         .ignoresSafeArea()
+        .wndAccessor{
+            if let _ = $0 {
+                SettingViewModel.floatWindowUpd()
+            }
+        }
+        
     }
 }
 

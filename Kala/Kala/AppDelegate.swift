@@ -25,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         aboutBoxWindowController?.showWindow(aboutBoxWindowController?.window)
         aboutBoxWindowController?.window?.moveTo(screen: mainWnd()?.screen)
+        
+        SettingViewModel.floatWindowUpd()
     }
     
     func mainWnd() -> NSWindow? {
@@ -38,11 +40,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.styleMask = styleMask
             window.contentView = NSHostingView(rootView: CustomAlertView())
             window.center()
-            
             alertWindowController = NSWindowController(window: window)
         }
         
         alertWindowController?.showWindow(alertWindowController?.window)
         alertWindowController?.window?.moveTo(screen: mainWnd()?.screen)
+        
+        SettingViewModel.floatWindowUpd()
     }
 }
