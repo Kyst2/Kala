@@ -37,17 +37,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if alertWindowController == nil {
             let styleMask: NSWindow.StyleMask = [.docModalWindow , .titled] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
             let window = NSWindow()
-            window.standardWindowButton(.closeButton)?.isHidden = true
-            window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-            window.standardWindowButton(.zoomButton)?.isHidden = true
-            window.titleVisibility = .hidden
             window.styleMask = styleMask
             window.contentView = NSHostingView(rootView: CustomAlertView())
-            
+            window.titlebarAppearsTransparent = true
+            window.styleMask.insert(.fullSizeContentView)
             window.center()
             
             
             alertWindowController = NSWindowController(window: window)
+            
             
         }
         
