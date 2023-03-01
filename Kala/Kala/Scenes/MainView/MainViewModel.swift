@@ -16,7 +16,6 @@ class MainViewModel: ObservableObject {
     private init() {
         if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
-//            st.setDiff(appDisableTimeStamp)
             start()
         }
         
@@ -39,11 +38,11 @@ class MainViewModel: ObservableObject {
     
     func start() {
         st.start()
+        self.objectWillChange.send()
     }
     
     func pause() {
         st.pause()
-        
         self.objectWillChange.send()
     }
     
@@ -53,9 +52,8 @@ class MainViewModel: ObservableObject {
         }else {
             timePassedStr = "00:00:00"
         }
-        
+        salary = "[0.00$]"
         st.reset()
-        
         self.objectWillChange.send()
     }
     

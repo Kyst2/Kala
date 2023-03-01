@@ -38,12 +38,13 @@ struct SettingView: View {
         }
         .applyTextStyle()
         .frame(idealWidth: 300, maxWidth: 300, idealHeight: 300, maxHeight: 300)
-        .background(VisualEffectView(type: .behindWindow, material: .m2_menu))
+        .background(VisualEffectView(type: .behindWindow, material: .m6_tooltip))
         .wndAccessor {
             if let _ = $0 {
                 SettingViewModel.floatWindowUpd()
             }
         }
+        
     }
 }
 

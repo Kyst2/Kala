@@ -9,44 +9,49 @@ import SwiftUI
 
 struct CustomAlertView: View {
     var body: some View {
-        VStack(spacing: 20){
+        ZStack{
+            VisualEffectView(type: .behindWindow, material: .m6_tooltip)
             
-            VStack {
-                Text("Предупреждение!")
-                    .font(.system(size: 15,design: .monospaced))
-                    .foregroundColor(.gray)
+            DragWndView()
+            
+            VStack(spacing: 20){
+                VStack {
+                    Text("Warning!")
+                        .font(.system(size: 15,design: .monospaced))
+                        .foregroundColor(.gray)
+                    
+                    Text("Are you sure you want to close the application ?")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 13,design: .monospaced))
+                        .padding(.horizontal,6)
+                        .padding(.vertical,5)
+                        .fixedSize()
+                    
+                }
+
+                Button(action: { saveAndClose() }, label: {
+                    Text("Save current session value")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 13,design: .monospaced))
+                }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
                 
-                Text("Вы уверены, что хотите закрыть приложение? ")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 13,design: .monospaced))
-                    .padding(.horizontal,6)
-                    .padding(.vertical,5)
+                Button(action: { close() }, label: {
+                    Text("Reset value to 00.00.00")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 13,design: .monospaced))
+                }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+                
+                Button(action: { cancel() }, label: {
+                    Text("Сancel")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 13,design: .monospaced))
+                }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             }
             
-            Button(action: { saveAndClose() }, label: {
-                Text("Закрыть с сохранением")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 13,design: .monospaced))
-                    .frame(width: 200, height: 15)
-            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+            .padding(30)
+            .fixedSize()
             
-            Button(action: { close() }, label: {
-                Text("Не сохранять")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 13,design: .monospaced))
-                    .frame(width: 200, height: 15)
-            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
-            
-            Button(action: { cancel() }, label: {
-                Text("Отмена")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 13,design: .monospaced))
-                    .frame(width: 200, height: 15)
-            }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
-        }
-        .padding(30)
-        .fixedSize()
-        .backgroundGaussianBlur(type: .behindWindow, material: .m1_hudWindow)
+        }.ignoresSafeArea()
     }
 }
 

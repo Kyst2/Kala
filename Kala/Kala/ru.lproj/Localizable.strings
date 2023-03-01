@@ -15,7 +15,10 @@
 "Show milliseconds" = "Показывать милисекунды";
 "On top of all the windows" = "Поверх всех окон";
 
-"Ask what to do" = "Запрашивать что выполнить";
-"The new session starts at 00.00.0" = "Новая сессия стартует с 00.00.0";
-"Close with save" = "Закрыть с сохранением";
-"Continue to measure time while Kala is closed" = "Продолжить измерять время пока Kala закрыта";
+"Ask Action" = "Запрашивать что выполнить";
+"Reset value to 00.00.00" = "Новая сессия стартует с 00.00.0";
+"Save current session value" = "Закрыть с сохранением";
+"Timer going even if Kala closed" = "Продолжить измерять время пока Kala закрыта";
+
+"Warning!" = "Предупреждение!";
+"Are you sure you want to close the application ?" = "Вы уверены что хотите закрыть Kala ?";

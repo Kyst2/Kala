@@ -7,7 +7,7 @@ struct KalaMainView: View {
     
     var body: some View {
         ZStack {
-            VisualEffectView(type: .behindWindow, material: .m2_menu)
+            VisualEffectView(type: .behindWindow, material: .m6_tooltip)
             
             DragWndView()
             
@@ -18,7 +18,8 @@ struct KalaMainView: View {
                     closeButton?.action = #selector(NSWindow.doCustomClose(_:))
                     
                 }
-                .padding(40)
+                .padding(.vertical , 25)
+                .padding(.horizontal, 40)
         }
         .ignoresSafeArea()
         .wndAccessor{
@@ -42,11 +43,12 @@ struct StopwatchInterfaceView: View {
     }
     
     var body: some View {
-        VStack(spacing: 20){
+        VStack(spacing: 25){
             HStack {
                 timerPanel()
                 salaryPanel()
             }
+            .fixedSize()
             
             buttonsPanel()
         }

@@ -35,16 +35,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func showCustomAlert() {
         if alertWindowController == nil {
-            let styleMask: NSWindow.StyleMask = [.docModalWindow, .titled ] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
+            let styleMask: NSWindow.StyleMask = [.docModalWindow , .titled] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
             let window = NSWindow()
+            window.standardWindowButton(.closeButton)?.isHidden = true
+            window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+            window.standardWindowButton(.zoomButton)?.isHidden = true
+            window.titleVisibility = .hidden
             window.styleMask = styleMask
             window.contentView = NSHostingView(rootView: CustomAlertView())
+            
             window.center()
+            
+            
             alertWindowController = NSWindowController(window: window)
+            
         }
         
         alertWindowController?.showWindow(alertWindowController?.window)
         alertWindowController?.window?.moveTo(screen: mainWnd()?.screen)
+            
         
         SettingViewModel.floatWindowUpd()
     }

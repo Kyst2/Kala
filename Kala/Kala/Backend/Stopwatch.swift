@@ -45,6 +45,7 @@ public extension Stopwatch {
         isGoing = false
         memoredTime = nil
         startTime = nil
+        offlinetTime = nil
     }
     
     func pause() {

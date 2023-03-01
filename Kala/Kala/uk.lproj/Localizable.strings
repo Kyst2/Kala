@@ -15,7 +15,10 @@
 "Show milliseconds" = "Відображати мілісекунди";
 "On top of all the windows" = "Поверх усіх вікон";
 
-"Ask what to do" = "Запитувати що виконати";
-"The new session starts at 00.00.0" = "Нова сесія стартує з 00.00.0";
-"Close with save" = "Закрити зі збереженням";
-"Continue to measure time while Kala is closed" = "Продовжити вимірювати час поки Kala закрита";
+"Ask Action" = "Запитувати що виконати";
+"Reset value to 00.00.00" = "Нова сесія стартує з 00.00.0";
+"Save current session value" = "Закрити зі збереженням";
+"Timer going even if Kala closed" = "Продовжити вимірювати час поки Kala закрита";
+
+"Warning!" = "Попередження!";
+"Are you sure you want to close the application ?" = "Ви впевнені, що хочете закрити Kala?";
