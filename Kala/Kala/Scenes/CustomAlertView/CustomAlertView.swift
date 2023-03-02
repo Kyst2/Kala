@@ -28,7 +28,7 @@ struct CustomAlertView: View {
                         .fixedSize()
                     
                 }
-
+                
                 Button(action: { saveAndClose() }, label: {
                     Text("Save current session value")
                         .foregroundColor(.gray)
@@ -60,7 +60,6 @@ struct SwiftUIView_Previews: PreviewProvider {
         CustomAlertView()
     }
 }
-
 
 ///////////////////////
 ///HELERS

@@ -81,8 +81,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .padding()
-            .frame(width: width, height: height)
+            .frame(maxWidth: width, minHeight: 5, maxHeight: height)
             .foregroundColor(.primary)
             .background(NeuButtonBackgroundView(cornerRadius: cornerRadius, opacity: opacity, opacityOp: opacityOp, shadowRadiusXY: shadowRadiusXY))
             .scaleEffect(scale)

@@ -5,15 +5,17 @@ import QuartzCore
 class MainViewModel: ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
-    @Published var timePassedStr: String = "00:00:00.000"
+    @Published var timePassedStr: String
     @ObservedObject var config = Config.shared
     
-    var salary: String = ""
+    var salary: String = "[0.00$]"
     
     private(set) var timer: Timer!
     let st = Stopwatch(startTime: nil)
     
     private init() {
+        self.timePassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
+        
         if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
             start()
@@ -24,43 +26,24 @@ class MainViewModel: ObservableObject {
         }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
+            updTimerInterface()
+        } )
+    }
+    
+    func updTimerInterface(forceRefresh: Bool = false) {
+        let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
+        
+        if self.timePassedStr != newPassedStr {
+            // Must be first before timePassedStr change to be updated!
             let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
             self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
             
-            let newPassedStr = config.displayMs ? self.st.timeStrMs : self.st.timeStrS
-            
-            if self.timePassedStr != newPassedStr {
-                self.timePassedStr = newPassedStr
+            self.timePassedStr = newPassedStr
+        } else {
+            if forceRefresh {
+                self.objectWillChange.send()
             }
-        } )
-        
-    }
-    
-    func start() {
-        st.start()
-        self.objectWillChange.send()
-    }
-    
-    func pause() {
-        st.pause()
-        self.objectWillChange.send()
-    }
-    
-    func reset() {
-        if config.displayMs == true {
-            timePassedStr = "00:00:00.000"
-        }else {
-            timePassedStr = "00:00:00"
         }
-        salary = "[0.00$]"
-        st.reset()
-        self.objectWillChange.send()
-    }
-    
-    func copyToClipBoard(textToCopy: String) {
-        let pasteBoard = NSPasteboard.general
-        pasteBoard.clearContents()
-        pasteBoard.setString(textToCopy, forType: .string)
     }
     
     func updConfig() {
@@ -89,6 +72,23 @@ class MainViewModel: ObservableObject {
                 config.appDisableTimeStamp = nil
             }
         }
+    }
+}
+
+extension MainViewModel {
+    func start() {
+        st.start()
+        updTimerInterface(forceRefresh: true)
+    }
+    
+    func pause() {
+        st.pause()
+        updTimerInterface(forceRefresh: true)
+    }
+    
+    func reset() {
+        st.reset()
+        updTimerInterface(forceRefresh: true)
     }
 }
 
@@ -126,7 +126,7 @@ extension Stopwatch {
     }
 }
 
-extension Double {
+fileprivate extension Double {
     func rounded(digits: Int) -> Double {
         let multiplier = pow(10.0, Double(digits))
         

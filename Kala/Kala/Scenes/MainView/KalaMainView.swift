@@ -12,27 +12,22 @@ struct KalaMainView: View {
             DragWndView()
             
             StopwatchInterfaceView(model: model)
-                .wndAccessor { window in
-                    let closeButton = window?.standardWindowButton(.closeButton)
-                    
-                    closeButton?.action = #selector(NSWindow.doCustomClose(_:))
-                    
-                }
-                .padding(.vertical , 25)
-                .padding(.horizontal, 40)
+                .padding(EdgeInsets(top: 25, leading: 40, bottom: 25, trailing: 40))
         }
         .ignoresSafeArea()
         .wndAccessor{
-            if let _ = $0 {
+            if let wnd = $0 {
+                wnd.standardWindowButton(.closeButton)?.action = #selector(NSWindow.doCustomClose(_:))
+                
                 SettingViewModel.floatWindowUpd()
             }
         }
-        
     }
 }
 
 struct StopwatchInterfaceView: View {
     @ObservedObject var model: MainViewModel
+    
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark}
     
@@ -43,7 +38,7 @@ struct StopwatchInterfaceView: View {
     }
     
     var body: some View {
-        VStack(spacing: 25){
+        VStack(spacing: 20) {
             HStack {
                 timerPanel()
                 salaryPanel()
@@ -62,7 +57,7 @@ extension StopwatchInterfaceView {
             .font(.system(size: 40,design: .monospaced))
             .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
             .onTapGesture {
-                model.copyToClipBoard(textToCopy: model.timePassedStr)
+                copyToClipBoard(textToCopy: model.timePassedStr)
                 copyPublisher.send()
             }
     }
@@ -70,19 +65,23 @@ extension StopwatchInterfaceView {
     @ViewBuilder
     func salaryPanel() -> some View {
         if model.config.displaySalary {
-            Text(model.salary)
-                .foregroundColor(themeIsDark ? .orange : .blue )
-                .font(.system(size: 14, design: .monospaced))
-                .onTapGesture {
-                    model.copyToClipBoard(textToCopy: model.salary)
-                    copyPublisher.send()
-                }
+            VStack{
+                Text(model.salary)
+                    .foregroundColor(themeIsDark ? .orange : .blue )
+                    .font(.system(size: 14, design: .monospaced))
+                    .onTapGesture {
+                        copyToClipBoard(textToCopy: model.salary)
+                        copyPublisher.send()
+                    }
+                    .padding(.top, 5)
+                
+                Spacer()
+            }
         }
     }
     
     func buttonsPanel() -> some View {
-        HStack(spacing: 40) {
-            
+        HStack(spacing: 30) {
             if model.st.diff != 0 {
                 NeuromorphBtn("Reset") { model.reset() }
                     .keyboardShortcut("r", modifiers: [])
@@ -95,16 +94,21 @@ extension StopwatchInterfaceView {
                 NeuromorphBtn("Start") { model.start()}
                     .keyboardShortcut(" ", modifiers: [])
             }
-        }.padding()
+        }
     }
 }
-
 
 ////////////////////////////
 ///HELPERS
 ///////////////////////////
 
-extension NSWindow {
+fileprivate func copyToClipBoard(textToCopy: String) {
+    let pasteBoard = NSPasteboard.general
+    pasteBoard.clearContents()
+    pasteBoard.setString(textToCopy, forType: .string)
+}
+
+fileprivate extension NSWindow {
     @objc
     func doCustomClose(_ sender: Any?) {
         if MainViewModel.shared.st.isGoing {
@@ -133,3 +137,4 @@ extension NSWindow {
         }
     }
 }
+
