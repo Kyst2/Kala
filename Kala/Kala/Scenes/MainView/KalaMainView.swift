@@ -31,8 +31,6 @@ struct StopwatchInterfaceView: View {
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark}
     
-    let copyPublisher = PassthroughSubject<Void, Never>()
-    
     init(model: MainViewModel) {
         self.model = model
     }
@@ -55,10 +53,11 @@ extension StopwatchInterfaceView {
         Text(model.timePassedStr)
             .foregroundColor(themeIsDark ? .gray : .darkGray)
             .font(.system(size: 40,design: .monospaced))
-            .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
-            .onTapGesture {
-                copyToClipBoard(textToCopy: model.timePassedStr)
-                copyPublisher.send()
+            .dragWndWithClick()
+            .contextMenu {
+                Button("Copy stopwatch value") {
+                    copyToClipBoard(textToCopy: model.timePassedStr)
+                }
             }
     }
     
@@ -69,12 +68,13 @@ extension StopwatchInterfaceView {
                 Text(model.salary)
                     .foregroundColor(themeIsDark ? .orange : .blue )
                     .font(.system(size: 14, design: .monospaced))
-                    .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
-                    .onTapGesture {
-                        copyToClipBoard(textToCopy: model.salary)
-                        copyPublisher.send()
-                    }
                     .padding(.top, 5)
+                    .dragWndWithClick()
+                    .contextMenu{
+                        Button("Copy Salary") {
+                            copyToClipBoard(textToCopy: model.salary)
+                        }
+                    }
                 
                 Spacer()
             }

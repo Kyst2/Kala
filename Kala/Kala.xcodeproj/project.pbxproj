@@ -31,7 +31,6 @@
 		A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */; };
 		A2CB37C3297C31C5002C1B45 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37C2297C31C5002C1B45 /* Config.swift */; };
 		A2DCF8D1299BE3C7005957DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2DCF8D3299BE3C7005957DE /* Localizable.strings */; };
-		A2DCF8D9299D4846005957DE /* addOpacityBlinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF8D8299D4846005957DE /* addOpacityBlinker.swift */; };
 		A2DCF8DC29A3CF2D005957DE /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +74,6 @@
 		A2DCF8D2299BE3C7005957DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2DCF8D6299BE3F4005957DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2DCF8D7299C0EC9005957DE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A2DCF8D8299D4846005957DE /* addOpacityBlinker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addOpacityBlinker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				A28E12B329A675A1006E573E /* dragWndWithClick.swift */,
-				A2DCF8D8299D4846005957DE /* addOpacityBlinker.swift */,
 				A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */,
 				A282A9C8295EE2EF00995018 /* wndAccessor.swift */,
 				A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */,
@@ -340,7 +337,6 @@
 				1D4A87A7298EE3000062686C /* takeAllAvailableSpace.swift in Sources */,
 				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,
 				A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */,
-				A2DCF8D9299D4846005957DE /* addOpacityBlinker.swift in Sources */,
 				A282A9CC295EE2EF00995018 /* ColorExt.swift in Sources */,
 				1D4A87C8298EF0280062686C /* Neuromorhism.swift in Sources */,
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
