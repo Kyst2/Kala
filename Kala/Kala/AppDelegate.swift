@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showCustomAlert() {
+        if MainViewModel.shared.st.diff == 0 {
+            NSApplication.shared.terminate(self)
+        }
+        
         if alertWindowController == nil {
             let styleMask: NSWindow.StyleMask = [.docModalWindow , .titled] //[.closable, .miniaturizable,/* .resizable,*/ .titled]
             let window = NSWindow()
@@ -43,15 +47,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.styleMask.insert(.fullSizeContentView)
             window.center()
             
-            
             alertWindowController = NSWindowController(window: window)
-            
-            
         }
         
         alertWindowController?.showWindow(alertWindowController?.window)
         alertWindowController?.window?.moveTo(screen: mainWnd()?.screen)
-            
         
         SettingViewModel.floatWindowUpd()
     }
