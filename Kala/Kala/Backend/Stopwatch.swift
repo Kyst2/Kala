@@ -63,6 +63,7 @@ public extension Stopwatch {
     func setDiff(_ interval: CFTimeInterval) {
         self.memoredTime = interval
     }
+    
     func setDiffOffline(_ interval: CFTimeInterval) {
         self.offlinetTime = interval
     }

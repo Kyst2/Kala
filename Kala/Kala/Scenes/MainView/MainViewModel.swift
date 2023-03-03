@@ -16,7 +16,7 @@ class MainViewModel: ObservableObject {
     private init() {
         self.timePassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
         
-        if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose {
+        if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose || config.saveIsGoingSettings == .AskAction  {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
             start()
         }
@@ -52,14 +52,16 @@ class MainViewModel: ObservableObject {
             case .TimeGoingOnKalaClose:
                 config.appDisableTimeStamp = CACurrentMediaTime()
                 config.timePassedInterval = st.diff
-                break
             case .SaveAndClose:
                 config.timePassedInterval = st.diff
                 config.appDisableTimeStamp = nil
                 NSApplication.shared.terminate(self)
-            default:
+                
+            case .NewSessionFromScratch:
                 config.timePassedInterval = 0
                 config.appDisableTimeStamp = nil
+            case .AskAction:
+                AppDelegate.instance.showCustomAlert()
             }
         } else {
             switch config.saveStopSettings {
@@ -97,7 +99,7 @@ extension Stopwatch {
        let timeArray = String(time)
         if timeArray.count > 1 {
             return "\(timeArray)0".substring(to: 2)
-        }else {
+        } else {
              return "0\(timeArray)".substring(to: 2)
         }
     }

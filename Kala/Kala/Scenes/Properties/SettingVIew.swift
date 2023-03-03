@@ -44,7 +44,6 @@ struct SettingView: View {
                 SettingViewModel.floatWindowUpd()
             }
         }
-        
     }
 }
 
@@ -54,8 +53,7 @@ struct SettingView: View {
 
 fileprivate extension View {
     func applyTextStyle() -> some View {
-        self
-            .foregroundColor(.gray)
+        self.foregroundColor(.gray)
             .pickerStyle(.menu)
     }
 }
@@ -80,14 +78,5 @@ fileprivate extension SettingView {
                     .foregroundColor(.gray)
             }
         }
-    }
-}
-
-/////////////////////////////
-///Previews
-////////////////////////////
-struct SettingVIew_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView()
     }
 }

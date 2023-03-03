@@ -116,7 +116,6 @@ fileprivate extension NSWindow {
             switch Config.shared.saveIsGoingSettings {
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
-                break
             default:
                 MainViewModel.shared.updConfig()
                 MainViewModel.shared.st.pause()
@@ -138,4 +137,3 @@ fileprivate extension NSWindow {
         }
     }
 }
-

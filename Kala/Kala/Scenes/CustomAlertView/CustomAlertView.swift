@@ -20,7 +20,7 @@ struct CustomAlertView: View {
                         .font(.system(size: 15,design: .monospaced))
                         .foregroundColor(.gray)
                     
-                    Text("Are you sure you want to close the application ?")
+                    Text("Are you sure you want to close the application?")
                         .foregroundColor(.gray)
                         .font(.system(size: 13,design: .monospaced))
                         .padding(.horizontal,6)
@@ -40,6 +40,14 @@ struct CustomAlertView: View {
                         .foregroundColor(.gray)
                         .font(.system(size: 13,design: .monospaced))
                 }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+                
+                if MainViewModel.shared.st.isGoing == true {
+                    Button(action: { timeGoingOnKalaClose() }, label: {
+                        Text("Timer going even if Kala closed")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 13,design: .monospaced))
+                    }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+                }
                 
                 Button(action: { cancel() }, label: {
                     Text("Сancel")
@@ -66,6 +74,7 @@ struct SwiftUIView_Previews: PreviewProvider {
 //////////////////////
 fileprivate func cancel() {
     AppDelegate.instance.alertWindowController?.window?.close()
+    AppDelegate.instance.alertWindowController = nil
 }
 
 fileprivate func close() {
@@ -73,8 +82,15 @@ fileprivate func close() {
     MainViewModel.shared.config.appDisableTimeStamp = nil
     NSApplication.shared.terminate(nil)
 }
+
 fileprivate func saveAndClose() {
     MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
     MainViewModel.shared.config.appDisableTimeStamp = nil
+    NSApplication.shared.terminate(nil)
+}
+
+fileprivate func timeGoingOnKalaClose() {
+    MainViewModel.shared.config.appDisableTimeStamp = CACurrentMediaTime()
+    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
     NSApplication.shared.terminate(nil)
 }

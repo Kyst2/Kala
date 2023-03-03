@@ -27,7 +27,6 @@ struct KalaApp: App {
         }
         .replaceAbout { appDelegate.showAboutWnd() }
         
-        
         Settings {
             SettingView()
         }
