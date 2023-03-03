@@ -37,7 +37,7 @@ struct SettingView: View {
             Spacer()
         }
         .applyTextStyle()
-        .frame(idealWidth: 300, maxWidth: 300, idealHeight: 300, maxHeight: 300)
+        .frame(minWidth: 200, idealWidth: 300 , maxWidth: 300, idealHeight: 300, maxHeight: 300)
         .background(VisualEffectView(type: .behindWindow, material: .m6_tooltip))
         .wndAccessor {
             if let _ = $0 {

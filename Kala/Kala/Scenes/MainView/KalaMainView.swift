@@ -69,6 +69,7 @@ extension StopwatchInterfaceView {
                 Text(model.salary)
                     .foregroundColor(themeIsDark ? .orange : .blue )
                     .font(.system(size: 14, design: .monospaced))
+                    .addTextBlinker(subscribedTo: copyPublisher, duration: 1.5)
                     .onTapGesture {
                         copyToClipBoard(textToCopy: model.salary)
                         copyPublisher.send()
