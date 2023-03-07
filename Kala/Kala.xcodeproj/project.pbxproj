@@ -12,6 +12,7 @@
 		1D4A87C8298EF0280062686C /* Neuromorhism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A87C7298EF0280062686C /* Neuromorhism.swift */; };
 		1D4A87CA298EF0470062686C /* SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A87C9298EF0470062686C /* SystemColors.swift */; };
 		1DA1F15C29A7E28F00810860 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1F15B29A7E28E00810860 /* NSWindow.swift */; };
+		A23CDE2E29B7ABD10033EDC4 /* NSTextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */; };
 		A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4829859387001A0F10 /* CustomAlertView.swift */; };
 		A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */; };
 		A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9B7295EDDAB00995018 /* KalaApp.swift */; };
@@ -50,6 +51,7 @@
 		1D4A87C7298EF0280062686C /* Neuromorhism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neuromorhism.swift; sourceTree = "<group>"; };
 		1D4A87C9298EF0470062686C /* SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColors.swift; sourceTree = "<group>"; };
 		1DA1F15B29A7E28E00810860 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
+		A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExt.swift; sourceTree = "<group>"; };
 		A25D2F4829859387001A0F10 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A282A9B4295EDDAB00995018 /* Kala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kala.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 				A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */,
 				1D4A87A6298EE3000062686C /* takeAllAvailableSpace.swift */,
 				1D4A87C7298EF0280062686C /* Neuromorhism.swift */,
+				A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */,
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
 				A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */,
+				A23CDE2E29B7ABD10033EDC4 /* NSTextFieldExt.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
 				A2CB37C3297C31C5002C1B45 /* Config.swift in Sources */,
 				A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */,

@@ -35,6 +35,7 @@ struct SettingView: View {
                     if config.$displaySalary.wrappedValue {
                         TextField("hour Salary", value: config.$hourSalary, format: .number)
                             .frame(width: 50)
+                            
                         Text("$")
                     }
                 }
