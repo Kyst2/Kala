@@ -18,12 +18,12 @@ struct NeuButtonBackgroundView : View  {
     
     @Environment(\.colorScheme) var colorScheme
     
-    let lThemeLightShadow: Color = Color("gray")
-    let lThemeDarkShadow: Color =  Color("gray")
+    let lThemeLightShadow: Color = Color("whiteGray-color")
+    let lThemeDarkShadow: Color =  Color("whiteGray-color")
     let dThemeLightShadow: Color = Color("gray")
     let dThemeDarkShadow: Color =  Color("gray")
     
-    var mainColor: Color = Color("Dark-Gray")
+    var mainColor: Color { colorScheme == .dark ?  Color("Dark-Gray") : Color("white-color") }
 //    { colorScheme == .light ? Color.white : Color.darkGray }
     var lightShadow: Color { colorScheme == .light ? lThemeLightShadow : lThemeDarkShadow }
     var darkShadow: Color  { colorScheme == .light ? dThemeLightShadow : dThemeDarkShadow }
@@ -73,7 +73,7 @@ struct NeuButtonBackgroundView : View  {
 struct NeumorphicButtonStyle: ButtonStyle {
     @State var  opacity : CGFloat = 1
     @State var  opacityOp : CGFloat = 0
-    @State var  shadowRadiusXY : CGFloat = 3
+    @State var  shadowRadiusXY : CGFloat = 2
     @State var  scale : CGFloat = 1
     let width : CGFloat
     let height : CGFloat

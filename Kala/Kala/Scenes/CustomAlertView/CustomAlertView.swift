@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct CustomAlertView: View {
+    
+    @Environment(\.colorScheme) var theme
+    var themeIsDark: Bool { theme == .dark}
+    
     var body: some View {
         ZStack{
-            VisualEffectView(type: .behindWindow, material: .m6_tooltip)
+            VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             
@@ -18,10 +22,10 @@ struct CustomAlertView: View {
                 VStack {
                     Text("Warning!")
                         .font(.system(size: 15,design: .monospaced))
-                        .foregroundColor(.gray)
+                        .foregroundColor(themeIsDark ? .gray : .darkGray)
                     
                     Text("Are you sure you want to close the application?")
-                        .foregroundColor(.gray)
+                        .foregroundColor(themeIsDark ? .gray : .darkGray)
                         .font(.system(size: 13,design: .monospaced))
                         .padding(.horizontal,6)
                         .padding(.vertical,5)
@@ -31,27 +35,27 @@ struct CustomAlertView: View {
                 
                 Button(action: { saveAndClose() }, label: {
                     Text("Save current session value")
-                        .foregroundColor(.gray)
+                        .foregroundColor(themeIsDark ? .gray : .darkGray)
                         .font(.system(size: 13,design: .monospaced))
                 }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
                 
                 Button(action: { close() }, label: {
                     Text("Reset value to 00.00.00")
-                        .foregroundColor(.gray)
+                        .foregroundColor(themeIsDark ? .gray : .darkGray)
                         .font(.system(size: 13,design: .monospaced))
                 }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
                 
                 if MainViewModel.shared.st.isGoing == true {
                     Button(action: { timeGoingOnKalaClose() }, label: {
                         Text("Timer going even if Kala closed")
-                            .foregroundColor(.gray)
+                            .foregroundColor(themeIsDark ? .gray : .darkGray)
                             .font(.system(size: 13,design: .monospaced))
                     }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
                 }
                 
                 Button(action: { cancel() }, label: {
                     Text("Сancel")
-                        .foregroundColor(.gray)
+                        .foregroundColor(themeIsDark ? .gray : .darkGray)
                         .font(.system(size: 13,design: .monospaced))
                 }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
             }

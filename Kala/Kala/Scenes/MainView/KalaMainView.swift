@@ -5,9 +5,12 @@ import Combine
 struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
     
+    @Environment(\.colorScheme) var theme
+    var themeIsDark: Bool { theme == .dark}
+    
     var body: some View {
         ZStack {
-            VisualEffectView(type: .behindWindow, material: .m6_tooltip)
+            VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             
