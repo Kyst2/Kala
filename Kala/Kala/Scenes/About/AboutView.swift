@@ -8,25 +8,35 @@ import Foundation
 import SwiftUI
 
 struct AboutView: View {
+    
+    @Environment(\.colorScheme) var theme
+    var themeIsDark: Bool { theme == .dark}
+    
     var body: some View {
-        VStack(spacing: 10) {
-            Image(nsImage: NSImage(named: "kek")!)
+        ZStack{
+            VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
             
-            Text("\(Bundle.main.appName)")
-                .font(.system(size: 20, weight: .bold))
+            DragWndView()
+            VStack(spacing: 10) {
+                Image(nsImage: NSImage(named: "kek")!)
+                    .dragWndWithClick()
+                
+                Text("\(Bundle.main.appName)")
+                    .font(.system(size: 20, weight: .bold))
                 // Xcode 13.0 beta 2
-                .textSelection(.enabled)
-            
-            Text("Ver: \(Bundle.main.appVersionLong) (\(Bundle.main.appBuild)) ")
+                    .textSelection(.enabled)
+                
+                Text("Ver: \(Bundle.main.appVersionLong) (\(Bundle.main.appBuild)) ")
                 // Xcode 13.0 beta 2
-                .textSelection(.enabled)
-            
-            Text("Copyright (c): \(Bundle.main.copyright)")
-                .font(.system(size: 10, weight: .thin))
-                .multilineTextAlignment(.center)
-        }
-        .padding(20)
-        .frame(minWidth: 350, minHeight: 300)
+                    .textSelection(.enabled)
+                
+                Text("Copyright (c): \(Bundle.main.copyright)")
+                    .font(.system(size: 10, weight: .thin))
+                    .multilineTextAlignment(.center)
+            }
+            .padding(20)
+            .frame(minWidth: 350, minHeight: 300)
+        }.ignoresSafeArea()
     }
 }
 

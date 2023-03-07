@@ -29,7 +29,7 @@ struct KalaApp: App {
         
         Settings {
             SettingView()
-        }
+        }.windowStyle(.hiddenTitleBar)
     }
 }
 

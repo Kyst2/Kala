@@ -7,9 +7,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aboutBoxWindowController: NSWindowController?
     var alertWindowController: NSWindowController?
     
-    func applicationWillTerminate(_ aNotification: Notification) {
-        MainViewModel.shared.updConfig()
-    }
+ 
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
@@ -22,6 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.styleMask = styleMask
             window.title = "About \(Bundle.main.appName)"
             window.contentView = NSHostingView(rootView: AboutView())
+            window.titlebarAppearsTransparent = true
+            window.styleMask.insert(.fullSizeContentView)
             window.center()
             
             aboutBoxWindowController = NSWindowController(window: window)
@@ -58,5 +58,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         alertWindowController?.window?.moveTo(screen: mainWnd()?.screen)
         
         SettingViewModel.floatWindowUpd()
+    }
+    func applicationWillTerminate(_ aNotification: Notification) {
+//        if Config.shared.saveStopSettings == .AskAction && Config.shared.saveIsGoingSettings == .AskAction {
+//            MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+//            MainViewModel.shared.config.appDisableTimeStamp = nil
+//        }
+        MainViewModel.shared.updConfig()
+       
     }
 }
