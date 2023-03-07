@@ -7,6 +7,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aboutBoxWindowController: NSWindowController?
     var alertWindowController: NSWindowController?
     
+    func applicationWillTerminate(_ aNotification: Notification) {
+        MainViewModel.shared.updConfig()
+        
+    }
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
     }
