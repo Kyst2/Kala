@@ -10,7 +10,7 @@ struct KalaApp: App {
         }
         .windowStyle(.hiddenTitleBar)
         .removeUselessMenus()
-        .replaceAbout { appDelegate.showAboutWnd() }
+        .replaceAbout()
         
         Settings {
             SettingView()
@@ -23,10 +23,10 @@ struct KalaApp: App {
 ////////////////////
 
 fileprivate extension Scene {
-    func replaceAbout(act: @escaping () -> () ) -> some Scene {
+    func replaceAbout() -> some Scene {
         self.commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                Button("About \(Bundle.main.appName)") { act() }
+                Button("About \(Bundle.main.appName)") { AppDelegate.instance.showAboutWnd() }
             }
         }
     }

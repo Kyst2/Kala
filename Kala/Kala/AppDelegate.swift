@@ -7,8 +7,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aboutBoxWindowController: NSWindowController?
     var alertWindowController: NSWindowController?
     
- 
-    
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
     }
