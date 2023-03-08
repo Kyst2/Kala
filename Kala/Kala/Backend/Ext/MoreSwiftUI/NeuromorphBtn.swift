@@ -3,13 +3,15 @@ import SwiftUI
 
 struct NeuromorphBtn: View {
     let text: LocalizedStringKey
+    let width: CGFloat
     let action: () -> ()
     
     @Environment(\.colorScheme) var theme
     
-    init (_ text: LocalizedStringKey, action: @escaping () -> ()) {
+    init (_ text: LocalizedStringKey, width: CGFloat = 150, action: @escaping () -> ()) {
         self.text = text
         self.action = action
+        self.width = width
     }
     
     var body: some View {
@@ -21,6 +23,6 @@ struct NeuromorphBtn: View {
 //                .foregroundColor( theme == .dark ? .gray : .gray)
                 .fixedSize()
         }
-        .buttonStyle(NeumorphicButtonStyle(width: 150, height: 50, cornerRadius : 20))
+        .buttonStyle(NeumorphicButtonStyle(width: width, height: 50, cornerRadius : 20))
     }
 }
