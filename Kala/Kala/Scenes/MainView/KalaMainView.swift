@@ -95,7 +95,7 @@ extension StopwatchInterfaceView {
                 NeuromorphBtn("Pause") { model.pause()}
                     .keyboardShortcut(" ", modifiers: [])
             } else {
-                NeuromorphBtn("Start", width: 330) { model.start()}
+                NeuromorphBtn("Start", width: model.st.diff == 0 ? 330 : 150) { model.start()}
                     .keyboardShortcut(" ", modifiers: [])
             }
         }
