@@ -7,6 +7,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aboutBoxWindowController: NSWindowController?
     var alertWindowController: NSWindowController?
     
+    func applicationWillTerminate(_ aNotification: Notification) {
+        MainViewModel.shared.updConfig()
+       
+    }
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
     }
@@ -57,12 +62,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         SettingViewModel.floatWindowUpd()
     }
-    func applicationWillTerminate(_ aNotification: Notification) {
-//        if Config.shared.saveStopSettings == .AskAction && Config.shared.saveIsGoingSettings == .AskAction {
-//            MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
-//            MainViewModel.shared.config.appDisableTimeStamp = nil
-//        }
-        MainViewModel.shared.updConfig()
-       
-    }
+   
 }
