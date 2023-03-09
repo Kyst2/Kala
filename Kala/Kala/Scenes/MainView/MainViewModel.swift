@@ -32,12 +32,12 @@ class MainViewModel: ObservableObject {
     
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        
-        if self.timePassedStr != newPassedStr {
+        let newSalary = config.displaySalary ? false : true
+        if self.timePassedStr != newPassedStr || self.config.displaySalary != newSalary {
+            
             // Must be first before timePassedStr change to be updated!
             let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
             self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
-            
             self.timePassedStr = newPassedStr
         } else {
             if forceRefresh {

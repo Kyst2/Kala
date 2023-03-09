@@ -1,5 +1,6 @@
 import SwiftUI
 import Foundation
+import Combine
 
 struct SettingView: View {
     static let shared = SettingView()
@@ -37,6 +38,7 @@ struct SettingView: View {
                             .frame(width: 50)
                             
                         Text("$")
+                        
                     }
                 }
                 
@@ -46,7 +48,7 @@ struct SettingView: View {
             }
             .applyTextStyle()
             .frame(minWidth: 200, idealWidth: 300 , maxWidth: 300, idealHeight: 300, maxHeight: 300)
-//            .background(VisualEffectView(type: .behindWindow, material: KalaMainView().themeIsDark ? .m6_tooltip : .m1_hudWindow))
+
             .wndAccessor {
                 if let _ = $0 {
                     SettingViewModel.floatWindowUpd()
