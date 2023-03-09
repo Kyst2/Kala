@@ -6,6 +6,7 @@ class MainViewModel: ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
     @Published var timePassedStr: String
+    @Published var salaryTime: Bool = Config.shared.displaySalary
     @ObservedObject var config = Config.shared
     
     var salary: String = "[0.00$]"
@@ -27,13 +28,19 @@ class MainViewModel: ObservableObject {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
             updTimerInterface()
+            
         } )
     }
     
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        let newSalary = config.displaySalary ? false : true
-        if self.timePassedStr != newPassedStr || self.config.displaySalary != newSalary {
+        
+        if salaryTime != config.displaySalary {
+            self.objectWillChange.send()
+            salaryTime = config.displaySalary
+        }
+        
+        if self.timePassedStr != newPassedStr {
             
             // Must be first before timePassedStr change to be updated!
             let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
