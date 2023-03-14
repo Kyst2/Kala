@@ -7,7 +7,7 @@ class MainViewModel: ObservableObject {
     
     @Published var timePassedStr: String
     @Published var salaryTime: Bool = Config.shared.displaySalary
-    @ObservedObject var config = Config.shared
+    var config = Config.shared
     
     var salary: String = "[0.00$]"
     
@@ -28,17 +28,11 @@ class MainViewModel: ObservableObject {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
             updTimerInterface()
-            
         } )
     }
     
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        
-//        if salaryTime != config.displaySalary {
-//            self.objectWillChange.send()
-//            salaryTime = config.displaySalary
-//        }
         
         if self.timePassedStr != newPassedStr {
             

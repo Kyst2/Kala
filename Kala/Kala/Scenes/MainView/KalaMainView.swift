@@ -4,6 +4,7 @@ import Combine
 
 struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
+    @ObservedObject var config = Config.shared
     
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark}
@@ -18,13 +19,14 @@ struct KalaMainView: View {
                 .padding(EdgeInsets(top: 25, leading: 40, bottom: 25, trailing: 40))
         }
         .ignoresSafeArea()
-        .wndAccessor{
+        .wndAccessor {
             if let wnd = $0 {
                 wnd.standardWindowButton(.closeButton)?.action = #selector(NSWindow.doCustomClose(_:))
                 
                 SettingViewModel.floatWindowUpd()
             }
         }
+        .onChange(of: config.displaySalary) { _ in model.updTimerInterface(forceRefresh: true) }
     }
 }
 
