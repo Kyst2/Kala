@@ -32,40 +32,49 @@ struct CustomAlertView: View {
                         .fixedSize()
                     
                 }
-                
-                Button(action: { saveAndClose() }, label: {
-                    Text("Save current session value")
-                        .foregroundColor(themeIsDark ? .gray : .darkGray)
-                        .font(.system(size: 13,design: .monospaced))
-                }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
-                
-                Button(action: { close() }, label: {
-                    Text("Reset value to 00.00.00")
-                        .foregroundColor(themeIsDark ? .gray : .darkGray)
-                        .font(.system(size: 13,design: .monospaced))
-                }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
-                
-                if MainViewModel.shared.st.isGoing == true {
-                    Button(action: { timeGoingOnKalaClose() }, label: {
-                        Text("Timer going even if Kala closed")
-                            .foregroundColor(themeIsDark ? .gray : .darkGray)
-                            .font(.system(size: 13,design: .monospaced))
-                    }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+                ButtonAlertView("Save current session value") {
+                    saveAndClose()
                 }
-                
-                Button(action: { cancel() }, label: {
-                    Text("Сancel")
-                        .foregroundColor(themeIsDark ? .gray : .darkGray)
-                        .font(.system(size: 13,design: .monospaced))
-                }).buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+                ButtonAlertView("Reset value to 00.00.00") {
+                    close()
+                }
+                if MainViewModel.shared.st.isGoing == true {
+                    ButtonAlertView("Timer going even if Kala closed") {
+                        timeGoingOnKalaClose()
+                    }
+                }
+                ButtonAlertView("Сancel") {
+                    cancel()
+                }
             }
-            
             .padding(30)
             .fixedSize()
             
         }.ignoresSafeArea()
     }
+    
+//    func buttonsPanel() -> some View {
+//        HStack(spacing: 30) {
+//            if model.st.diff != 0 {
+//                NeuromorphBtn("Reset") { model.reset() }
+//                    .keyboardShortcut("r", modifiers: [])
+//                    .help("Keyboard shortcut: R")
+//            }
+//
+//            if model.st.isGoing {
+//                NeuromorphBtn("Pause") { model.pause()}
+//                    .keyboardShortcut(" ", modifiers: [])
+//                    .help("Keyboard shortcut: SPACE")
+//            } else {
+//                NeuromorphBtn("Start", width: model.st.diff == 0 ? 330 : 150) { model.start()}
+//                    .keyboardShortcut(" ", modifiers: [])
+//                    .help("Keyboard shortcut: SPACE")
+//            }
+//        }
+//    }
+
 }
+
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
@@ -73,28 +82,52 @@ struct SwiftUIView_Previews: PreviewProvider {
     }
 }
 
-///////////////////////
-///HELERS
-//////////////////////
-fileprivate func cancel() {
-    AppDelegate.instance.alertWindowController?.window?.close()
-    AppDelegate.instance.alertWindowController = nil
+struct ButtonAlertView: View {
+    
+    @Environment(\.colorScheme) var theme
+    var themeIsDark: Bool { theme == .dark}
+    
+    let action: () -> ()
+    let text: LocalizedStringKey
+    
+    init (_ text: LocalizedStringKey, action: @escaping () -> ()) {
+        self.text = text
+        self.action = action
+    }
+    
+    var body: some View {
+        Button(action: { action() } ) {
+            Text(text)
+                .foregroundColor(themeIsDark ? .gray : .darkGray)
+                .font(.system(size: 13,design: .monospaced))
+                .fixedSize()
+        }
+        .buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
+    }
 }
+    ///////////////////////
+    ///HELERS
+    //////////////////////
+    fileprivate func cancel() {
+        AppDelegate.instance.alertWindowController?.window?.close()
+        AppDelegate.instance.alertWindowController = nil
+    }
+    
+    fileprivate func close() {
+        MainViewModel.shared.config.timePassedInterval = 0
+        MainViewModel.shared.config.appDisableTimeStamp = nil
+        NSApplication.shared.terminate(nil)
+    }
+    
+    fileprivate func saveAndClose() {
+        MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+        MainViewModel.shared.config.appDisableTimeStamp = nil
+        NSApplication.shared.terminate(nil)
+    }
+    
+    fileprivate func timeGoingOnKalaClose() {
+        MainViewModel.shared.config.appDisableTimeStamp = CACurrentMediaTime()
+        MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+        NSApplication.shared.terminate(nil)
+    }
 
-fileprivate func close() {
-    MainViewModel.shared.config.timePassedInterval = 0
-    MainViewModel.shared.config.appDisableTimeStamp = nil
-    NSApplication.shared.terminate(nil)
-}
-
-fileprivate func saveAndClose() {
-    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
-    MainViewModel.shared.config.appDisableTimeStamp = nil
-    NSApplication.shared.terminate(nil)
-}
-
-fileprivate func timeGoingOnKalaClose() {
-    MainViewModel.shared.config.appDisableTimeStamp = CACurrentMediaTime()
-    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
-    NSApplication.shared.terminate(nil)
-}

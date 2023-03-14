@@ -16,7 +16,7 @@ class MainViewModel: ObservableObject {
     
     private init() {
         self.timePassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        
+        self.salaryTime = Config.shared.displaySalary ? false : true
         if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose || config.saveIsGoingSettings == .AskAction  {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
             start()
@@ -35,10 +35,10 @@ class MainViewModel: ObservableObject {
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
         
-        if salaryTime != config.displaySalary {
-            self.objectWillChange.send()
-            salaryTime = config.displaySalary
-        }
+//        if salaryTime != config.displaySalary {
+//            self.objectWillChange.send()
+//            salaryTime = config.displaySalary
+//        }
         
         if self.timePassedStr != newPassedStr {
             

@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import AppKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     static private(set) var instance: AppDelegate! = nil
@@ -62,5 +63,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         SettingViewModel.floatWindowUpd()
     }
-   
 }
