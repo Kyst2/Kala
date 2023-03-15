@@ -18,13 +18,15 @@ struct AboutView: View {
             
             DragWndView()
             VStack(spacing: 10) {
-                Image(nsImage: NSImage(named: "kek")!)
+                Image(nsImage: NSImage(named: "Kala-Icon128x128")!)
                     .dragWndWithClick()
                 
                 Text("\(Bundle.main.appName)")
                     .font(.system(size: 20, weight: .bold))
                 // Xcode 13.0 beta 2
                     .textSelection(.enabled)
+                
+                Link("\(AboutView.offSiteAdr.replace(of: "http://", to: ""))", destination: AboutView.offCiteUrl )
                 
                 Text("Ver: \(Bundle.main.appVersionLong) (\(Bundle.main.appBuild)) ")
                 // Xcode 13.0 beta 2
@@ -44,7 +46,7 @@ struct AboutView: View {
 /// HELPERS
 //////////////////////////////////
 extension AboutView {
-    private static var offSiteAdr: String { "http://www.taogit.com" }
+    private static var offSiteAdr: String { "https://kyst2.github.io/mrkyst/" }
     private static var offEmail: String { "someUser@gmail.com" }
     
     public static var offCiteUrl: URL { URL(string: AboutView.offSiteAdr )! }

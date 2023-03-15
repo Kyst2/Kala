@@ -7,7 +7,7 @@ struct KalaMainView: View {
     @ObservedObject var config = Config.shared
     
     @Environment(\.colorScheme) var theme
-    var themeIsDark: Bool { theme == .dark}
+    var themeIsDark: Bool { theme == .dark }
     
     var body: some View {
         ZStack {
