@@ -52,27 +52,6 @@ struct CustomAlertView: View {
             
         }.ignoresSafeArea()
     }
-    
-//    func buttonsPanel() -> some View {
-//        HStack(spacing: 30) {
-//            if model.st.diff != 0 {
-//                NeuromorphBtn("Reset") { model.reset() }
-//                    .keyboardShortcut("r", modifiers: [])
-//                    .help("Keyboard shortcut: R")
-//            }
-//
-//            if model.st.isGoing {
-//                NeuromorphBtn("Pause") { model.pause()}
-//                    .keyboardShortcut(" ", modifiers: [])
-//                    .help("Keyboard shortcut: SPACE")
-//            } else {
-//                NeuromorphBtn("Start", width: model.st.diff == 0 ? 330 : 150) { model.start()}
-//                    .keyboardShortcut(" ", modifiers: [])
-//                    .help("Keyboard shortcut: SPACE")
-//            }
-//        }
-//    }
-
 }
 
 

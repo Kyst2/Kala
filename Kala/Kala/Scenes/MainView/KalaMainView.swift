@@ -26,6 +26,7 @@ struct KalaMainView: View {
                 SettingViewModel.floatWindowUpd()
             }
         }
+        .onChange(of: config.hourSalary) { _ in MainViewModel.shared.updTimerInterface(forceRefresh: true) }
         .onChange(of: config.displaySalary) { _ in model.updTimerInterface(forceRefresh: true) }
     }
 }
@@ -80,6 +81,7 @@ extension StopwatchInterfaceView {
                             copyToClipBoard(textToCopy: model.salary)
                         }
                     }
+                    
                 
                 Spacer()
             }

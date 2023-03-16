@@ -33,12 +33,11 @@ class MainViewModel: ObservableObject {
     
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        
+        let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
+        self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
         if self.timePassedStr != newPassedStr {
             
             // Must be first before timePassedStr change to be updated!
-            let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
-            self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
             self.timePassedStr = newPassedStr
         } else {
             if forceRefresh {
@@ -53,6 +52,7 @@ class MainViewModel: ObservableObject {
             case .TimeGoingOnKalaClose:
                 config.appDisableTimeStamp = CACurrentMediaTime()
                 config.timePassedInterval = st.diff
+                NSApplication.shared.terminate(self)
             case .SaveAndClose:
                 config.timePassedInterval = st.diff
                 config.appDisableTimeStamp = nil
@@ -70,9 +70,11 @@ class MainViewModel: ObservableObject {
                 config.timePassedInterval = st.diff
                 config.appDisableTimeStamp = nil
                 NSApplication.shared.terminate(self)
-            default:
+            case .NewSessionFromScratch:
                 config.timePassedInterval = 0
                 config.appDisableTimeStamp = nil
+            case .AskAction:
+                AppDelegate.instance.showCustomAlert()
             }
         }
     }

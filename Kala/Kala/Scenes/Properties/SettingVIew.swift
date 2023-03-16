@@ -37,6 +37,7 @@ struct SettingView: View {
                         TextField("hour Salary", value: config.$hourSalary, format: .number)
                             .frame(width: 50)
                             
+                            
                         Text("$")
                         
                     }
