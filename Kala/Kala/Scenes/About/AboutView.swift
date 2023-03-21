@@ -35,6 +35,13 @@ struct AboutView: View {
                 Text("Copyright (c): \(Bundle.main.copyright)")
                     .font(.system(size: 10, weight: .thin))
                     .multilineTextAlignment(.center)
+                Spacer()
+                HStack{
+                    Spacer()
+                    Link("Privacy Policy", destination: URL(string: "https://kyst2.github.io/mrkyst/privacy.html")!)
+                        .font(.system(size: 11,design: .rounded))
+                        .opacity(0.7)
+                }
             }
             .padding(20)
             .frame(minWidth: 350, minHeight: 300)
