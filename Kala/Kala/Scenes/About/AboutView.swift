@@ -37,7 +37,7 @@ struct AboutView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack{
-                    Spacer()
+//                    Spacer()
                     Link("Privacy Policy", destination: URL(string: "https://kyst2.github.io/mrkyst/privacy.html")!)
                         .font(.system(size: 11,design: .rounded))
                         .opacity(0.7)
