@@ -61,7 +61,7 @@ extension StopwatchInterfaceView {
             .font(.system(size: 40,design: .monospaced))
             .dragWndWithClick()
             .contextMenu {
-                Button("Copy stopwatch value") {
+                Button("Copy measured time") {
                     copyToClipBoard(textToCopy: model.timePassedStr)
                 }
             }
