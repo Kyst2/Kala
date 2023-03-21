@@ -19,31 +19,34 @@ struct SettingView: View {
                 Spacer()
                 
                 Text("Close on pause:")
+                    .foregroundColor(themeIsDark ? .gray : .darkGray)
                 
                 StopTimerConfigDropDown()
                     .padding(.horizontal,20)
                 
                 Text("Close during operation:")
+                    .foregroundColor(themeIsDark ? .gray : .darkGray)
                 
                 PlayTimerConfogDropDown()
                     .padding(.horizontal,20)
                 
-                Toggle(isOn: config.$displayMs) { Text("Show milliseconds") }
+                Toggle(isOn: config.$displayMs) { Text("Show milliseconds").foregroundColor(themeIsDark ? .gray : .darkGray) }
                 
                 HStack {
-                    Toggle(isOn: config.$displaySalary) { Text(config.displaySalary ? "Hour salary" : "Display salary/hour") }
+                    Toggle(isOn: config.$displaySalary) { Text(config.displaySalary ? "Hour salary" : "Display salary/hour").foregroundColor(themeIsDark ? .gray : .darkGray) }
                     
                     if config.$displaySalary.wrappedValue {
                         TextField("hour Salary", value: config.$hourSalary, format: .number)
+                            .foregroundColor(themeIsDark ? .gray : .darkGray)
                             .frame(width: 50)
                             
                             
-                        Text("$")
+                        Text("$").foregroundColor(themeIsDark ? .gray : .darkGray)
                         
                     }
                 }
                 
-                Toggle(isOn: config.$topMost) { Text("On top of all the windows") }
+                Toggle(isOn: config.$topMost) { Text("On top of all the windows").foregroundColor(themeIsDark ? .gray : .darkGray) }
                 
                 Spacer()
             }
@@ -78,7 +81,7 @@ fileprivate extension SettingView {
         Picker("", selection: config.$saveStopSettings) {
             ForEach(ActionTimerStopped.allCases, id: \.self) {
                 Text($0.asStr())
-                    .foregroundColor(.gray)
+                    .foregroundColor(themeIsDark ? .gray : .darkGray)
             }
         }
     }
@@ -87,7 +90,7 @@ fileprivate extension SettingView {
         Picker("", selection: config.$saveIsGoingSettings) {
             ForEach(ActionTimerGoing.allCases, id: \.self) {
                 Text($0.asStr())
-                    .foregroundColor(.gray)
+                    .foregroundColor(themeIsDark ? .gray : .darkGray)
             }
         }
     }
