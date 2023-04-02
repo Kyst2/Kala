@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CustomAlertView: View {
-    
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark}
     
@@ -84,29 +83,29 @@ struct ButtonAlertView: View {
         .buttonStyle(NeumorphicButtonStyle(width: 300, height: 25, cornerRadius : 20))
     }
 }
-    ///////////////////////
-    ///HELERS
-    //////////////////////
-    fileprivate func cancel() {
-        AppDelegate.instance.alertWindowController?.window?.close()
-        AppDelegate.instance.alertWindowController = nil
-    }
-    
-    fileprivate func close() {
-        MainViewModel.shared.config.timePassedInterval = 0
-        MainViewModel.shared.config.appDisableTimeStamp = nil
-        NSApplication.shared.terminate(nil)
-    }
-    
-    fileprivate func saveAndClose() {
-        MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
-        MainViewModel.shared.config.appDisableTimeStamp = nil
-        NSApplication.shared.terminate(nil)
-    }
-    
-    fileprivate func timeGoingOnKalaClose() {
-        MainViewModel.shared.config.appDisableTimeStamp = CACurrentMediaTime()
-        MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
-        NSApplication.shared.terminate(nil)
-    }
 
+///////////////////////
+///HELERS
+//////////////////////
+fileprivate func cancel() {
+    AppDelegate.instance.alertWindowController?.window?.close()
+    AppDelegate.instance.alertWindowController = nil
+}
+
+fileprivate func close() {
+    MainViewModel.shared.config.timePassedInterval = 0
+    MainViewModel.shared.config.appDisableTimeStamp = nil
+    NSApplication.shared.terminate(nil)
+}
+
+fileprivate func saveAndClose() {
+    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+    MainViewModel.shared.config.appDisableTimeStamp = nil
+    NSApplication.shared.terminate(nil)
+}
+
+fileprivate func timeGoingOnKalaClose() {
+    MainViewModel.shared.config.appDisableTimeStamp = CACurrentMediaTime()
+    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+    NSApplication.shared.terminate(nil)
+}
