@@ -85,6 +85,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
             .foregroundColor(.primary)
             .background(NeuButtonBackgroundView(cornerRadius: cornerRadius, opacity: opacity, opacityOp: opacityOp, shadowRadiusXY: shadowRadiusXY))
             .scaleEffect(scale)
+            .focusable(false)
             .onChange(of: configuration.isPressed) { newValue in
                 if (!configuration.isPressed) {
                     withAnimation(.spring(dampingFraction: 0.5).speed(2)) {

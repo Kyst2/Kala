@@ -94,6 +94,7 @@ extension StopwatchInterfaceView {
                 NeuromorphBtn("Reset") { model.reset() }
                     .keyboardShortcut("r", modifiers: [])
                     .help("Keyboard shortcut: R")
+                    
             }
             
             if model.st.isGoing {
