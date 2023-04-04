@@ -13,6 +13,7 @@ class MainViewModel: ObservableObject {
     
     private(set) var timer: Timer!
     let st = Stopwatch(startTime: nil)
+    var counter = 0
     
     private init() {
         self.timePassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
@@ -28,6 +29,12 @@ class MainViewModel: ObservableObject {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
             updTimerInterface()
+            ///this hack to save time during extreme closures
+            counter += 1
+            if counter > 100 {
+                config.timePassedInterval = st.diff
+                counter = 0
+            }
         } )
     }
     
@@ -36,7 +43,6 @@ class MainViewModel: ObservableObject {
         let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
         self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
         if self.timePassedStr != newPassedStr {
-            
             // Must be first before timePassedStr change to be updated!
             self.timePassedStr = newPassedStr
         } else {

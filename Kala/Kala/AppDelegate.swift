@@ -10,10 +10,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillTerminate(_ aNotification: Notification) {
         MainViewModel.shared.updConfig()
+        
     }
-    
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
+        
     }
     
     func showAboutWnd() {
