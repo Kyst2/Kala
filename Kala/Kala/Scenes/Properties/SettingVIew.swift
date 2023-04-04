@@ -40,9 +40,8 @@ struct SettingView: View {
                             .foregroundColor(themeIsDark ? .gray : .darkGray)
                             .frame(width: 50)
                             
-                            
-                        Text("$").foregroundColor(themeIsDark ? .gray : .darkGray)
-                        
+                        MoneyDropDown()
+                            .fixedSize()
                     }
                 }
                 
@@ -94,4 +93,13 @@ fileprivate extension SettingView {
             }
         }
     }
+    func MoneyDropDown() -> some View {
+        Picker("", selection: config.$moneyDropdown){
+            ForEach(MoneyEnum.allCases, id: \.self){
+                Text($0.asStr())
+                    .foregroundColor(themeIsDark ? .gray : .darkGray)
+            }
+        }
+    }
+    
 }

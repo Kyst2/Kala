@@ -9,7 +9,7 @@ class MainViewModel: ObservableObject {
     @Published var salaryTime: Bool = Config.shared.displaySalary
     var config = Config.shared
     
-    var salary: String = "[0.00$]"
+    var salary: String = "0.00"
     
     private(set) var timer: Timer!
     let st = Stopwatch(startTime: nil)
@@ -41,7 +41,7 @@ class MainViewModel: ObservableObject {
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
         let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
-        self.salary = "[\( String(format: "%.2f", salaryDouble) )$]"
+        self.salary = "\( String(format: "%.2f", salaryDouble))"
         if self.timePassedStr != newPassedStr {
             // Must be first before timePassedStr change to be updated!
             self.timePassedStr = newPassedStr

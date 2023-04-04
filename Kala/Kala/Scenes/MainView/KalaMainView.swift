@@ -6,6 +6,7 @@ struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
     @ObservedObject var config = Config.shared
     
+    
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark }
     
@@ -28,6 +29,7 @@ struct KalaMainView: View {
         }
         .onChange(of: config.hourSalary) { _ in MainViewModel.shared.updTimerInterface(forceRefresh: true) }
         .onChange(of: config.displaySalary) { _ in model.updTimerInterface(forceRefresh: true) }
+        .onChange(of: config.moneyDropdown){_ in model.updTimerInterface(forceRefresh: true) }
     }
 }
 
@@ -46,6 +48,7 @@ struct StopwatchInterfaceView: View {
             HStack {
                 timerPanel()
                 salaryPanel()
+                
             }
             .fixedSize()
             
@@ -71,14 +74,17 @@ extension StopwatchInterfaceView {
     func salaryPanel() -> some View {
         if model.config.displaySalary {
             VStack{
-                Text(model.salary)
+                HStack{
+                    Text("[\(model.salary) \(Config.shared.moneyDropdown.asStr())]")
+//                    Text(Config.shared.moneyDropdown.asStr())
+                }
                     .foregroundColor(themeIsDark ? .orange : .blue )
                     .font(.system(size: 14, design: .monospaced))
                     .padding(.top, 5)
                     .dragWndWithClick()
                     .contextMenu{
                         Button("Copy Salary") {
-                            copyToClipBoard(textToCopy: model.salary)
+                            copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.moneyDropdown.asStr())")
                         }
                     }
                     
