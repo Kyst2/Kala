@@ -75,7 +75,7 @@ extension StopwatchInterfaceView {
         if model.config.displaySalary {
             VStack{
                 HStack{
-                    Text("[\(model.salary) \(Config.shared.moneyDropdown.asStr())]")
+                    Text("[\(model.salary)\(Config.shared.moneyDropdown.asStr())]")
 //                    Text(Config.shared.moneyDropdown.asStr())
                 }
                     .foregroundColor(themeIsDark ? .orange : .blue )
