@@ -29,7 +29,7 @@ class MainViewModel: ObservableObject {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
             updTimerInterface()
-            ///this hack to save time during extreme closures
+            ///hack to save at least some user data in case of PC is rebooted unexpectedly or in case of Force Quit was initiated
             counter += 1
             if counter > 100 {
                 config.timePassedInterval = st.diff

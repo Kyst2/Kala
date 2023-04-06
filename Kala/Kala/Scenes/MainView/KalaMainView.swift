@@ -29,7 +29,7 @@ struct KalaMainView: View {
         }
         .onChange(of: config.hourSalary) { _ in MainViewModel.shared.updTimerInterface(forceRefresh: true) }
         .onChange(of: config.displaySalary) { _ in model.updTimerInterface(forceRefresh: true) }
-        .onChange(of: config.moneyDropdown){_ in model.updTimerInterface(forceRefresh: true) }
+        .onChange(of: config.currency){_ in model.updTimerInterface(forceRefresh: true) }
     }
 }
 
@@ -75,8 +75,7 @@ extension StopwatchInterfaceView {
         if model.config.displaySalary {
             VStack{
                 HStack{
-                    Text("[\(model.salary)\(Config.shared.moneyDropdown.asStr())]")
-//                    Text(Config.shared.moneyDropdown.asStr())
+                    Text("[\(model.salary)\(Config.shared.currency.asStr())]")
                 }
                     .foregroundColor(themeIsDark ? .orange : .blue )
                     .font(.system(size: 14, design: .monospaced))
@@ -84,7 +83,7 @@ extension StopwatchInterfaceView {
                     .dragWndWithClick()
                     .contextMenu{
                         Button("Copy Salary") {
-                            copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.moneyDropdown.asStr())")
+                            copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.currency.asStr())")
                         }
                     }
                     

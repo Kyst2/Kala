@@ -18,7 +18,7 @@ class Config: ObservableObject {
     
     @AppStorage("Save_StopSettings") var saveStopSettings: ActionTimerStopped = .AskAction
     @AppStorage("Save_PlaySettings") var saveIsGoingSettings: ActionTimerGoing = .AskAction
-    @AppStorage("Money_DropDown") var moneyDropdown: MoneyEnum = .usd
+    @AppStorage("Money_DropDown") var currency: CurrencyEnum = .usd
     
     @AppStorage("Save_Ms") var displayMs: Bool = false
     @AppStorage("Save_FloatingWindow") var topMost: Bool = false
@@ -74,7 +74,7 @@ extension ActionTimerGoing {
     }
 }
 
-enum MoneyEnum: Int, RawRepresentable, CaseIterable {
+enum CurrencyEnum: Int, RawRepresentable, CaseIterable {
     case usd = 0
     case uah = 1
     case eur = 2
@@ -83,7 +83,7 @@ enum MoneyEnum: Int, RawRepresentable, CaseIterable {
     case mnt = 5
     case kzt = 6
 }
-extension MoneyEnum {
+extension CurrencyEnum {
     func asStr() -> String {
         switch self {
         case .usd:

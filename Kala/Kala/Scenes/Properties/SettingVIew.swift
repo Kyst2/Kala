@@ -40,7 +40,7 @@ struct SettingView: View {
                             .foregroundColor(themeIsDark ? .gray : .darkGray)
                             .frame(width: 50)
                             
-                        MoneyDropDown()
+                        CurrencyDropDown()
                             .fixedSize()
                     }
                 }
@@ -93,9 +93,9 @@ fileprivate extension SettingView {
             }
         }
     }
-    func MoneyDropDown() -> some View {
-        Picker("", selection: config.$moneyDropdown){
-            ForEach(MoneyEnum.allCases, id: \.self){
+    func CurrencyDropDown() -> some View {
+        Picker("", selection: config.$currency){
+            ForEach(CurrencyEnum.allCases, id: \.self){
                 Text($0.asStr())
                     .foregroundColor(themeIsDark ? .gray : .darkGray)
             }
