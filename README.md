@@ -1,6 +1,6 @@
 # Kala - Stopwatch
 
-Appstore link: ___________
+Appstore link: https://apps.apple.com/ua/app/kala-stopwatch/id6446035883
 
 * Kala can measure time even if it is turned off
 * Best CPU performance on AppStore: <1% of CPU without Milliseconds display
