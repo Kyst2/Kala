@@ -41,7 +41,6 @@ fileprivate extension Scene {
             CommandGroup(replacing: .pasteboard, addition: { })
             CommandGroup(replacing: .windowSize, addition: { })
             CommandGroup(replacing: .appInfo, addition: { })
-            CommandGroup(replacing: .appTermination, addition: { })
             CommandGroup(replacing: .appVisibility, addition: { })
             CommandGroup(after: CommandGroupPlacement.help) {
                 Link("Support Email", destination: URL(string: "mailto:deradus@ukr.net")!)
