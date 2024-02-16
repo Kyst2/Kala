@@ -1,5 +1,8 @@
 # Kala - Stopwatch
 
+[![enter image description here][1]][1]
+
+
 Appstore link: https://apps.apple.com/ua/app/kala-stopwatch/id6446035883
 
 * Kala can measure time even if it is turned off
@@ -12,3 +15,5 @@ Appstore link: https://apps.apple.com/ua/app/kala-stopwatch/id6446035883
 * Consumes less RAM than other stopwatches
 
 App uses SwiftUI based interface
+
+[1]: https://raw.githubusercontent.com/Kyst2/Kala/master/Kala/Kala/Assets.xcassets/Kala-Icon128x128.imageset/Kala-Icon128x128.png
