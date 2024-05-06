@@ -18,6 +18,7 @@ class MainViewModel: ObservableObject {
     private init() {
         self.timePassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
         self.salaryTime = Config.shared.displaySalary ? false : true
+        
         if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose || config.saveIsGoingSettings == .AskAction  {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
             start()
@@ -102,6 +103,10 @@ extension MainViewModel {
         updTimerInterface(forceRefresh: true)
     }
 }
+
+////////////////
+///HELPERS
+////////////////
 
 extension Stopwatch {
     func twoZeroTime(_ time: Int) -> String{

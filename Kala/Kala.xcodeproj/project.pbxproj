@@ -27,6 +27,7 @@
 		A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9FD296879C200995018 /* StopwatchTests.swift */; };
 		A28E12B429A675A1006E573E /* dragWndWithClick.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E12B329A675A1006E573E /* dragWndWithClick.swift */; };
 		A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */; };
+		A2A3DED82BE88F1F007D2AC0 /* StopwatchInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */; };
 		A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B5296F0A32002C1B45 /* AboutView.swift */; };
 		A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BD29795BDD002C1B45 /* SettingView.swift */; };
 		A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */; };
@@ -69,6 +70,7 @@
 		A282A9FD296879C200995018 /* StopwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTests.swift; sourceTree = "<group>"; };
 		A28E12B329A675A1006E573E /* dragWndWithClick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dragWndWithClick.swift; sourceTree = "<group>"; };
 		A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphBtn.swift; sourceTree = "<group>"; };
+		A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchInterfaceView.swift; sourceTree = "<group>"; };
 		A2CB37B5296F0A32002C1B45 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = Kala/Scenes/About/AboutView.swift; sourceTree = SOURCE_ROOT; };
 		A2CB37BD29795BDD002C1B45 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		A282A9D1295EE33C00995018 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A2A3DED62BE88F04007D2AC0 /* StopwatchInterfaceView */,
 				1DF8F6C6299D5F3E001EF48E /* CustomAlertView */,
 				A282A9D2295EE34A00995018 /* MainView */,
 				A282A9D4295EE36000995018 /* Properties */,
@@ -216,6 +219,14 @@
 				A282A9FD296879C200995018 /* StopwatchTests.swift */,
 			);
 			path = KalaTests;
+			sourceTree = "<group>";
+		};
+		A2A3DED62BE88F04007D2AC0 /* StopwatchInterfaceView */ = {
+			isa = PBXGroup;
+			children = (
+				A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */,
+			);
+			path = StopwatchInterfaceView;
 			sourceTree = "<group>";
 		};
 		A2CB37C1297C3111002C1B45 /* About */ = {
@@ -341,6 +352,7 @@
 				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,
 				A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */,
 				A282A9CC295EE2EF00995018 /* ColorExt.swift in Sources */,
+				A2A3DED82BE88F1F007D2AC0 /* StopwatchInterfaceView.swift in Sources */,
 				1D4A87C8298EF0280062686C /* Neuromorhism.swift in Sources */,
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
 				A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */,

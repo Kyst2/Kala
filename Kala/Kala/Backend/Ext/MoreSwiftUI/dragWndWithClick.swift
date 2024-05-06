@@ -1,10 +1,3 @@
-//
-//  WndWithClick.swift
-//  Kala
-//
-//  Created by Andrew Kuzmich on 22.02.2023.
-//
-
 import Foundation
 import SwiftUI
 
