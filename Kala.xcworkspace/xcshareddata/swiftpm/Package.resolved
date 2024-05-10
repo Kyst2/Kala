@@ -5,8 +5,26 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:serg-vinnie/AsyncNinja.git",
       "state" : {
-        "revision" : "b6f4e2e7bef49d6de19eca8dd9c86e2b754dc114",
-        "version" : "1.4.0"
+        "branch" : "master",
+        "revision" : "9abd1517960bf653bfa46093e9a74da7f51c226c"
+      }
+    },
+    {
+      "identity" : "essentials",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitlab.com/sergiy.vynnychenko/essentials.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b93e133953847cbefcbc6fe8b931b7b744e2fd98"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "64889f0c732f210a935a0ad7cda38f77f876262d",
+        "version" : "509.1.1"
       }
     }
   ],

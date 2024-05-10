@@ -13,6 +13,8 @@
 		1D4A87CA298EF0470062686C /* SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A87C9298EF0470062686C /* SystemColors.swift */; };
 		1DA1F15C29A7E28F00810860 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1F15B29A7E28E00810860 /* NSWindow.swift */; };
 		A2207FEC2BEE6D4B005CA5AE /* ConfigNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */; };
+		A2207FF52BEE772C005CA5AE /* AppCoreLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */; };
+		A2207FF62BEE772C005CA5AE /* AppCoreLight.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A23CDE2E29B7ABD10033EDC4 /* NSTextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */; };
 		A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4829859387001A0F10 /* CustomAlertView.swift */; };
 		A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */; };
@@ -47,6 +49,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A2207FF72BEE772C005CA5AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2207FF62BEE772C005CA5AE /* AppCoreLight.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D09E306298AEB7E0034557C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		1D4A87A6298EE3000062686C /* takeAllAvailableSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takeAllAvailableSpace.swift; sourceTree = "<group>"; };
@@ -54,6 +70,7 @@
 		1D4A87C9298EF0470062686C /* SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColors.swift; sourceTree = "<group>"; };
 		1DA1F15B29A7E28E00810860 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
 		A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNinja.swift; sourceTree = "<group>"; };
+		A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCoreLight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExt.swift; sourceTree = "<group>"; };
 		A25D2F4829859387001A0F10 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
@@ -87,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2207FF52BEE772C005CA5AE /* AppCoreLight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,12 +137,21 @@
 			path = CustomAlertView;
 			sourceTree = "<group>";
 		};
+		A2207FF32BEE772C005CA5AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A282A9AB295EDDAB00995018 = {
 			isa = PBXGroup;
 			children = (
 				A282A9B6295EDDAB00995018 /* Kala */,
 				A282A9FC296879C200995018 /* KalaTests */,
 				A282A9B5295EDDAB00995018 /* Products */,
+				A2207FF32BEE772C005CA5AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,6 +277,7 @@
 				A282A9B0295EDDAB00995018 /* Sources */,
 				A282A9B1295EDDAB00995018 /* Frameworks */,
 				A282A9B2295EDDAB00995018 /* Resources */,
+				A2207FF72BEE772C005CA5AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
