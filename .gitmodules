@@ -1,6 +1,0 @@
-[submodule "appcorelight"]
-	path = appcorelight
-	url = git@gitlab.com:UKS/appcorelight.git
-[submodule "Appcorelight"]
-	path = Appcorelight
-	url = git@gitlab.com:UKS/appcorelight.git
