@@ -36,7 +36,7 @@ class MainViewModel: ObservableObject {
                 config.timePassedInterval = st.diff
                 counter = 0
             }
-        } )
+        })
     }
     
     func updTimerInterface(forceRefresh: Bool = false) {

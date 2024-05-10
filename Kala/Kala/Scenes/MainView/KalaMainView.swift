@@ -6,7 +6,6 @@ struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
     @ObservedObject var config = Config.shared
     
-    
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark }
     
