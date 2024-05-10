@@ -310,7 +310,6 @@
 			mainGroup = A282A9AB295EDDAB00995018;
 			packageReferences = (
 				A2207FED2BEE6ECB005CA5AE /* XCRemoteSwiftPackageReference "AsyncNinja" */,
-				A2207FEE2BEE6F38005CA5AE /* XCRemoteSwiftPackageReference "appcorelight" */,
 			);
 			productRefGroup = A282A9B5295EDDAB00995018 /* Products */;
 			projectDirPath = "";
@@ -652,14 +651,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.4.0;
-			};
-		};
-		A2207FEE2BEE6F38005CA5AE /* XCRemoteSwiftPackageReference "appcorelight" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@gitlab.com:UKS/appcorelight.git";
-			requirement = {
-				branch = main;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
