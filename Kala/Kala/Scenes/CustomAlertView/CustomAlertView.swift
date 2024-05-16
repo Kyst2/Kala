@@ -93,19 +93,19 @@ fileprivate func cancel() {
 }
 
 fileprivate func close() {
-    MainViewModel.shared.config.timePassedInterval = 0
-    MainViewModel.shared.config.appDisableTimeStamp = nil
+    Config.shared.timePassedInterval.value = 0
+    Config.shared.appDisableTimeStamp.value = 0
     NSApplication.shared.terminate(nil)
 }
 
 fileprivate func saveAndClose() {
-    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
-    MainViewModel.shared.config.appDisableTimeStamp = nil
+    Config.shared.timePassedInterval.value = MainViewModel.shared.st.diff
+    Config.shared.appDisableTimeStamp.value = 0
     NSApplication.shared.terminate(nil)
 }
 
 fileprivate func timeGoingOnKalaClose() {
-    MainViewModel.shared.config.appDisableTimeStamp = CACurrentMediaTime()
-    MainViewModel.shared.config.timePassedInterval = MainViewModel.shared.st.diff
+    Config.shared.appDisableTimeStamp.value = CACurrentMediaTime()
+    Config.shared.timePassedInterval.value = MainViewModel.shared.st.diff
     NSApplication.shared.terminate(nil)
 }

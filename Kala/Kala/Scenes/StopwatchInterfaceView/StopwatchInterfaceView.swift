@@ -38,10 +38,10 @@ extension StopwatchInterfaceView {
     
     @ViewBuilder
     func salaryPanel() -> some View {
-        if model.config.displaySalary {
+        if Config.shared.displaySalary.value {
             VStack{
                 HStack{
-                    Text("[\(model.salary)\(Config.shared.currency.asStr())]")
+                    Text("[\(model.salary)\(Config.shared.currency.value.asStr())]")
                 }
                     .foregroundColor(themeIsDark ? .orange : .blue )
                     .font(.system(size: 14, design: .monospaced))
@@ -49,7 +49,7 @@ extension StopwatchInterfaceView {
                     .dragWndWithClick()
                     .contextMenu{
                         Button("Copy Salary") {
-                            copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.currency.asStr())")
+                            copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.currency.value.asStr())")
                         }
                     }
                     

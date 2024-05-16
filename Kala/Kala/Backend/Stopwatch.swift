@@ -29,7 +29,6 @@ public extension Stopwatch {
             return self
         }
         isGoing = true
-        
         startTime = CACurrentMediaTime()
         
         return self

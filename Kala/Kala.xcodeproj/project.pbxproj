@@ -15,6 +15,7 @@
 		A2207FEC2BEE6D4B005CA5AE /* ConfigNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */; };
 		A2207FF52BEE772C005CA5AE /* AppCoreLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */; };
 		A2207FF62BEE772C005CA5AE /* AppCoreLight.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2207FF92BEE7784005CA5AE /* AsyncNinja in Frameworks */ = {isa = PBXBuildFile; productRef = A2207FF82BEE7784005CA5AE /* AsyncNinja */; };
 		A23CDE2E29B7ABD10033EDC4 /* NSTextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */; };
 		A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4829859387001A0F10 /* CustomAlertView.swift */; };
 		A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */; };
@@ -104,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2207FF92BEE7784005CA5AE /* AsyncNinja in Frameworks */,
 				A2207FF52BEE772C005CA5AE /* AppCoreLight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +286,9 @@
 			dependencies = (
 			);
 			name = Kala;
+			packageProductDependencies = (
+				A2207FF82BEE7784005CA5AE /* AsyncNinja */,
+			);
 			productName = Kala;
 			productReference = A282A9B4295EDDAB00995018 /* Kala.app */;
 			productType = "com.apple.product-type.application";
@@ -682,6 +687,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2207FF82BEE7784005CA5AE /* AsyncNinja */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2207FED2BEE6ECB005CA5AE /* XCRemoteSwiftPackageReference "AsyncNinja" */;
+			productName = AsyncNinja;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A282A9AC295EDDAB00995018 /* Project object */;
 }

@@ -1,10 +1,11 @@
 import SwiftUI
 import Foundation
 import Combine
+import AppCoreLight
 
 struct KalaMainView: View {
     @ObservedObject var model = MainViewModel.shared
-    @ObservedObject var config = Config.shared
+    var config:Config = Config.shared
     
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark }
@@ -26,9 +27,9 @@ struct KalaMainView: View {
                 SettingViewModel.floatWindowUpd()
             }
         }
-        .onChange(of: config.hourSalary) { _ in MainViewModel.shared.updTimerInterface(forceRefresh: true) }
-        .onChange(of: config.displaySalary) { _ in model.updTimerInterface(forceRefresh: true) }
-        .onChange(of: config.currency){_ in model.updTimerInterface(forceRefresh: true) }
+        .onChange(of: config.hourSalary.value) { _ in model.updTimerInterface(forceRefresh: true) }
+        .onChange(of: config.displaySalary.value) { _ in model.updTimerInterface(forceRefresh: true) }
+        .onChange(of: config.currency.value){_ in model.updTimerInterface(forceRefresh: true) }
     }
 }
 
@@ -40,7 +41,7 @@ fileprivate extension NSWindow {
     @objc
     func doCustomClose(_ sender: Any?) {
         if MainViewModel.shared.st.isGoing {
-            switch Config.shared.saveIsGoingSettings {
+            switch Config.shared.saveIsGoingSettings.value {
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
             default:
@@ -49,7 +50,7 @@ fileprivate extension NSWindow {
                 NSApplication.shared.terminate(self)
             }
         } else {
-            switch Config.shared.saveStopSettings {
+            switch Config.shared.saveStopSettings.value {
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
             case .SaveAndClose :

@@ -1,13 +1,13 @@
 import Foundation
 import SwiftUI
 import QuartzCore
+import AppCoreLight
 
 class MainViewModel: ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
     @Published var timePassedStr: String
-    @Published var salaryTime: Bool = Config.shared.displaySalary
-    var config = Config.shared
+    @Published var salaryTime: Bool = Config.shared.displaySalary.value
     
     var salary: String = "0.00"
     
@@ -16,16 +16,20 @@ class MainViewModel: ObservableObject {
     var counter = 0
     
     private init() {
-        self.timePassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        self.salaryTime = Config.shared.displaySalary ? false : true
         
-        if let appDisableTimeStamp = config.appDisableTimeStamp, config.saveIsGoingSettings == .TimeGoingOnKalaClose || config.saveIsGoingSettings == .AskAction  {
+        self.timePassedStr = Config.shared.displayMs.value ? self.st.timeStrMs : self.st.timeStrS
+        self.salaryTime = Config.shared.displaySalary.value ? false : true
+        
+        let appDisableTimeStamp:CFTimeInterval? = Config.shared.appDisableTimeStamp.value == 0 ? nil : Config.shared.appDisableTimeStamp.value
+        
+        
+        if  let appDisableTimeStamp = appDisableTimeStamp, Config.shared.saveIsGoingSettings.value == .TimeGoingOnKalaClose || Config.shared.saveIsGoingSettings.value == .AskAction  {
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
             start()
         }
         
-        if config.timePassedInterval > 0 {
-            st.setDiff(config.timePassedInterval)
+        if Config.shared.timePassedInterval.value > 0 {
+            st.setDiff(Config.shared.timePassedInterval.value)
         }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
@@ -33,15 +37,15 @@ class MainViewModel: ObservableObject {
             ///hack to save at least some user data in case of PC is rebooted unexpectedly or in case of Force Quit was initiated
             counter += 1
             if counter > 100 {
-                config.timePassedInterval = st.diff
+                Config.shared.timePassedInterval.value = st.diff
                 counter = 0
             }
         })
     }
     
     func updTimerInterface(forceRefresh: Bool = false) {
-        let newPassedStr = Config.shared.displayMs ? self.st.timeStrMs : self.st.timeStrS
-        let salaryDouble = (self.st.diff/3600 * config.hourSalary).rounded(digits: 2)
+        let newPassedStr = Config.shared.displayMs.value ? self.st.timeStrMs : self.st.timeStrS
+        let salaryDouble = (self.st.diff/3600 * (Config.shared.hourSalary.value)).rounded(digits: 2)
         self.salary = "\( String(format: "%.2f", salaryDouble))"
         if self.timePassedStr != newPassedStr {
             // Must be first before timePassedStr change to be updated!
@@ -51,35 +55,35 @@ class MainViewModel: ObservableObject {
                 self.objectWillChange.send()
             }
         }
+        SettingViewModel.floatWindowUpd()
     }
     
     func updConfig() {
         if st.isGoing {
-            switch config.saveIsGoingSettings {
+            switch Config.shared.saveIsGoingSettings.value {
             case .TimeGoingOnKalaClose:
-                config.appDisableTimeStamp = CACurrentMediaTime()
-                config.timePassedInterval = st.diff
+                Config.shared.appDisableTimeStamp.value = CACurrentMediaTime()
+                Config.shared.timePassedInterval.value = st.diff
                 NSApplication.shared.terminate(self)
             case .SaveAndClose:
-                config.timePassedInterval = st.diff
-                config.appDisableTimeStamp = nil
+                Config.shared.timePassedInterval.value = st.diff
+                Config.shared.appDisableTimeStamp.value = 0
                 NSApplication.shared.terminate(self)
-                
             case .NewSessionFromScratch:
-                config.timePassedInterval = 0
-                config.appDisableTimeStamp = nil
+                Config.shared.timePassedInterval.value = 0
+                Config.shared.appDisableTimeStamp.value = 0
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
             }
         } else {
-            switch config.saveStopSettings {
+            switch Config.shared.saveStopSettings.value {
             case .SaveAndClose:
-                config.timePassedInterval = st.diff
-                config.appDisableTimeStamp = nil
+                Config.shared.timePassedInterval.value = st.diff
+                Config.shared.appDisableTimeStamp.value = 0
                 NSApplication.shared.terminate(self)
             case .NewSessionFromScratch:
-                config.timePassedInterval = 0
-                config.appDisableTimeStamp = nil
+                Config.shared.timePassedInterval.value = 0
+                Config.shared.appDisableTimeStamp.value = 0
             case .AskAction:
                 AppDelegate.instance.showCustomAlert()
             }
