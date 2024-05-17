@@ -40,28 +40,32 @@ struct KalaMainView: View {
 fileprivate extension NSWindow {
     @objc
     func doCustomClose(_ sender: Any?) {
-        if MainViewModel.shared.st.isGoing {
-            switch Config.shared.saveIsGoingSettings.value {
-            case .AskAction:
-                AppDelegate.instance.showCustomAlert()
-            default:
-                MainViewModel.shared.updConfig()
-                MainViewModel.shared.st.pause()
-                NSApplication.shared.terminate(self)
-            }
-        } else {
-            switch Config.shared.saveStopSettings.value {
-            case .AskAction:
-                AppDelegate.instance.showCustomAlert()
-            case .SaveAndClose :
-                MainViewModel.shared.updConfig()
-                MainViewModel.shared.pause()
-                NSApplication.shared.terminate(self)
-            default:
-                MainViewModel.shared.updConfig()
-                MainViewModel.shared.st.pause()
-                NSApplication.shared.terminate(self)
-            }
+        MainViewModel.shared.st.isGoing ? saveIsGoingSettings() : saveStopSettings()
+    }
+    
+    func saveIsGoingSettings() {
+        switch Config.shared.saveIsGoingSettings.value {
+        case .AskAction:
+            AppDelegate.instance.showCustomAlert()
+        default:
+            MainViewModel.shared.updConfig()
+            MainViewModel.shared.st.pause()
+            NSApplication.shared.terminate(self)
+        }
+    }
+    
+    func saveStopSettings() {
+        switch Config.shared.saveStopSettings.value {
+        case .AskAction:
+            AppDelegate.instance.showCustomAlert()
+        case .SaveAndClose :
+            MainViewModel.shared.updConfig()
+            MainViewModel.shared.pause()
+            NSApplication.shared.terminate(self)
+        default:
+            MainViewModel.shared.updConfig()
+            MainViewModel.shared.st.pause()
+            NSApplication.shared.terminate(self)
         }
     }
 }
