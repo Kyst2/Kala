@@ -10,12 +10,12 @@ struct CustomAlertView: View {
             
             DragWndView()
             
-            alertInterface()
+            AlertInterface()
             
         }.ignoresSafeArea()
     }
     
-    func alertInterface() -> some View {
+    func AlertInterface() -> some View {
         VStack(spacing: 20){
             ConfirmationText()
             

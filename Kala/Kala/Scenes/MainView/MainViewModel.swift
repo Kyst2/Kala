@@ -27,7 +27,10 @@ class MainViewModel: ObservableObject {
     func checkAppDisableTimeStamp() {
         let appDisableTimeStamp:CFTimeInterval? = Config.shared.appDisableTimeStamp.value == 0 ? nil : Config.shared.appDisableTimeStamp.value
         
-        if let appDisableTimeStamp = appDisableTimeStamp, Config.shared.saveIsGoingSettings.value == .TimeGoingOnKalaClose || Config.shared.saveIsGoingSettings.value == .AskAction  {
+        if let appDisableTimeStamp = appDisableTimeStamp,
+           Config.shared.saveIsGoingSettings.value == .TimeGoingOnKalaClose ||
+           Config.shared.saveIsGoingSettings.value == .AskAction  {
+            
             st.setDiffOffline(CACurrentMediaTime() - appDisableTimeStamp)
             start()
         }
