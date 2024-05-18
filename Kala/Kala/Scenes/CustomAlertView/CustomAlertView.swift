@@ -63,7 +63,6 @@ struct CustomAlertView: View {
 }
 
 struct ButtonAlertView: View {
-    
     @Environment(\.colorScheme) var theme
     var themeIsDark: Bool { theme == .dark}
     

@@ -6,7 +6,6 @@ import AppCoreLight
 struct SettingView: View {
     static let shared = SettingView()
     
-//    @ObservedObject var appDisableTimeStamp : ConfigProperty<CFTimeInterval>
     @ObservedObject var saveStopSettings    : ConfigPropertyEnum<ActionTimerStopped>
     @ObservedObject var saveIsGoingSettings : ConfigPropertyEnum<ActionTimerGoing>
     @ObservedObject var currency            : ConfigPropertyEnum<CurrencyEnum>
@@ -21,7 +20,6 @@ struct SettingView: View {
     var themeIsDark: Bool { theme == .dark}
     
     init() {
-//        appDisableTimeStamp = Config.shared.appDisableTimeStamp
         saveStopSettings = Config.shared.saveStopSettings
         saveIsGoingSettings = Config.shared.saveIsGoingSettings
         currency = Config.shared.currency
@@ -36,50 +34,76 @@ struct SettingView: View {
             VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
-            VStack() {
-                Spacer()
-                
-                Text("Close on pause:")
-                    .foregroundColor(themeIsDark ? .gray : .darkGray)
-                
-                StopTimerConfigDropDown()
-                    .padding(.horizontal,20)
-                
-                Text("Close during operation:")
-                    .foregroundColor(themeIsDark ? .gray : .darkGray)
-                
-                PlayTimerConfogDropDown()
-                    .padding(.horizontal,20)
-                
-                Toggle(isOn: displayMs.asBinding) { Text("Show milliseconds").foregroundColor(themeIsDark ? .gray : .darkGray) }
-                
-                HStack {
-                    Toggle(isOn: displaySalary.asBinding) { Text(displaySalary.value ? "Hour salary" : "Display salary/hour").foregroundColor(themeIsDark ? .gray : .darkGray) }
-                    
-                    if displaySalary.value {
-                        TextField("hour Salary", value: hourSalary.asBinding, format: .number)
-                            .foregroundColor(themeIsDark ? .gray : .darkGray)
-                            .frame(width: 50)
-                            
-                        CurrencyDropDown()
-                            .fixedSize()
-                    }
-                }
-                
-                Toggle(isOn: topMost.asBinding) { Text("On top of all the windows").foregroundColor(themeIsDark ? .gray : .darkGray) }
-                
-                Spacer()
-            }
-            .applyTextStyle()
-            .frame(minWidth: 200, idealWidth: 300 , maxWidth: 300, idealHeight: 300, maxHeight: 300)
-            .wndAccessor {
-                if let _ = $0 {
-                    SettingViewModel.floatWindowUpd()
-                }
-            }
             
-            .onChange(of: topMost.value) { _ in MainViewModel.shared.updTimerInterface(forceRefresh: true) }
+            SettingViewInterface()
         }
+    }
+    
+    func SettingViewInterface() -> some View {
+        VStack() {
+            Spacer()
+            
+            CloseOnPauseView()
+            
+            CloseDuringOperationView()
+            
+            ShowMillisecondsView()
+            
+            DisplaySalaryView()
+            
+            TopMostView()
+            
+            Spacer()
+        }
+        .applyTextStyle()
+        .frame(minWidth: 200, idealWidth: 300 , maxWidth: 300, idealHeight: 300, maxHeight: 300)
+        .onChange(of: topMost.value) { _ in MainViewModel.shared.updTimerInterface(forceRefresh: true) }
+        .wndAccessor {
+            if let _ = $0 {
+                SettingViewModel.floatWindowUpd()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func CloseOnPauseView() -> some View {
+        Text("Close on pause:")
+            .foregroundColor(themeIsDark ? .gray : .darkGray)
+        
+        StopTimerConfigDropDown()
+            .padding(.horizontal,20)
+    }
+    
+    @ViewBuilder
+    func CloseDuringOperationView() -> some View {
+        Text("Close during operation:")
+            .foregroundColor(themeIsDark ? .gray : .darkGray)
+        
+        PlayTimerConfogDropDown()
+            .padding(.horizontal,20)
+    }
+    
+    func ShowMillisecondsView() -> some View {
+        Toggle(isOn: displayMs.asBinding) { Text("Show milliseconds").foregroundColor(themeIsDark ? .gray : .darkGray) }
+    }
+    
+    func DisplaySalaryView() -> some View {
+        HStack {
+            Toggle(isOn: displaySalary.asBinding) { Text(displaySalary.value ? "Hour salary" : "Display salary/hour").foregroundColor(themeIsDark ? .gray : .darkGray) }
+            
+            if displaySalary.value {
+                TextField("hour Salary", value: hourSalary.asBinding, format: .number)
+                    .foregroundColor(themeIsDark ? .gray : .darkGray)
+                    .frame(width: 50)
+                
+                CurrencyDropDown()
+                    .fixedSize()
+            }
+        }
+    }
+    
+    func TopMostView() -> some View {
+        Toggle(isOn: topMost.asBinding) { Text("On top of all the windows").foregroundColor(themeIsDark ? .gray : .darkGray) }
     }
 }
 
@@ -93,6 +117,7 @@ fileprivate extension View {
             .pickerStyle(.menu)
     }
 }
+
 /////////////////////////////
 ///HELPERS
 ////////////////////////////
