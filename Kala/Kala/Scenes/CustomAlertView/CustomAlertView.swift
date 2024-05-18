@@ -1,10 +1,3 @@
-//
-//  SwiftUIView.swift
-//  Kala
-//
-//  Created by Andrew Kuzmich on 28.01.2023.
-//
-
 import SwiftUI
 
 struct CustomAlertView: View {
@@ -17,46 +10,55 @@ struct CustomAlertView: View {
             
             DragWndView()
             
-            VStack(spacing: 20){
-                VStack {
-                    Text("Warning!")
-                        .font(.system(size: 15,design: .monospaced))
-                        .foregroundColor(themeIsDark ? .gray : .darkGray)
-                    
-                    Text("Are you sure you want to close the application?")
-                        .foregroundColor(themeIsDark ? .gray : .darkGray)
-                        .font(.system(size: 13,design: .monospaced))
-                        .padding(.horizontal,6)
-                        .padding(.vertical,5)
-                        .fixedSize()
-                    
-                }
-                ButtonAlertView("Save current session value") {
-                    saveAndClose()
-                }
-                ButtonAlertView("Reset value to 00.00.00") {
-                    close()
-                }
-                if MainViewModel.shared.st.isGoing == true {
-                    ButtonAlertView("Timer going even if Kala closed") {
-                        timeGoingOnKalaClose()
-                    }
-                }
-                ButtonAlertView("Сancel") {
-                    cancel()
-                }
-            }
-            .padding(30)
-            .fixedSize()
+            alertInterface()
             
         }.ignoresSafeArea()
     }
-}
-
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomAlertView()
+    
+    func alertInterface() -> some View {
+        VStack(spacing: 20){
+            ConfirmationText()
+            
+            ButtonAlertView("Save current session value") {
+                saveAndClose()
+            }
+            
+            ButtonAlertView("Reset value to 00.00.00") {
+                close()
+            }
+            
+            TimerGoingButton()
+            
+            ButtonAlertView("Сancel") {
+                cancel()
+            }
+        }
+        .padding(30)
+        .fixedSize()
+    }
+    
+    func ConfirmationText() -> some View{
+        VStack {
+            Text("Warning!")
+                .font(.system(size: 15,design: .monospaced))
+                .foregroundColor(themeIsDark ? .gray : .darkGray)
+            
+            Text("Are you sure you want to close the application?")
+                .foregroundColor(themeIsDark ? .gray : .darkGray)
+                .font(.system(size: 13,design: .monospaced))
+                .padding(.horizontal,6)
+                .padding(.vertical,5)
+                .fixedSize()
+        }
+    }
+    
+    @ViewBuilder
+    func TimerGoingButton() -> some View {
+        if MainViewModel.shared.st.isGoing == true {
+            ButtonAlertView("Timer going even if Kala closed") {
+                timeGoingOnKalaClose()
+            }
+        }
     }
 }
 
