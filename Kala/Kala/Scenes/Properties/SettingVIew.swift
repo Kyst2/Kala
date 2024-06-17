@@ -3,7 +3,7 @@ import Foundation
 import Combine
 import AppCoreLight
 
-struct SettingView: View {
+struct SettingView: View {//!!!!!!!!!!!
     static let shared = SettingView()
     
     @ObservedObject var saveStopSettings    : ConfigPropertyEnum<ActionTimerStopped>
@@ -27,8 +27,9 @@ struct SettingView: View {
         displaySalary = Config.shared.displaySalary
         hourSalary = Config.shared.hourSalary
     }
+    
     var body: some View {
-        ZStack{
+        ZStack {
             VisualEffectView(type:.behindWindow, material: theme.isDark ? .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
@@ -106,20 +107,8 @@ struct SettingView: View {
 }
 
 /////////////////////////////
-///Styles
+/// DropDowns
 ////////////////////////////
-
-fileprivate extension View {
-    func applyTextStyle() -> some View {
-        self.foregroundColor(.gray)
-            .pickerStyle(.menu)
-    }
-}
-
-/////////////////////////////
-///HELPERS
-////////////////////////////
-
 fileprivate extension SettingView {
     func StopTimerConfigDropDown() -> some View {
         Picker("", selection: saveStopSettings.asBinding) {
@@ -146,5 +135,16 @@ fileprivate extension SettingView {
                     .foregroundColor(theme.isDark ? .gray : .darkGray)
             }
         }
+    }
+}
+
+/////////////////////////////
+///Styles
+////////////////////////////
+
+fileprivate extension View {
+    func applyTextStyle() -> some View {
+        self.foregroundColor(.gray)
+            .pickerStyle(.menu)
     }
 }

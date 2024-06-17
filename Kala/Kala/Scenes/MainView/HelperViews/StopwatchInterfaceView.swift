@@ -13,6 +13,7 @@ struct StopwatchInterfaceView: View {
         VStack(spacing: 20) {
             HStack {
                 timerPanel()
+                
                 salaryPanel()
             }
             .fixedSize()

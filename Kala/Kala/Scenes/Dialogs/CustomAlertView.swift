@@ -4,33 +4,27 @@ struct CustomAlertView: View {
     @Environment(\.colorScheme) var theme
     
     var body: some View {
-        ZStack{
-            VisualEffectView(type:.behindWindow, material: theme.isDark ?  .m6_tooltip : .m1_hudWindow)
+        ZStack {
+            VisualEffectView(type: .behindWindow, material: theme.isDark ?  .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             
             AlertInterface()
-            
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
     }
     
     func AlertInterface() -> some View {
         VStack(spacing: 20){
             ConfirmationText()
             
-            ButtonAlertView("Save current session value") {
-                saveAndClose()
-            }
+            ButtonAlertView("Save current session value") { saveAndClose() }
             
-            ButtonAlertView("Reset value to 00.00.00") {
-                close()
-            }
+            ButtonAlertView("Reset value to 00.00.00") { close() }
             
             TimerGoingButton()
             
-            ButtonAlertView("Сancel") {
-                cancel()
-            }
+            ButtonAlertView("Сancel") { cancel() }
         }
         .padding(30)
         .fixedSize()

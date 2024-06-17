@@ -70,10 +70,10 @@ class MainViewModel: NinjaContext.Main, ObservableObject {
         
         let salaryDouble = (self.st.diff/3600 * (Config.shared.hourSalary.value)).rounded(digits: 2)
         
-        self.salary = "\( String(format: "%.2f", salaryDouble))"
+        self.salary = "\( String(format: "%.2f", salaryDouble) )"
         
         if self.timePassedStr != newPassedStr {
-            // Must be first before timePassedStr change to be updated!
+            // Must be done before timePassedStr change
             self.timePassedStr = newPassedStr
         } else {
             if forceRefresh {
@@ -150,7 +150,7 @@ extension MainViewModel {
 ///HELPERS
 ////////////////
 extension Stopwatch {
-    func twoZeroTime(_ time: Int) -> String{
+    func twoZeroTime(_ time: Int) -> String {
        let timeArray = String(time)
         if timeArray.count > 1 {
             return "\(timeArray)0".substring(to: 2)
@@ -160,15 +160,15 @@ extension Stopwatch {
     }
     
     var timeStrMs: String {
-        let afterDot = (diff - Double(Int(diff)) )
-        let ms = Int( afterDot * 1000  )
+        let afterDot = ( diff - Double(Int(diff)) )
+        let ms = Int( afterDot * 1000 )
         let msStr = "\(ms)0000000".substring(to: 3)
         
         return "\(timeStrS).\(msStr)"
     }
     
     var timeStrS: String {
-        let sec: Int  = Int(diff.truncatingRemainder(dividingBy: 60.0) )
+        let sec: Int  = Int( diff.truncatingRemainder(dividingBy: 60.0) )
         let mins: Int = Int( (diff/(60.0)).truncatingRemainder(dividingBy: 60.0) )
         let days: Int = Int( (diff/(60.0*60*24)).truncatingRemainder(dividingBy: 60.0) )
         let hrs: Int  = Int( (diff/(60.0*60)).truncatingRemainder(dividingBy: 60.0) ) - days * 24

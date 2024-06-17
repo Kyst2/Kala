@@ -6,15 +6,15 @@ import AppCoreLight
 struct SettingViewModel {
     static func floatWindowUpd() {
         let wndLvl: NSWindow.Level = Config.shared.topMost.value ? .floating : .normal
+        
         if wndLvl == .floating {
             for window in NSApplication.shared.windows {
                 window.level =  window.title == "Kala" ? wndLvl : wndLvl + 1
             }
-        }else {
+        } else {
             for window in NSApplication.shared.windows {
                 window.level =  .normal
             }
         }
-        
     }
 }

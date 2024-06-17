@@ -9,7 +9,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            VisualEffectView(type:.behindWindow, material: theme.isDark ?  .m6_tooltip : .m1_hudWindow)
+            VisualEffectView(type: .behindWindow, material: theme.isDark ? .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             

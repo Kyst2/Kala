@@ -27,7 +27,6 @@ extension Currency {
             return "₮"
         case .kzt:
             return "₸"
-            
         }
     }
 }

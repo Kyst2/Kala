@@ -1,21 +1,16 @@
-//
-//  AboutView.swift
-//  Kala
-//
-//  Created by Andrew Kuzmich on 11.01.2023.
-//
+
 import Foundation
 import SwiftUI
 
 struct AboutView: View {
-    
     @Environment(\.colorScheme) var theme
     
     var body: some View {
-        ZStack{
-            VisualEffectView(type:.behindWindow, material: theme.isDark ?  .m6_tooltip : .m1_hudWindow)
+        ZStack {
+            VisualEffectView(type:.behindWindow, material: theme.isDark ? .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
+            
             VStack(spacing: 10) {
                 Image(nsImage: NSImage(named: "Kala-Icon128x128")!)
                     .dragWndWithClick()
@@ -35,8 +30,7 @@ struct AboutView: View {
                     .font(.system(size: 10, weight: .thin))
                     .multilineTextAlignment(.center)
                 Spacer()
-                HStack{
-//                    Spacer()
+                HStack {
                     Link("Privacy Policy", destination: URL(string: "https://kyst2.github.io/mrkyst/privacy.html")!)
                         .font(.system(size: 11,design: .rounded))
                         .opacity(0.7)
@@ -60,15 +54,12 @@ extension AboutView {
 }
 
 extension Bundle {
-    public var appName: String { getInfo("CFBundleName")  }
-    //public var displayName: String {getInfo("CFBundleDisplayName")}
-    //public var language: String {getInfo("CFBundleDevelopmentRegion")}
-    //public var identifier: String {getInfo("CFBundleIdentifier")}
+    public var appName: String { getInfo("CFBundleName") }
+    
     public var copyright: String {getInfo("NSHumanReadableCopyright").replacingOccurrences(of: "\\\\n", with: "\n")}
     
     public var appBuild: String { getInfo("CFBundleVersion") }
     public var appVersionLong: String { getInfo("CFBundleShortVersionString") }
-    //public var appVersionShort: String { getInfo("CFBundleShortVersion") }
     
     fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
 }
