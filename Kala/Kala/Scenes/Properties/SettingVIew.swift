@@ -66,7 +66,7 @@ struct SettingView: View {
     @ViewBuilder
     func CloseOnPauseView() -> some View {
         Text("Close on pause:")
-            .foregroundColor(themeIsDark ? .gray : .darkGray)
+            .foregroundColor(theme.isDark ? .gray : .darkGray)
         
         StopTimerConfigDropDown()
             .padding(.horizontal,20)
@@ -75,23 +75,23 @@ struct SettingView: View {
     @ViewBuilder
     func CloseDuringOperationView() -> some View {
         Text("Close during operation:")
-            .foregroundColor(themeIsDark ? .gray : .darkGray)
+            .foregroundColor(theme.isDark ? .gray : .darkGray)
         
         PlayTimerConfogDropDown()
             .padding(.horizontal,20)
     }
     
     func ShowMillisecondsView() -> some View {
-        Toggle(isOn: displayMs.asBinding) { Text("Show milliseconds").foregroundColor(themeIsDark ? .gray : .darkGray) }
+        Toggle(isOn: displayMs.asBinding) { Text("Show milliseconds").foregroundColor(theme.isDark ? .gray : .darkGray) }
     }
     
     func DisplaySalaryView() -> some View {
         HStack {
-            Toggle(isOn: displaySalary.asBinding) { Text(displaySalary.value ? "Hour salary" : "Display salary/hour").foregroundColor(themeIsDark ? .gray : .darkGray) }
+            Toggle(isOn: displaySalary.asBinding) { Text(displaySalary.value ? "Hour salary" : "Display salary/hour").foregroundColor(theme.isDark ? .gray : .darkGray) }
             
             if displaySalary.value {
                 TextField("hour Salary", value: hourSalary.asBinding, format: .number)
-                    .foregroundColor(themeIsDark ? .gray : .darkGray)
+                    .foregroundColor(theme.isDark ? .gray : .darkGray)
                     .frame(width: 50)
                 
                 CurrencyDropDown()
@@ -101,7 +101,7 @@ struct SettingView: View {
     }
     
     func TopMostView() -> some View {
-        Toggle(isOn: topMost.asBinding) { Text("On top of all the windows").foregroundColor(themeIsDark ? .gray : .darkGray) }
+        Toggle(isOn: topMost.asBinding) { Text("On top of all the windows").foregroundColor(theme.isDark ? .gray : .darkGray) }
     }
 }
 
@@ -125,7 +125,7 @@ fileprivate extension SettingView {
         Picker("", selection: saveStopSettings.asBinding) {
             ForEach(ActionTimerStopped.allCases, id: \.self) {
                 Text($0.asStr())
-                    .foregroundColor(themeIsDark ? .gray : .darkGray)
+                    .foregroundColor(theme.isDark ? .gray : .darkGray)
             }
         }
     }
@@ -134,7 +134,7 @@ fileprivate extension SettingView {
         Picker("", selection: saveIsGoingSettings.asBinding) {
             ForEach(ActionTimerGoing.allCases, id: \.self) {
                 Text($0.asStr())
-                    .foregroundColor(themeIsDark ? .gray : .darkGray)
+                    .foregroundColor(theme.isDark ? .gray : .darkGray)
             }
         }
     }
@@ -143,7 +143,7 @@ fileprivate extension SettingView {
         Picker("", selection: currency.asBinding){
             ForEach(CurrencyEnum.allCases, id: \.self){
                 Text($0.asStr())
-                    .foregroundColor(themeIsDark ? .gray : .darkGray)
+                    .foregroundColor(theme.isDark ? .gray : .darkGray)
             }
         }
     }

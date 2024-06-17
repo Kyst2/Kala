@@ -3,16 +3,15 @@ import Foundation
 import Combine
 import AppCoreLight
 
-struct KalaMainView: View {
+struct MainView: View {
     @ObservedObject var model = MainViewModel.shared
     var config:Config = Config.shared
     
     @Environment(\.colorScheme) var theme
-    var themeIsDark: Bool { theme == .dark }
     
     var body: some View {
         ZStack {
-            VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
+            VisualEffectView(type:.behindWindow, material: theme.isDark ?  .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             

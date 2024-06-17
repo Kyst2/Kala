@@ -26,7 +26,7 @@
 		A282A9CC295EE2EF00995018 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C7295EE2EF00995018 /* Color+.swift */; };
 		A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C8295EE2EF00995018 /* wndAccessor.swift */; };
 		A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C9295EE2EF00995018 /* AppDelegate.swift */; };
-		A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9CA295EE2EF00995018 /* KalaMainView.swift */; };
+		A282A9CF295EE2EF00995018 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9CA295EE2EF00995018 /* MainView.swift */; };
 		A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */; };
 		A282A9FE296879C200995018 /* StopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9FD296879C200995018 /* StopwatchTests.swift */; };
 		A28E12B429A675A1006E573E /* dragWndWithClick.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E12B329A675A1006E573E /* dragWndWithClick.swift */; };
@@ -85,7 +85,7 @@
 		A282A9C7295EE2EF00995018 /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		A282A9C8295EE2EF00995018 /* wndAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wndAccessor.swift; sourceTree = "<group>"; };
 		A282A9C9295EE2EF00995018 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A282A9CA295EE2EF00995018 /* KalaMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalaMainView.swift; sourceTree = "<group>"; };
+		A282A9CA295EE2EF00995018 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A282A9D6295EE40B00995018 /* backgroundGaussianBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGaussianBlur.swift; sourceTree = "<group>"; };
 		A282A9FB296879C200995018 /* KalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A282A9FD296879C200995018 /* StopwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTests.swift; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		A282A9D2295EE34A00995018 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */,
-				A282A9CA295EE2EF00995018 /* KalaMainView.swift */,
+				A2C997792C20A7BA008BFB3C /* Helpers */,
+				A282A9CA295EE2EF00995018 /* MainView.swift */,
 				A282A9C6295EE2EF00995018 /* MainViewModel.swift */,
 			);
 			path = MainView;
@@ -278,6 +278,14 @@
 				A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		A2C997792C20A7BA008BFB3C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,7 +402,7 @@
 				1D4A87CA298EF0470062686C /* SystemColors.swift in Sources */,
 				A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */,
 				1DA1F15C29A7E28F00810860 /* NSWindow+.swift in Sources */,
-				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
+				A282A9CF295EE2EF00995018 /* MainView.swift in Sources */,
 				1D09E307298AEB7E0034557C /* String+.swift in Sources */,
 				A28E12B429A675A1006E573E /* dragWndWithClick.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,

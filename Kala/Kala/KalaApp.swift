@@ -6,7 +6,7 @@ struct KalaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            KalaMainView()
+            MainView()
         }
         .windowStyle(.hiddenTitleBar)
         .removeUselessMenus()

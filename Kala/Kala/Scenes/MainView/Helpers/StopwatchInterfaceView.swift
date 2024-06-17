@@ -4,7 +4,6 @@ struct StopwatchInterfaceView: View {
     @ObservedObject var model: MainViewModel
     
     @Environment(\.colorScheme) var theme
-    var themeIsDark: Bool { theme == .dark}
     
     init(model: MainViewModel) {
         self.model = model
@@ -26,7 +25,7 @@ struct StopwatchInterfaceView: View {
 extension StopwatchInterfaceView {
     func timerPanel() -> some View {
         Text(model.timePassedStr)
-            .foregroundColor(themeIsDark ? .gray : .darkGray)
+            .foregroundColor(theme.isDark ? .gray : .darkGray)
             .font(.system(size: 40,design: .monospaced))
             .dragWndWithClick()
             .contextMenu {
@@ -43,15 +42,15 @@ extension StopwatchInterfaceView {
                 HStack{
                     Text("[\(model.salary)\(Config.shared.currency.value.asStr())]")
                 }
-                    .foregroundColor(themeIsDark ? .orange : .blue )
-                    .font(.system(size: 14, design: .monospaced))
-                    .padding(.top, 5)
-                    .dragWndWithClick()
-                    .contextMenu{
-                        Button("Copy Salary") {
-                            copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.currency.value.asStr())")
-                        }
+                .foregroundColor(theme.isDark ? .orange : .blue )
+                .font(.system(size: 14, design: .monospaced))
+                .padding(.top, 5)
+                .dragWndWithClick()
+                .contextMenu{
+                    Button("Copy Salary") {
+                        copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.currency.value.asStr())")
                     }
+                }
                     
                 Spacer()
             }

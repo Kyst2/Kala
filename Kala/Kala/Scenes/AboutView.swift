@@ -10,11 +10,10 @@ import SwiftUI
 struct AboutView: View {
     
     @Environment(\.colorScheme) var theme
-    var themeIsDark: Bool { theme == .dark}
     
     var body: some View {
         ZStack{
-            VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
+            VisualEffectView(type:.behindWindow, material: theme.isDark ?  .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             VStack(spacing: 10) {
