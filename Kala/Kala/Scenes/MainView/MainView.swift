@@ -5,7 +5,8 @@ import AppCoreLight
 
 struct MainView: View {
     @ObservedObject var model = MainViewModel.shared
-    var config:Config = Config.shared
+    
+    var config: Config = Config.shared
     
     @Environment(\.colorScheme) var theme
     
@@ -26,9 +27,6 @@ struct MainView: View {
                 SettingViewModel.floatWindowUpd()
             }
         }
-        .onChange(of: config.hourSalary.value) { _ in model.updTimerInterface(forceRefresh: true) }
-        .onChange(of: config.displaySalary.value) { _ in model.updTimerInterface(forceRefresh: true) }
-        .onChange(of: config.currency.value){_ in model.updTimerInterface(forceRefresh: true) }
     }
 }
 

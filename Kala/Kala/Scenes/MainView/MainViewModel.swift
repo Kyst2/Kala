@@ -2,8 +2,10 @@ import Foundation
 import SwiftUI
 import QuartzCore
 import AppCoreLight
+import AsyncNinja
+import Combine
 
-class MainViewModel: ObservableObject {
+class MainViewModel: NinjaContext.Main , ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
     @Published var timePassedStr: String
@@ -15,13 +17,23 @@ class MainViewModel: ObservableObject {
     let st = Stopwatch(startTime: nil)
     var counter = 0
     
-    private init() {
+    private override init() {
         self.timePassedStr = Config.shared.displayMs.value ? self.st.timeStrMs : self.st.timeStrS
         self.salaryTime = Config.shared.displaySalary.value ? false : true
+        
+        super.init()
         
         checkAppDisableTimeStamp()
         checkTimePassedInterval()
         updTimer()
+        
+        combineLatest(Config.shared.hourSalary.didSet, 
+                      Config.shared.displaySalary.didSet,
+                      Config.shared.currency.didSet
+        )
+        .onUpdate(context: self) { me, _ in
+            me.updTimerInterface(forceRefresh: true)
+        }
     }
     
     func checkAppDisableTimeStamp() {

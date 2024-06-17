@@ -214,9 +214,9 @@
 		A282A9D2295EE34A00995018 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				A2C997792C20A7BA008BFB3C /* Helpers */,
 				A282A9CA295EE2EF00995018 /* MainView.swift */,
 				A282A9C6295EE2EF00995018 /* MainViewModel.swift */,
+				A2C997792C20A7BA008BFB3C /* Helpers */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
