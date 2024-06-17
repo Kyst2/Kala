@@ -1,13 +1,6 @@
 import Foundation
 import SwiftUI
 
-extension Color {
-    init(hex hexColor: UInt32) {
-        self.init(red: Double(0xFF & (hexColor >> 0x10)) / 0xFF,
-                  green: Double(0xFF & (hexColor >> 0x08)) / 0xFF,
-                  blue: Double(0xFF & (hexColor >> 0x00)) / 0xFF)
-    }
-}
 
 
 struct NeuButtonBackgroundView : View  {
@@ -103,16 +96,5 @@ struct NeumorphicButtonStyle: ButtonStyle {
                     }
                 }
             }
-    }
-}
-
-struct CustomButton : View {
-    var body: some View {
-        ZStack {
-            Button("Click") {
-                
-            }
-            .buttonStyle(NeumorphicButtonStyle(width: 200, height: 100, cornerRadius : 20))
-        }
     }
 }

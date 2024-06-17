@@ -169,7 +169,8 @@
 		A282A9B6295EDDAB00995018 /* Kala */ = {
 			isa = PBXGroup;
 			children = (
-				A282A9D0295EE2FA00995018 /* Backend */,
+				A2C997742C20A582008BFB3C /* FrontEnd */,
+				A282A9D0295EE2FA00995018 /* BackEnd */,
 				A282A9C9295EE2EF00995018 /* AppDelegate.swift */,
 				A282A9B7295EDDAB00995018 /* KalaApp.swift */,
 				A2CB37C2297C31C5002C1B45 /* Config.swift */,
@@ -191,14 +192,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A282A9D0295EE2FA00995018 /* Backend */ = {
+		A282A9D0295EE2FA00995018 /* BackEnd */ = {
 			isa = PBXGroup;
 			children = (
-				1D09E308298AECA10034557C /* Ext */,
 				A25D2F4A298AE27B001A0F10 /* Stopwatch.swift */,
-				1D4A87C9298EF0470062686C /* SystemColors.swift */,
 			);
-			path = Backend;
+			path = BackEnd;
 			sourceTree = "<group>";
 		};
 		A282A9D1295EE33C00995018 /* Scenes */ = {
@@ -259,6 +258,15 @@
 				A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */,
 			);
 			path = StopwatchInterfaceView;
+			sourceTree = "<group>";
+		};
+		A2C997742C20A582008BFB3C /* FrontEnd */ = {
+			isa = PBXGroup;
+			children = (
+				1D4A87C9298EF0470062686C /* SystemColors.swift */,
+				1D09E308298AECA10034557C /* Ext */,
+			);
+			path = FrontEnd;
 			sourceTree = "<group>";
 		};
 		A2CB37C1297C3111002C1B45 /* About */ = {

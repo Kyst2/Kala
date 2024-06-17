@@ -11,7 +11,7 @@ public extension String {
             self.replaceSubrange(range, with : value)
         }
     }
-
+    
     func substring(from: Int) -> String {
         return self[min(from, count) ..< count]
     }
@@ -46,7 +46,7 @@ public extension String {
                 return ""
             }
         }
-
+        
         set {
             if let range = Range(nsrange, in: self) {
                 self.replaceSubrange(range, with: newValue)
