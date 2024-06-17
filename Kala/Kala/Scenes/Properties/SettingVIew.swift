@@ -8,7 +8,7 @@ struct SettingView: View {
     
     @ObservedObject var saveStopSettings    : ConfigPropertyEnum<ActionTimerStopped>
     @ObservedObject var saveIsGoingSettings : ConfigPropertyEnum<ActionTimerGoing>
-    @ObservedObject var currency            : ConfigPropertyEnum<CurrencyEnum>
+    @ObservedObject var currency            : ConfigPropertyEnum<Currency>
     @ObservedObject var displayMs           : ConfigProperty<Bool>
     @ObservedObject var topMost             : ConfigProperty<Bool>
     @ObservedObject var timePassedInterval  : ConfigProperty<CFTimeInterval>
@@ -141,7 +141,7 @@ fileprivate extension SettingView {
     
     func CurrencyDropDown() -> some View {
         Picker("", selection: currency.asBinding){
-            ForEach(CurrencyEnum.allCases, id: \.self){
+            ForEach(Currency.allCases, id: \.self){
                 Text($0.asStr())
                     .foregroundColor(theme.isDark ? .gray : .darkGray)
             }

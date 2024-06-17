@@ -5,9 +5,6 @@ import AppCoreLight
 
 struct MainView: View {
     @ObservedObject var model = MainViewModel.shared
-    
-    var config: Config = Config.shared
-    
     @Environment(\.colorScheme) var theme
     
     var body: some View {
@@ -33,10 +30,8 @@ struct MainView: View {
 ////////////////
 ///HELPERS
 ////////////////
-
 fileprivate extension NSWindow {
-    @objc
-    func doCustomClose(_ sender: Any?) {
+    @objc func doCustomClose(_ sender: Any?) {
         MainViewModel.shared.st.isGoing ? saveIsGoingSettings() : saveStopSettings()
     }
     

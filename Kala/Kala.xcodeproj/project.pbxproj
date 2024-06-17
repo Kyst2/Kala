@@ -33,6 +33,9 @@
 		A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */; };
 		A2A3DED82BE88F1F007D2AC0 /* StopwatchInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */; };
 		A2C997782C20A6A2008BFB3C /* ColorScheme+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C997772C20A6A2008BFB3C /* ColorScheme+.swift */; };
+		A2C9977C2C20AF94008BFB3C /* ActionTimerStopped.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9977B2C20AF94008BFB3C /* ActionTimerStopped.swift */; };
+		A2C9977E2C20AFBF008BFB3C /* ActionTimerGoing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9977D2C20AFBF008BFB3C /* ActionTimerGoing.swift */; };
+		A2C997802C20AFE0008BFB3C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9977F2C20AFE0008BFB3C /* Currency.swift */; };
 		A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B5296F0A32002C1B45 /* AboutView.swift */; };
 		A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BD29795BDD002C1B45 /* SettingView.swift */; };
 		A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */; };
@@ -93,6 +96,9 @@
 		A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphBtn.swift; sourceTree = "<group>"; };
 		A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchInterfaceView.swift; sourceTree = "<group>"; };
 		A2C997772C20A6A2008BFB3C /* ColorScheme+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+.swift"; sourceTree = "<group>"; };
+		A2C9977B2C20AF94008BFB3C /* ActionTimerStopped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTimerStopped.swift; sourceTree = "<group>"; };
+		A2C9977D2C20AFBF008BFB3C /* ActionTimerGoing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTimerGoing.swift; sourceTree = "<group>"; };
+		A2C9977F2C20AFE0008BFB3C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		A2CB37B5296F0A32002C1B45 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = Kala/Scenes/AboutView.swift; sourceTree = SOURCE_ROOT; };
 		A2CB37BD29795BDD002C1B45 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +230,7 @@
 		A282A9D4295EE36000995018 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
+				A2C9977A2C20AF83008BFB3C /* Other */,
 				A2CB37BD29795BDD002C1B45 /* SettingView.swift */,
 				A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */,
 			);
@@ -286,6 +293,16 @@
 				A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A2C9977A2C20AF83008BFB3C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A2C9977B2C20AF94008BFB3C /* ActionTimerStopped.swift */,
+				A2C9977D2C20AFBF008BFB3C /* ActionTimerGoing.swift */,
+				A2C9977F2C20AFE0008BFB3C /* Currency.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C9977E2C20AFBF008BFB3C /* ActionTimerGoing.swift in Sources */,
 				A2207FEC2BEE6D4B005CA5AE /* ConfigNinja.swift in Sources */,
 				1D4A87CA298EF0470062686C /* SystemColors.swift in Sources */,
 				A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */,
@@ -406,6 +424,7 @@
 				1D09E307298AEB7E0034557C /* String+.swift in Sources */,
 				A28E12B429A675A1006E573E /* dragWndWithClick.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
+				A2C997802C20AFE0008BFB3C /* Currency.swift in Sources */,
 				A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */,
 				1D4A87A7298EE3000062686C /* takeAllAvailableSpace.swift in Sources */,
 				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,
@@ -415,6 +434,7 @@
 				1D4A87C8298EF0280062686C /* Neuromorhism.swift in Sources */,
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
 				A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */,
+				A2C9977C2C20AF94008BFB3C /* ActionTimerStopped.swift in Sources */,
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
 				A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */,
 				A23CDE2E29B7ABD10033EDC4 /* NSTextFieldExt.swift in Sources */,

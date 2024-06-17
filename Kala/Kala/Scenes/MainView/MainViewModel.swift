@@ -1,11 +1,8 @@
-import Foundation
 import SwiftUI
-import QuartzCore
 import AppCoreLight
 import AsyncNinja
-import Combine
 
-class MainViewModel: NinjaContext.Main , ObservableObject {
+class MainViewModel: NinjaContext.Main, ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
     @Published var timePassedStr: String
@@ -20,11 +17,12 @@ class MainViewModel: NinjaContext.Main , ObservableObject {
     private override init() {
         self.timePassedStr = Config.shared.displayMs.value ? self.st.timeStrMs : self.st.timeStrS
         self.salaryTime = Config.shared.displaySalary.value ? false : true
-        
         super.init()
         
         checkAppDisableTimeStamp()
+        
         checkTimePassedInterval()
+        
         updTimer()
         
         combineLatest(Config.shared.hourSalary.didSet, 
@@ -37,7 +35,7 @@ class MainViewModel: NinjaContext.Main , ObservableObject {
     }
     
     func checkAppDisableTimeStamp() {
-        let appDisableTimeStamp:CFTimeInterval? = Config.shared.appDisableTimeStamp.value == 0 ? nil : Config.shared.appDisableTimeStamp.value
+        let appDisableTimeStamp: CFTimeInterval? = Config.shared.appDisableTimeStamp.value == 0 ? nil : Config.shared.appDisableTimeStamp.value
         
         if let appDisableTimeStamp = appDisableTimeStamp,
            Config.shared.saveIsGoingSettings.value == .TimeGoingOnKalaClose ||
