@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D09E307298AEB7E0034557C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D09E306298AEB7E0034557C /* StringExt.swift */; };
+		1D09E307298AEB7E0034557C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D09E306298AEB7E0034557C /* String+.swift */; };
 		1D4A87A7298EE3000062686C /* takeAllAvailableSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A87A6298EE3000062686C /* takeAllAvailableSpace.swift */; };
 		1D4A87C8298EF0280062686C /* Neuromorhism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A87C7298EF0280062686C /* Neuromorhism.swift */; };
 		1D4A87CA298EF0470062686C /* SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A87C9298EF0470062686C /* SystemColors.swift */; };
-		1DA1F15C29A7E28F00810860 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1F15B29A7E28E00810860 /* NSWindow.swift */; };
+		1DA1F15C29A7E28F00810860 /* NSWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1F15B29A7E28E00810860 /* NSWindow+.swift */; };
 		A2207FEC2BEE6D4B005CA5AE /* ConfigNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */; };
 		A2207FF52BEE772C005CA5AE /* AppCoreLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */; };
 		A2207FF62BEE772C005CA5AE /* AppCoreLight.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,7 +23,7 @@
 		A282A9BC295EDDAC00995018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BB295EDDAC00995018 /* Assets.xcassets */; };
 		A282A9BF295EDDAC00995018 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */; };
 		A282A9CB295EE2EF00995018 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C6295EE2EF00995018 /* MainViewModel.swift */; };
-		A282A9CC295EE2EF00995018 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C7295EE2EF00995018 /* ColorExt.swift */; };
+		A282A9CC295EE2EF00995018 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C7295EE2EF00995018 /* Color+.swift */; };
 		A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C8295EE2EF00995018 /* wndAccessor.swift */; };
 		A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9C9295EE2EF00995018 /* AppDelegate.swift */; };
 		A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282A9CA295EE2EF00995018 /* KalaMainView.swift */; };
@@ -32,6 +32,7 @@
 		A28E12B429A675A1006E573E /* dragWndWithClick.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E12B329A675A1006E573E /* dragWndWithClick.swift */; };
 		A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */; };
 		A2A3DED82BE88F1F007D2AC0 /* StopwatchInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */; };
+		A2C997782C20A6A2008BFB3C /* ColorScheme+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C997772C20A6A2008BFB3C /* ColorScheme+.swift */; };
 		A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37B5296F0A32002C1B45 /* AboutView.swift */; };
 		A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BD29795BDD002C1B45 /* SettingView.swift */; };
 		A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */; };
@@ -65,11 +66,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D09E306298AEB7E0034557C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		1D09E306298AEB7E0034557C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1D4A87A6298EE3000062686C /* takeAllAvailableSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takeAllAvailableSpace.swift; sourceTree = "<group>"; };
 		1D4A87C7298EF0280062686C /* Neuromorhism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neuromorhism.swift; sourceTree = "<group>"; };
 		1D4A87C9298EF0470062686C /* SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColors.swift; sourceTree = "<group>"; };
-		1DA1F15B29A7E28E00810860 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
+		1DA1F15B29A7E28E00810860 /* NSWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+.swift"; sourceTree = "<group>"; };
 		A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNinja.swift; sourceTree = "<group>"; };
 		A2207FF42BEE772C005CA5AE /* AppCoreLight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCoreLight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23CDE2D29B7ABD10033EDC4 /* NSTextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldExt.swift; sourceTree = "<group>"; };
@@ -81,7 +82,7 @@
 		A282A9BE295EDDAC00995018 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A282A9C0295EDDAC00995018 /* Kala.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kala.entitlements; sourceTree = "<group>"; };
 		A282A9C6295EE2EF00995018 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		A282A9C7295EE2EF00995018 /* ColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
+		A282A9C7295EE2EF00995018 /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		A282A9C8295EE2EF00995018 /* wndAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wndAccessor.swift; sourceTree = "<group>"; };
 		A282A9C9295EE2EF00995018 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A282A9CA295EE2EF00995018 /* KalaMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalaMainView.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		A28E12B329A675A1006E573E /* dragWndWithClick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dragWndWithClick.swift; sourceTree = "<group>"; };
 		A297F5EA296D7FD500CE6153 /* NeuromorphBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphBtn.swift; sourceTree = "<group>"; };
 		A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchInterfaceView.swift; sourceTree = "<group>"; };
+		A2C997772C20A6A2008BFB3C /* ColorScheme+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+.swift"; sourceTree = "<group>"; };
 		A2CB37B5296F0A32002C1B45 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = Kala/Scenes/About/AboutView.swift; sourceTree = SOURCE_ROOT; };
 		A2CB37BD29795BDD002C1B45 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -124,9 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				A282A9D5295EE3BA00995018 /* MoreSwiftUI */,
-				A282A9C7295EE2EF00995018 /* ColorExt.swift */,
-				1D09E306298AEB7E0034557C /* StringExt.swift */,
-				1DA1F15B29A7E28E00810860 /* NSWindow.swift */,
+				A282A9C7295EE2EF00995018 /* Color+.swift */,
+				1D09E306298AEB7E0034557C /* String+.swift */,
+				1DA1F15B29A7E28E00810860 /* NSWindow+.swift */,
+				A2C997772C20A6A2008BFB3C /* ColorScheme+.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 		A282A9AB295EDDAB00995018 = {
 			isa = PBXGroup;
 			children = (
+				A2C997752C20A5F3008BFB3C /* Core */,
 				A282A9B6295EDDAB00995018 /* Kala */,
 				A282A9FC296879C200995018 /* KalaTests */,
 				A282A9B5295EDDAB00995018 /* Products */,
@@ -169,12 +173,8 @@
 		A282A9B6295EDDAB00995018 /* Kala */ = {
 			isa = PBXGroup;
 			children = (
-				A2C997742C20A582008BFB3C /* FrontEnd */,
-				A282A9D0295EE2FA00995018 /* BackEnd */,
 				A282A9C9295EE2EF00995018 /* AppDelegate.swift */,
 				A282A9B7295EDDAB00995018 /* KalaApp.swift */,
-				A2CB37C2297C31C5002C1B45 /* Config.swift */,
-				A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */,
 				A282A9D1295EE33C00995018 /* Scenes */,
 				A2DCF8D3299BE3C7005957DE /* Localizable.strings */,
 				A282A9BB295EDDAC00995018 /* Assets.xcassets */,
@@ -267,6 +267,25 @@
 				1D09E308298AECA10034557C /* Ext */,
 			);
 			path = FrontEnd;
+			sourceTree = "<group>";
+		};
+		A2C997752C20A5F3008BFB3C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A2C997762C20A604008BFB3C /* Config */,
+				A2C997742C20A582008BFB3C /* FrontEnd */,
+				A282A9D0295EE2FA00995018 /* BackEnd */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A2C997762C20A604008BFB3C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A2CB37C2297C31C5002C1B45 /* Config.swift */,
+				A2207FEB2BEE6D4B005CA5AE /* ConfigNinja.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		A2CB37C1297C3111002C1B45 /* About */ = {
@@ -390,16 +409,16 @@
 				A2207FEC2BEE6D4B005CA5AE /* ConfigNinja.swift in Sources */,
 				1D4A87CA298EF0470062686C /* SystemColors.swift in Sources */,
 				A25D2F4929859387001A0F10 /* CustomAlertView.swift in Sources */,
-				1DA1F15C29A7E28F00810860 /* NSWindow.swift in Sources */,
+				1DA1F15C29A7E28F00810860 /* NSWindow+.swift in Sources */,
 				A282A9CF295EE2EF00995018 /* KalaMainView.swift in Sources */,
-				1D09E307298AEB7E0034557C /* StringExt.swift in Sources */,
+				1D09E307298AEB7E0034557C /* String+.swift in Sources */,
 				A28E12B429A675A1006E573E /* dragWndWithClick.swift in Sources */,
 				A282A9CE295EE2EF00995018 /* AppDelegate.swift in Sources */,
 				A25D2F4B298AE27B001A0F10 /* Stopwatch.swift in Sources */,
 				1D4A87A7298EE3000062686C /* takeAllAvailableSpace.swift in Sources */,
 				A2CB37B6296F0A32002C1B45 /* AboutView.swift in Sources */,
 				A2CB37BE29795BDD002C1B45 /* SettingView.swift in Sources */,
-				A282A9CC295EE2EF00995018 /* ColorExt.swift in Sources */,
+				A282A9CC295EE2EF00995018 /* Color+.swift in Sources */,
 				A2A3DED82BE88F1F007D2AC0 /* StopwatchInterfaceView.swift in Sources */,
 				1D4A87C8298EF0280062686C /* Neuromorhism.swift in Sources */,
 				A297F5EB296D7FD500CE6153 /* NeuromorphBtn.swift in Sources */,
@@ -407,6 +426,7 @@
 				A282A9CD295EE2EF00995018 /* wndAccessor.swift in Sources */,
 				A2CB37C029795C2F002C1B45 /* SettingViewModel.swift in Sources */,
 				A23CDE2E29B7ABD10033EDC4 /* NSTextFieldExt.swift in Sources */,
+				A2C997782C20A6A2008BFB3C /* ColorScheme+.swift in Sources */,
 				A282A9D7295EE40B00995018 /* backgroundGaussianBlur.swift in Sources */,
 				A2CB37C3297C31C5002C1B45 /* Config.swift in Sources */,
 				A282A9B8295EDDAB00995018 /* KalaApp.swift in Sources */,

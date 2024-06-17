@@ -15,9 +15,7 @@ struct SettingView: View {
     @ObservedObject var displaySalary       : ConfigProperty<Bool>
     @ObservedObject var hourSalary          : ConfigProperty<Double>
     
-    
     @Environment(\.colorScheme) var theme
-    var themeIsDark: Bool { theme == .dark}
     
     init() {
         saveStopSettings = Config.shared.saveStopSettings
@@ -31,7 +29,7 @@ struct SettingView: View {
     }
     var body: some View {
         ZStack{
-            VisualEffectView(type:.behindWindow, material: themeIsDark ?  .m6_tooltip : .m1_hudWindow)
+            VisualEffectView(type:.behindWindow, material: theme.isDark ? .m6_tooltip : .m1_hudWindow)
             
             DragWndView()
             
@@ -149,5 +147,4 @@ fileprivate extension SettingView {
             }
         }
     }
-    
 }
