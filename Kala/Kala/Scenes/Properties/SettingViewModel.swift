@@ -4,7 +4,7 @@ import AppKit
 import AppCoreLight
 
 struct SettingViewModel {
-    static func floatWindowUpd() {
+    static func floatWindowUpd() {//// UKS!!!!!!!!!
         let wndLvl: NSWindow.Level = Config.shared.topMost.value ? .floating : .normal
         
         if wndLvl == .floating {
