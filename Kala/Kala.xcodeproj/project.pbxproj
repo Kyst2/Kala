@@ -222,7 +222,7 @@
 			children = (
 				A282A9CA295EE2EF00995018 /* MainView.swift */,
 				A282A9C6295EE2EF00995018 /* MainViewModel.swift */,
-				A2C997792C20A7BA008BFB3C /* Helpers */,
+				A2C997792C20A7BA008BFB3C /* HelperViews */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -230,9 +230,9 @@
 		A282A9D4295EE36000995018 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
-				A2C9977A2C20AF83008BFB3C /* Other */,
 				A2CB37BD29795BDD002C1B45 /* SettingView.swift */,
 				A2CB37BF29795C2F002C1B45 /* SettingViewModel.swift */,
+				A2C9977A2C20AF83008BFB3C /* Other */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -287,12 +287,12 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		A2C997792C20A7BA008BFB3C /* Helpers */ = {
+		A2C997792C20A7BA008BFB3C /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
 				A2A3DED72BE88F1F007D2AC0 /* StopwatchInterfaceView.swift */,
 			);
-			path = Helpers;
+			path = HelperViews;
 			sourceTree = "<group>";
 		};
 		A2C9977A2C20AF83008BFB3C /* Other */ = {

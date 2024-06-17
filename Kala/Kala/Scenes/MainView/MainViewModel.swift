@@ -34,10 +34,10 @@ class MainViewModel: NinjaContext.Main, ObservableObject {
         }
     }
     
-    func checkAppDisableTimeStamp() {
-        let appDisableTimeStamp: CFTimeInterval? = Config.shared.appDisableTimeStamp.value == 0 ? nil : Config.shared.appDisableTimeStamp.value
+    func checkAppDisableTimeStamp() {//!!!!!!!
+        let appDisableTimeStamp: CFTimeInterval? = Config.shared.appDisableTimeStamp.value == 0 ? nil : Config.shared.appDisableTimeStamp.value//!!!!!
         
-        if let appDisableTimeStamp = appDisableTimeStamp,
+        if let appDisableTimeStamp = appDisableTimeStamp,//!!!!
            Config.shared.saveIsGoingSettings.value == .TimeGoingOnKalaClose ||
            Config.shared.saveIsGoingSettings.value == .AskAction  {
             
@@ -55,6 +55,7 @@ class MainViewModel: NinjaContext.Main, ObservableObject {
     func updTimer() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.09, repeats: true, block: { [self] _ in
             updTimerInterface()
+            
             ///hack to save at least some user data in case of PC is rebooted unexpectedly or in case of Force Quit was initiated
             counter += 1
             if counter > 100 {
@@ -66,8 +67,11 @@ class MainViewModel: NinjaContext.Main, ObservableObject {
     
     func updTimerInterface(forceRefresh: Bool = false) {
         let newPassedStr = Config.shared.displayMs.value ? self.st.timeStrMs : self.st.timeStrS
+        
         let salaryDouble = (self.st.diff/3600 * (Config.shared.hourSalary.value)).rounded(digits: 2)
+        
         self.salary = "\( String(format: "%.2f", salaryDouble))"
+        
         if self.timePassedStr != newPassedStr {
             // Must be first before timePassedStr change to be updated!
             self.timePassedStr = newPassedStr
@@ -76,10 +80,14 @@ class MainViewModel: NinjaContext.Main, ObservableObject {
                 self.objectWillChange.send()
             }
         }
+        
         SettingViewModel.floatWindowUpd()
     }
 }
 
+////////////////
+///CONFIG
+///////////////
 extension MainViewModel {
     func updConfig() {
         st.isGoing ? saveIsGoingSettings() : saveStopSettings()
@@ -118,6 +126,9 @@ extension MainViewModel {
     }
 }
 
+/////////////////
+///TIMER CONTROLS
+//////////////////
 extension MainViewModel {
     func start() {
         st.start()
@@ -138,7 +149,6 @@ extension MainViewModel {
 ////////////////
 ///HELPERS
 ////////////////
-
 extension Stopwatch {
     func twoZeroTime(_ time: Int) -> String{
        let timeArray = String(time)

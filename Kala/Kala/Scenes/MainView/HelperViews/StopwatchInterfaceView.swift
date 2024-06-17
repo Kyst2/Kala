@@ -22,7 +22,7 @@ struct StopwatchInterfaceView: View {
     }
 }
 
-extension StopwatchInterfaceView {
+fileprivate extension StopwatchInterfaceView {
     func timerPanel() -> some View {
         Text(model.timePassedStr)
             .foregroundColor(theme.isDark ? .gray : .darkGray)
@@ -30,7 +30,7 @@ extension StopwatchInterfaceView {
             .dragWndWithClick()
             .contextMenu {
                 Button("Copy measured time") {
-                    copyToClipBoard(textToCopy: model.timePassedStr)
+                    Clipboard.copy(text: model.timePassedStr)
                 }
             }
     }
@@ -48,7 +48,7 @@ extension StopwatchInterfaceView {
                 .dragWndWithClick()
                 .contextMenu{
                     Button("Copy Salary") {
-                        copyToClipBoard(textToCopy: "\(model.salary) \(Config.shared.currency.value.asStr())")
+                        Clipboard.copy(text: "\(model.salary) \(Config.shared.currency.value.asStr())")
                     }
                 }
                     
@@ -82,8 +82,10 @@ extension StopwatchInterfaceView {
 ///HELPERS
 ///////////////////////////
 
-fileprivate func copyToClipBoard(textToCopy: String) {
-    let pasteBoard = NSPasteboard.general
-    pasteBoard.clearContents()
-    pasteBoard.setString(textToCopy, forType: .string)
+struct Clipboard {
+    static func copy(text textToCopy: String ) {
+        let pasteBoard = NSPasteboard.general
+        pasteBoard.clearContents()
+        pasteBoard.setString(textToCopy, forType: .string)
+    }
 }
